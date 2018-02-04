@@ -1,0 +1,15 @@
+07:05:53 JY_Main start.
+07:05:54 SMPEG_Info:
+	has_audio=1
+	has_video=1
+	width=320
+	height=240
+	current_frame=0
+	current_fps=0.00
+	audio_string=MPEG-1 Layer 2 224kbit/s 44100Hz stereo
+	audio_current_frame=0
+	current_offset=5629
+	total_size=6483968
+	current_time=0.000
+	total_time=68.031
+

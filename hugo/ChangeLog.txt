@@ -1,0 +1,19 @@
+1.1.2
+
+- Fix screen issue 
+- improve game compatibility
+
+1.1.1
+
+- Fix screen issue 
+  (with game such as R-Type)
+- Small speed improvements
+- Add auto-fire button selection
+- Add ISO/HCD support
+  (but audio tracks are not supported)
+
+
+
+1.1.0
+
+- Intial release

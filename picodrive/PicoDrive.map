@@ -1,0 +1,3191 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+                              pico/32x/sh2soc.o (__divdi3)
+/home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+                              pico/32x/sh2soc.o (__moddi3)
+
+Allocating common symbols
+Common symbol       size              file
+
+DrawLineDestIncrement
+                    0x4               pico/draw.o
+g_autostateld_opt   0x4               platform/common/menu_pico.o
+HighLnSpr           0x1e00            pico/draw.o
+PicoStateProgressCB
+                    0x4               pico/state.o
+PicoIn              0x30              pico/pico.o
+rom_fname_loaded    0x200             platform/common/emu.o
+g_screen_ptr        0x4               platform/common/emu.o
+carthw_ssf2_banks   0x8               pico/carthw/carthw.o
+g_menuscreen_w      0x4               platform/common/menu_pico.o
+g_menubg_ptr        0x4               platform/common/menu_pico.o
+flip_after_sync     0x4               platform/common/emu.o
+s68k_write16_map    0x400             pico/cd/memory.o
+PicoCpuFS68k        0x4ac             pico/cd/sek.o
+m68k_write16_map    0x400             pico/memory.o
+rendlines           0x4               pico/draw.o
+currentConfig       0x70              platform/common/emu.o
+plat_sdl_screen     0x4               platform/libpicofe/plat_sdl.o
+SekCycleCntS68k     0x4               pico/cd/sek.o
+ym_tl_tab2          0x1a00            pico/sound/ym2612.o
+m68k_read16_map     0x400             pico/memory.o
+CZ80                0xc0              cpu/cz80/cz80.o
+Pico32xDrawMode     0x4               pico/32x/draw.o
+sn76496_regs        0x4               pico/sound/sn76496.o
+g_menuscreen_ptr    0x4               platform/common/menu_pico.o
+carthw_ssf2_active  0x4               pico/carthw/carthw.o
+plat_sdl_quit_cb    0x4               platform/libpicofe/plat_sdl.o
+tcache              0x4               cpu/drc/cmn.o
+plat_sdl_gl_active  0x4               platform/libpicofe/plat_sdl.o
+ym2612              0xbe0             pico/sound/ym2612.o
+in_evdev_allow_abs_only
+                    0x4               platform/libpicofe/linux/in_evdev.o
+plat_sdl_overlay    0x4               platform/libpicofe/plat_sdl.o
+tcache_default      0x200000          cpu/drc/cmn.o
+s68k_read16_map     0x400             pico/cd/memory.o
+carthw_chunks       0x4               pico/state.o
+PicoPicohw          0x208             pico/pico/pico.o
+rom_fname_reload    0x4               platform/common/emu.o
+Pico32x             0xc0              pico/32x/32x.o
+z80_write_map       0x20              pico/z80if.o
+p32x_event_times    0xc               pico/32x/32x.o
+PicoGameLoaded      0x4               pico/cart.o
+ScreenSurface       0x4               platform/libpicofe/plat_sdl.o
+pcd_event_times     0x10              pico/cd/mcd.o
+PicoLoadStateHook   0x4               pico/state.o
+ym_tl_tab           0x34000           pico/sound/ym2612.o
+media_id_header     0x100             pico/media.o
+plat_sdl_resize_cb  0x4               platform/libpicofe/plat_sdl.o
+PicoScan32xEnd      0x4               pico/32x/draw.o
+PicoCpuFM68k        0x4ac             pico/sek.o
+PicoCartMemSetup    0x4               pico/cart.o
+plat_target         0x34              platform/libpicofe/plat_dummy.o
+Pico32xMem          0x4               pico/32x/memory.o
+p32x_bios_m         0x4               pico/32x/memory.o
+PicoMem             0x22180           pico/pico.o
+rendstatus_old      0x4               pico/draw.o
+p32x_bios_g         0x4               pico/32x/memory.o
+PicoScan32xBegin    0x4               pico/32x/draw.o
+s68k_read8_map      0x400             pico/cd/memory.o
+g_menuscreen_h      0x4               platform/common/menu_pico.o
+z80_read_map        0x20              pico/z80if.o
+p32x_bios_s         0x4               pico/32x/memory.o
+sndout_current      0x1c              platform/libpicofe/sndout.o
+Pico                0x344             pico/pico.o
+pico_inp_mode       0x4               platform/common/emu.o
+s68k_write8_map     0x400             pico/cd/memory.o
+defaultConfig       0x70              platform/common/emu.o
+g_menuscreen_pp     0x4               platform/common/menu_pico.o
+SekCycleAimS68k     0x4               pico/cd/sek.o
+g_argv              0x4               platform/common/main.o
+sh2s                0x25b8            pico/32x/32x.o
+PicoCartUnloadHook  0x4               pico/cart.o
+cdda_out_buffer     0x1200            pico/sound/sound.o
+cdd                 0x66c             pico/cd/cdd.o
+m68k_write8_map     0x400             pico/memory.o
+g_menubg_src_ptr    0x4               platform/common/menu_pico.o
+m68k_read8_map      0x400             pico/memory.o
+
+Discarded input sections
+
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+ .reginfo       0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .reginfo       0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .reginfo       0x0000000000000000       0x18 platform/opendingux/inputmap.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/opendingux/inputmap.o
+ .reginfo       0x0000000000000000       0x18 platform/linux/emu.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/linux/emu.o
+ .reginfo       0x0000000000000000       0x18 platform/linux/blit.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/linux/blit.o
+ .reginfo       0x0000000000000000       0x18 platform/common/plat_sdl.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/common/plat_sdl.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/plat_sdl.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/plat_sdl.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/in_sdl.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/in_sdl.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/plat_dummy.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/plat_dummy.o
+ .reginfo       0x0000000000000000       0x18 platform/common/main.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/common/main.o
+ .reginfo       0x0000000000000000       0x18 platform/common/emu.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/common/emu.o
+ .reginfo       0x0000000000000000       0x18 platform/common/menu_pico.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/common/menu_pico.o
+ .reginfo       0x0000000000000000       0x18 platform/common/config_file.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/common/config_file.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/input.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/input.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/readpng.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/readpng.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/fonts.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/fonts.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/linux/in_evdev.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/linux/in_evdev.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/linux/plat.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/linux/plat.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/sndout.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/sndout.o
+ .reginfo       0x0000000000000000       0x18 platform/libpicofe/sndout_sdl.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/libpicofe/sndout_sdl.o
+ .reginfo       0x0000000000000000       0x18 platform/common/mp3.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/common/mp3.o
+ .reginfo       0x0000000000000000       0x18 platform/common/mp3_dummy.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 platform/common/mp3_dummy.o
+ .reginfo       0x0000000000000000       0x18 unzip/unzip.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 unzip/unzip.o
+ .reginfo       0x0000000000000000       0x18 pico/pico.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/pico.o
+ .reginfo       0x0000000000000000       0x18 pico/cart.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cart.o
+ .reginfo       0x0000000000000000       0x18 pico/memory.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/memory.o
+ .reginfo       0x0000000000000000       0x18 pico/state.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/state.o
+ .reginfo       0x0000000000000000       0x18 pico/sek.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/sek.o
+ .reginfo       0x0000000000000000       0x18 pico/z80if.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/z80if.o
+ .reginfo       0x0000000000000000       0x18 pico/videoport.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/videoport.o
+ .reginfo       0x0000000000000000       0x18 pico/draw2.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/draw2.o
+ .reginfo       0x0000000000000000       0x18 pico/draw.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/draw.o
+ .reginfo       0x0000000000000000       0x18 pico/mode4.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/mode4.o
+ .reginfo       0x0000000000000000       0x18 pico/misc.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/misc.o
+ .reginfo       0x0000000000000000       0x18 pico/eeprom.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/eeprom.o
+ .reginfo       0x0000000000000000       0x18 pico/patch.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/patch.o
+ .reginfo       0x0000000000000000       0x18 pico/debug.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/debug.o
+ .reginfo       0x0000000000000000       0x18 pico/media.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/media.o
+ .reginfo       0x0000000000000000       0x18 pico/sms.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/sms.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/mcd.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/mcd.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/memory.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/memory.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/sek.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/sek.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/cdc.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/cdc.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/cdd.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/cdd.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/cd_image.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/cd_image.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/cue.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/cue.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/gfx.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/gfx.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/gfx_dma.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/gfx_dma.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/misc.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/misc.o
+ .reginfo       0x0000000000000000       0x18 pico/cd/pcm.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/cd/pcm.o
+ .reginfo       0x0000000000000000       0x18 pico/32x/32x.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/32x/32x.o
+ .reginfo       0x0000000000000000       0x18 pico/32x/memory.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/32x/memory.o
+ .reginfo       0x0000000000000000       0x18 pico/32x/draw.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/32x/draw.o
+ .reginfo       0x0000000000000000       0x18 pico/32x/sh2soc.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/32x/sh2soc.o
+ .reginfo       0x0000000000000000       0x18 pico/32x/pwm.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/32x/pwm.o
+ .reginfo       0x0000000000000000       0x18 pico/pico/pico.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/pico/pico.o
+ .reginfo       0x0000000000000000       0x18 pico/pico/memory.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/pico/memory.o
+ .reginfo       0x0000000000000000       0x18 pico/pico/xpcm.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/pico/xpcm.o
+ .reginfo       0x0000000000000000       0x18 pico/carthw/carthw.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/carthw/carthw.o
+ .reginfo       0x0000000000000000       0x18 pico/carthw/eeprom_spi.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/carthw/eeprom_spi.o
+ .reginfo       0x0000000000000000       0x18 pico/carthw/svp/svp.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/carthw/svp/svp.o
+ .reginfo       0x0000000000000000       0x18 pico/carthw/svp/memory.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/carthw/svp/memory.o
+ .reginfo       0x0000000000000000       0x18 pico/carthw/svp/ssp16.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/carthw/svp/ssp16.o
+ .reginfo       0x0000000000000000       0x18 pico/sound/sound.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/sound/sound.o
+ .reginfo       0x0000000000000000       0x18 pico/sound/sn76496.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/sound/sn76496.o
+ .reginfo       0x0000000000000000       0x18 pico/sound/ym2612.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/sound/ym2612.o
+ .reginfo       0x0000000000000000       0x18 pico/sound/mix.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 pico/sound/mix.o
+ .reginfo       0x0000000000000000       0x18 cpu/fame/famec.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 cpu/fame/famec.o
+ .reginfo       0x0000000000000000       0x18 cpu/cz80/cz80.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 cpu/cz80/cz80.o
+ .reginfo       0x0000000000000000       0x18 cpu/drc/cmn.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 cpu/drc/cmn.o
+ .reginfo       0x0000000000000000       0x18 cpu/sh2/sh2.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 cpu/sh2/sh2.o
+ .reginfo       0x0000000000000000       0x18 cpu/sh2/mame/sh2pico.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 cpu/sh2/mame/sh2pico.o
+ .reginfo       0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .MIPS.abiflags
+                0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .reginfo       0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+ .MIPS.abiflags
+                0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+ .reginfo       0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .reginfo       0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+ .MIPS.abiflags
+                0x0000000000000000       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+LOAD platform/opendingux/inputmap.o
+LOAD platform/linux/emu.o
+LOAD platform/linux/blit.o
+LOAD platform/common/plat_sdl.o
+LOAD platform/libpicofe/plat_sdl.o
+LOAD platform/libpicofe/in_sdl.o
+LOAD platform/libpicofe/plat_dummy.o
+LOAD platform/common/main.o
+LOAD platform/common/emu.o
+LOAD platform/common/menu_pico.o
+LOAD platform/common/config_file.o
+LOAD platform/libpicofe/input.o
+LOAD platform/libpicofe/readpng.o
+LOAD platform/libpicofe/fonts.o
+LOAD platform/libpicofe/linux/in_evdev.o
+LOAD platform/libpicofe/linux/plat.o
+LOAD platform/libpicofe/sndout.o
+LOAD platform/libpicofe/sndout_sdl.o
+LOAD platform/common/mp3.o
+LOAD platform/common/mp3_dummy.o
+LOAD unzip/unzip.o
+LOAD pico/pico.o
+LOAD pico/cart.o
+LOAD pico/memory.o
+LOAD pico/state.o
+LOAD pico/sek.o
+LOAD pico/z80if.o
+LOAD pico/videoport.o
+LOAD pico/draw2.o
+LOAD pico/draw.o
+LOAD pico/mode4.o
+LOAD pico/misc.o
+LOAD pico/eeprom.o
+LOAD pico/patch.o
+LOAD pico/debug.o
+LOAD pico/media.o
+LOAD pico/sms.o
+LOAD pico/cd/mcd.o
+LOAD pico/cd/memory.o
+LOAD pico/cd/sek.o
+LOAD pico/cd/cdc.o
+LOAD pico/cd/cdd.o
+LOAD pico/cd/cd_image.o
+LOAD pico/cd/cue.o
+LOAD pico/cd/gfx.o
+LOAD pico/cd/gfx_dma.o
+LOAD pico/cd/misc.o
+LOAD pico/cd/pcm.o
+LOAD pico/32x/32x.o
+LOAD pico/32x/memory.o
+LOAD pico/32x/draw.o
+LOAD pico/32x/sh2soc.o
+LOAD pico/32x/pwm.o
+LOAD pico/pico/pico.o
+LOAD pico/pico/memory.o
+LOAD pico/pico/xpcm.o
+LOAD pico/carthw/carthw.o
+LOAD pico/carthw/eeprom_spi.o
+LOAD pico/carthw/svp/svp.o
+LOAD pico/carthw/svp/memory.o
+LOAD pico/carthw/svp/ssp16.o
+LOAD pico/sound/sound.o
+LOAD pico/sound/sn76496.o
+LOAD pico/sound/ym2612.o
+LOAD pico/sound/mix.o
+LOAD cpu/fame/famec.o
+LOAD cpu/cz80/cz80.o
+LOAD cpu/drc/cmn.o
+LOAD cpu/sh2/sh2.o
+LOAD cpu/sh2/mame/sh2pico.o
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/libSDL.so
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/libpthread.a
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/libpng.so
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/libm.a
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/libz.so
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/../../../../mipsel-buildroot-linux-uclibc/lib/libgcc_s.so
+START GROUP
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/../../../../mipsel-buildroot-linux-uclibc/lib/libgcc_s.so.1
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a
+END GROUP
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/libc.so
+START GROUP
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/lib/libc.so.1
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/uclibc_nonshared.a
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/libpthread_nonshared.a
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/lib/ld-uClibc.so.1
+END GROUP
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/../../../../mipsel-buildroot-linux-uclibc/lib/libgcc_s.so
+START GROUP
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/../../../../mipsel-buildroot-linux-uclibc/lib/libgcc_s.so.1
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a
+END GROUP
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+LOAD /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+                [!provide]                        PROVIDE (__executable_start, 0x400000)
+                0x0000000000400174                . = (0x400000 + SIZEOF_HEADERS)
+
+.interp         0x0000000000400174       0x14
+ *(.interp)
+ .interp        0x0000000000400174       0x14 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.MIPS.abiflags  0x0000000000400188       0x18
+ *(.MIPS.abiflags)
+ .MIPS.abiflags
+                0x0000000000400188       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.reginfo        0x00000000004001a0       0x18
+ *(.reginfo)
+ .reginfo       0x00000000004001a0       0x18 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.dynamic        0x00000000004001b8      0x110
+ *(.dynamic)
+ .dynamic       0x00000000004001b8      0x110 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+                0x00000000004001b8                _DYNAMIC
+
+.hash           0x00000000004002c8     0x128c
+ *(.hash)
+ .hash          0x00000000004002c8     0x128c /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym         0x0000000000401554     0x2980
+ *(.dynsym)
+ .dynsym        0x0000000000401554     0x2980 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.dynstr         0x0000000000403ed4     0x2476
+ *(.dynstr)
+ .dynstr        0x0000000000403ed4     0x2476 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.gnu.version    0x000000000040634a      0x530
+ *(.gnu.version)
+ .gnu.version   0x000000000040634a      0x530 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.gnu.version_d  0x000000000040687c        0x0
+ *(.gnu.version_d)
+ .gnu.version_d
+                0x000000000040687c        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.gnu.version_r  0x000000000040687c       0x20
+ *(.gnu.version_r)
+ .gnu.version_r
+                0x000000000040687c       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.rel.dyn        0x000000000040689c       0x10
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.dyn)
+ .rel.dyn       0x000000000040689c       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ .rel.bss       0x00000000004068ac        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+                [!provide]                        PROVIDE (__rel_iplt_start, .)
+ *(.rel.iplt)
+                [!provide]                        PROVIDE (__rel_iplt_end, .)
+
+.rela.dyn       0x00000000004068ac        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start, .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end, .)
+
+.rel.plt        0x00000000004068ac        0x0
+ *(.rel.plt)
+ .rel.plt       0x00000000004068ac        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.rela.plt
+ *(.rela.plt)
+
+.init           0x00000000004068ac       0x6c
+ *(SORT(.init))
+ .init          0x00000000004068ac       0x1c /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+                0x00000000004068ac                _init
+ .init          0x00000000004068c8       0x24 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .init          0x00000000004068ec       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .init          0x000000000040690c        0xc /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+
+.text           0x0000000000406920    0xd5bf0
+                0x0000000000406920                _ftext = .
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ .text.unlikely
+                0x0000000000406920      0x144 pico/cart.o
+ .text.unlikely
+                0x0000000000406a64       0x94 cpu/fame/famec.o
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ .text.startup  0x0000000000406af8      0x258 platform/common/main.o
+                0x0000000000406af8                main
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000406d50       0x60 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+                0x0000000000406d50                __start
+ .text          0x0000000000406db0        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .text          0x0000000000406db0      0x1d0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .text          0x0000000000406f80        0x0 platform/opendingux/inputmap.o
+ .text          0x0000000000406f80      0x990 platform/linux/emu.o
+                0x0000000000406f80                pemu_prep_defconfig
+                0x0000000000406f88                pemu_validate_config
+                0x0000000000406fac                pemu_finalize_frame
+                0x0000000000407258                plat_video_toggle_renderer
+                0x0000000000407434                plat_status_msg_clear
+                0x000000000040747c                plat_status_msg_busy_next
+                0x0000000000407530                plat_status_msg_busy_first
+                0x00000000004075e4                plat_update_volume
+                0x00000000004075ec                pemu_forced_frame
+                0x000000000040768c                pemu_sound_start
+                0x00000000004076a0                plat_debug_cat
+                0x00000000004076a8                emu_video_mode_change
+                0x00000000004076e4                pemu_loop_prep
+                0x0000000000407820                pemu_loop_end
+                0x00000000004078a8                plat_wait_till_us
+                0x0000000000407908                plat_mem_get_for_drc
+ .text          0x0000000000407910      0x250 platform/linux/blit.o
+                0x0000000000407910                bgr444_to_rgb32
+                0x000000000040795c                bgr444_to_rgb32_sh
+                0x00000000004079f4                vidcpy_m2
+                0x0000000000407b48                vidcpy_m2_rot
+                0x0000000000407b50                rotated_blit8
+                0x0000000000407b58                rotated_blit16
+ .text          0x0000000000407b60      0xa80 platform/common/plat_sdl.o
+                0x0000000000407b80                bgr_to_uyvy_init
+                0x0000000000407cbc                rgb565_to_uyvy
+                0x0000000000407e40                plat_video_flip
+                0x0000000000407fa4                plat_video_wait_vsync
+                0x0000000000407fac                plat_video_menu_enter
+                0x0000000000407ffc                plat_video_menu_begin
+                0x000000000040809c                plat_video_menu_end
+                0x00000000004081e0                plat_video_menu_leave
+                0x00000000004081e8                plat_video_loop_prepare
+                0x00000000004082c8                plat_early_init
+                0x00000000004082d0                plat_init
+                0x0000000000408570                plat_finish
+ .text          0x00000000004085e0      0xb50 platform/libpicofe/plat_sdl.o
+                0x00000000004085e0                plat_sdl_change_video_mode
+                0x0000000000408a70                plat_sdl_event_handler
+                0x0000000000408bac                plat_sdl_init
+                0x0000000000409030                plat_sdl_finish
+                0x00000000004090d0                plat_sdl_overlay_clear
+ .text          0x0000000000409130      0xbc0 platform/libpicofe/in_sdl.o
+                0x0000000000409c68                in_sdl_init
+ .text          0x0000000000409cf0       0x20 platform/libpicofe/plat_dummy.o
+                0x0000000000409cf0                plat_target_init
+                0x0000000000409cf8                plat_target_finish
+                0x0000000000409d00                plat_target_setup_input
+ .text          0x0000000000409d10      0x290 platform/common/main.o
+                0x0000000000409d10                parse_cmd_line
+ .text          0x0000000000409fa0     0x6580 platform/common/emu.o
+                0x000000000040a940                emu_status_msg
+                0x000000000040a9f4                emu_get_game_name
+                0x000000000040ab90                emu_swap_cd
+                0x000000000040ac30                emu_make_path
+                0x000000000040ad0c                emu_prep_defconfig
+                0x000000000040adb4                emu_set_defconfig
+                0x000000000040ae20                emu_read_config
+                0x000000000040bc8c                emu_write_config
+                0x000000000040bfb8                emu_text_out8
+                0x000000000040c0f4                emu_text_out16
+                0x000000000040c230                emu_text_out8_rot
+                0x000000000040c3ec                emu_text_out16_rot
+                0x000000000040c584                emu_osd_text16
+                0x000000000040c650                emu_get_save_fname
+                0x000000000040ce38                emu_check_save_file
+                0x000000000040d354                emu_save_load_game
+                0x000000000040ddb4                emu_reload_rom
+                0x000000000040e808                emu_set_fastforward
+                0x000000000040e92c                emu_32x_startup
+                0x000000000040ea94                emu_reset_game
+                0x000000000040eacc                run_events_pico
+                0x000000000040ed34                emu_update_input
+                0x000000000040f4d8                emu_cmn_forced_frame
+                0x000000000040f650                emu_init
+                0x000000000040f92c                emu_finish
+                0x000000000040fcf4                emu_sound_start
+                0x000000000040fde8                emu_sound_stop
+                0x000000000040fe00                emu_sound_wait
+                0x000000000040fe18                emu_loop
+ .text          0x0000000000410520     0xb440 platform/common/menu_pico.o
+                0x0000000000413af0                menuscreen_memset_lines
+                0x0000000000413b84                text_out16
+                0x000000000041a25c                menu_init_base
+                0x000000000041a754                menu_romload_prepare
+                0x000000000041ab28                menu_romload_end
+                0x000000000041ad34                menu_loop
+                0x000000000041b26c                menu_loop_tray
+                0x000000000041b354                menu_update_msg
+                0x000000000041b3c4                me_list_get_first
+                0x000000000041b3e0                me_list_get_next
+                0x000000000041b4b0                menu_init
+ .text          0x000000000041b960     0x2120 platform/common/config_file.o
+                0x000000000041b960                config_write
+                0x000000000041c1dc                config_writelrom
+                0x000000000041c51c                config_readlrom
+                0x000000000041c78c                config_get_var_val
+                0x000000000041cc08                config_readsect
+ .text          0x000000000041da80     0x36a0 platform/libpicofe/input.o
+                0x000000000041dac8                in_register
+                0x000000000041dfe8                in_combos_find
+                0x000000000041e08c                in_combos_do
+                0x000000000041e170                in_probe
+                0x000000000041e934                in_update
+                0x000000000041ea18                in_update_analog
+                0x000000000041ea6c                in_update_keycode
+                0x000000000041f208                in_menu_wait_any
+                0x000000000041f2d8                in_menu_wait
+                0x000000000041f4d8                in_get_dev_binds
+                0x000000000041f500                in_get_dev_def_binds
+                0x000000000041f53c                in_get_config
+                0x000000000041f604                in_set_config
+                0x000000000041fa98                in_get_dev_name
+                0x000000000041fb44                in_name_to_id
+                0x000000000041fc00                in_get_key_name
+                0x000000000041fd6c                in_get_key_code
+                0x000000000041fe48                in_bind_key
+                0x0000000000420038                in_unbind_all
+                0x000000000042017c                in_config_parse_dev
+                0x00000000004205fc                in_config_bind_key
+                0x0000000000420944                in_clean_binds
+                0x0000000000420da4                in_debug_dump
+                0x0000000000420ea8                in_register_driver
+                0x00000000004210c4                in_init
+ .text          0x0000000000421120      0xa90 platform/libpicofe/readpng.o
+                0x0000000000421120                readpng
+                0x0000000000421864                writepng
+ .text          0x0000000000421bb0      0x4f0 platform/libpicofe/fonts.o
+                0x0000000000421bb0                basic_text_out16_nf
+                0x0000000000421de8                basic_text_out_uyvy_nf
+                0x0000000000422000                basic_text_out16
+ .text          0x00000000004220a0     0x1060 platform/libpicofe/linux/in_evdev.o
+                0x0000000000423098                in_evdev_init
+ .text          0x0000000000423100      0xa20 platform/libpicofe/linux/plat.o
+                0x0000000000423100                plat_is_dir
+                0x0000000000423154                plat_get_skin_dir
+                0x0000000000423260                plat_get_root_dir
+                0x0000000000423398                plat_get_ticks_ms
+                0x00000000004233f4                plat_get_ticks_us
+                0x000000000042343c                plat_sleep_ms
+                0x0000000000423460                plat_wait_event
+                0x0000000000423624                plat_mmap
+                0x0000000000423824                plat_mremap
+                0x0000000000423964                plat_munmap
+                0x0000000000423a38                plat_mem_set_exec
+                0x0000000000423ad4                lprintf
+ .text          0x0000000000423b20      0x100 platform/libpicofe/sndout.o
+                0x0000000000423b50                sndout_init
+ .text          0x0000000000423c20      0x530 platform/libpicofe/sndout_sdl.o
+                0x0000000000423d74                sndout_sdl_init
+                0x0000000000423da8                sndout_sdl_start
+                0x0000000000423ef4                sndout_sdl_stop
+                0x0000000000423f38                sndout_sdl_wait
+                0x0000000000423fa8                sndout_sdl_write_nb
+                0x00000000004240e8                sndout_sdl_exit
+ .text          0x0000000000424150      0x7d0 platform/common/mp3.o
+                0x0000000000424150                mp3_find_sync_word
+                0x00000000004241f8                mp3_get_bitrate
+                0x00000000004244e4                mp3_start_play
+                0x0000000000424758                mp3_update
+ .text          0x0000000000424920       0x10 platform/common/mp3_dummy.o
+                0x0000000000424920                mp3dec_start
+                0x0000000000424928                mp3dec_decode
+ .text          0x0000000000424930      0xef0 unzip/unzip.o
+                0x0000000000424930                openzip
+                0x0000000000424e28                readzip
+                0x000000000042508c                closezip
+                0x000000000042511c                suspendzip
+                0x0000000000425168                rewindzip
+                0x0000000000425170                seekcompresszip
+                0x00000000004252b4                readcompresszip
+                0x000000000042547c                readuncompresszip
+ .text          0x0000000000425820     0x1cd0 pico/pico.o
+                0x0000000000425820                PicoInit
+                0x000000000042590c                PicoExit
+                0x0000000000425990                PicoDetectRegion
+                0x0000000000425cf0                PicoReset
+                0x0000000000425f40                PicoPower
+                0x0000000000426068                PicoLoopPrepare
+                0x00000000004260d4                CheckDMA
+                0x00000000004261ac                PicoSyncZ80
+                0x0000000000426228                PicoFrame
+                0x0000000000427400                PicoFrameDrawOnly
+                0x000000000042745c                PicoGetInternal
+ .text          0x00000000004274f0     0x2c10 pico/cart.o
+                0x0000000000428708                pm_open
+                0x0000000000428d44                pm_read
+                0x0000000000429220                pm_seek
+                0x0000000000429480                pm_close
+                0x000000000042955c                Byteswap
+                0x00000000004295b4                PicoCartLoad
+                0x0000000000429b5c                PicoCartInsert
+                0x0000000000429fdc                PicoCartResize
+                0x000000000042a050                PicoCartUnload
+ .text          0x000000000042a100     0x3d40 pico/memory.o
+                0x000000000042a110                m68k_read8
+                0x000000000042a160                m68k_read16
+                0x000000000042a1ac                m68k_read32
+                0x000000000042a244                m68k_write8
+                0x000000000042a294                m68k_write16
+                0x000000000042a2e0                m68k_write32
+                0x000000000042a7dc                PicoRead8_vdp
+                0x000000000042b040                z80_map_set
+                0x000000000042b144                cpu68k_map_set
+                0x000000000042b2dc                cpu68k_map_all_ram
+                0x000000000042b3b8                m68k_map_unmap
+                0x000000000042b4a0                PicoSetInputDevice
+                0x000000000042b4f4                io_ports_read
+                0x000000000042b564                PicoRead8_io
+                0x000000000042b5e8                PicoRead16_io
+                0x000000000042b6a4                io_ports_write
+                0x000000000042b72c                ctl_write_z80busreq
+                0x000000000042b7fc                ctl_write_z80reset
+                0x000000000042b904                PicoWrite8_io
+                0x000000000042b978                PicoWrite16_io
+                0x000000000042b9e8                PicoMemSetup
+                0x000000000042c998                ym2612_sync_timers
+                0x000000000042d868                ym2612_pack_state
+                0x000000000042d948                ym2612_unpack_state
+ .text          0x000000000042de40     0x3f30 pico/state.o
+                0x0000000000430cd4                PicoState
+                0x0000000000430f30                PicoStateFP
+                0x0000000000430f74                PicoStateLoadGfx
+                0x0000000000431814                PicoTmpStateSave
+                0x0000000000431a9c                PicoTmpStateRestore
+ .text          0x0000000000431d70      0x790 pico/sek.o
+                0x0000000000431df4                SekInit
+                0x0000000000431e58                SekReset
+                0x0000000000431ea8                SekStepM68k
+                0x0000000000431f00                SekSetRealTAS
+                0x0000000000431f08                SekPackCpu
+                0x0000000000431fb8                SekUnpackCpu
+                0x000000000043207c                SekInitIdleDet
+                0x0000000000432110                SekIsIdleReady
+                0x0000000000432134                SekIsIdleCode
+                0x00000000004322c8                SekRegisterIdlePatch
+                0x00000000004323d8                SekFinishIdleDet
+ .text          0x0000000000432500      0x460 pico/z80if.o
+                0x0000000000432500                z80_init
+                0x0000000000432574                z80_reset
+                0x00000000004325d0                z80_pack
+                0x000000000043275c                z80_unpack
+                0x0000000000432924                z80_exit
+                0x000000000043292c                z80_debug
+ .text          0x0000000000432960     0x1180 pico/videoport.o
+                0x000000000043311c                PicoVideoWrite
+                0x00000000004337a4                PicoVideoRead
+                0x00000000004338fc                PicoVideoRead8DataH
+                0x000000000043398c                PicoVideoRead8DataL
+                0x0000000000433a18                PicoVideoRead8CtlH
+                0x0000000000433a30                PicoVideoRead8CtlL
+                0x0000000000433a74                PicoVideoRead8HV_H
+                0x0000000000433a88                PicoVideoRead8HV_L
+ .text          0x0000000000433ae0     0x1510 pico/draw2.o
+                0x0000000000434ac8                PicoFrameFull
+                0x0000000000434fc8                PicoDraw2Init
+ .text          0x0000000000434ff0     0x5970 pico/draw.o
+                0x0000000000439dd0                blockcpy_or
+                0x0000000000439ed8                BackFill
+                0x0000000000439f10                PicoDoHighPal555
+                0x000000000043a040                FinalizeLine555
+                0x000000000043a0fc                PicoFrameStart
+                0x000000000043a298                PicoDrawSync
+                0x000000000043a66c                PicoDrawUpdateHighPal
+                0x000000000043a768                PicoDrawSetOutFormat
+                0x000000000043a828                PicoDrawSetOutBuf
+                0x000000000043a858                PicoDrawSetInternalBuf
+                0x000000000043a8b0                PicoDrawSetCallbacks
+                0x000000000043a914                PicoDrawInit
+ .text          0x000000000043a960     0x13c0 pico/mode4.o
+                0x000000000043b338                PicoFrameStartMode4
+                0x000000000043b45c                PicoLineMode4
+                0x000000000043b840                PicoDoHighPal555M4
+                0x000000000043bcd4                PicoDrawSetOutputMode4
+ .text          0x000000000043bd20      0x130 pico/misc.o
+                0x000000000043bd20                memcpy16bswap
+                0x000000000043bd54                memset32
+                0x000000000043bdd0                memset32_uncached
+ .text          0x000000000043be50      0xb00 pico/eeprom.o
+                0x000000000043be50                EEPROM_write16
+                0x000000000043c1c0                EEPROM_write8
+                0x000000000043c550                EEPROM_read
+ .text          0x000000000043c950     0x1560 pico/patch.o
+                0x000000000043c950                genie_decode_ms
+                0x000000000043cba0                ar_decode_ms
+                0x000000000043cd38                fusion_ram_decode
+                0x000000000043cec4                fusion_rom_decode
+                0x000000000043d0b0                decode
+                0x000000000043d774                PicoPatchUnload
+                0x000000000043d7c0                PicoPatchLoad
+                0x000000000043dacc                PicoPatchPrepare
+                0x000000000043dc10                PicoPatchApply
+ .text          0x000000000043deb0     0x1e40 pico/debug.o
+                0x000000000043deb0                PDebugMain
+                0x000000000043e404                PDebug32x
+                0x000000000043e7b8                PDebugSpriteList
+                0x000000000043e940                PDebugShowSpriteStats
+                0x000000000043eaf4                PDebugShowPalette
+                0x000000000043eca0                PDebugShowSprite
+                0x000000000043eed4                PDebugDumpMem
+                0x000000000043f9dc                PDebugZ80Frame
+                0x000000000043fcbc                PDebugCPUStep
+ .text          0x000000000043fcf0      0xdd0 pico/media.o
+                0x000000000043fcf0                PicoCdCheck
+                0x0000000000440178                PicoLoadMedia
+ .text          0x0000000000440ac0      0xc40 pico/sms.o
+                0x0000000000441078                PicoResetMS
+                0x00000000004410ac                PicoPowerMS
+                0x00000000004411a0                PicoMemSetupMS
+                0x0000000000441330                PicoStateLoadedMS
+                0x0000000000441424                PicoFrameMS
+                0x000000000044169c                PicoFrameDrawOnlyMS
+ .text          0x0000000000441700     0x2150 pico/cd/mcd.o
+                0x0000000000441ca4                PicoInitMCD
+                0x0000000000441cb8                PicoExitMCD
+                0x0000000000441cc0                PicoPowerMCD
+                0x0000000000441e80                pcd_soft_reset
+                0x0000000000441fdc                PicoResetMCD
+                0x000000000044207c                pcd_cycles_m68k_to_s68k
+                0x00000000004420a0                pcd_event_schedule
+                0x0000000000442104                pcd_event_schedule_s68k
+                0x00000000004421b0                pcd_sync_s68k
+                0x0000000000442728                pcd_run_cpus
+                0x00000000004428a0                pcd_run_cpus_lockstep
+                0x0000000000442960                pcd_prepare_frame
+                0x00000000004429d0                PicoFrameMCD
+                0x000000000044355c                pcd_state_loaded
+ .text          0x0000000000443850     0x42e0 pico/cd/memory.o
+                0x0000000000443850                s68k_read8
+                0x00000000004438a0                s68k_read16
+                0x00000000004438ec                s68k_read32
+                0x0000000000443984                s68k_write8
+                0x00000000004439d4                s68k_write16
+                0x0000000000443a20                s68k_write32
+                0x00000000004454b4                PicoRead8_mcd_io
+                0x0000000000445784                PicoRead16_mcd_io
+                0x00000000004463b4                PicoWrite16_mcd_io
+                0x0000000000446b94                PicoWrite8_mcd_io
+                0x0000000000446fb4                m68k_comm_check
+                0x00000000004470b0                s68k_poll_detect
+                0x000000000044716c                s68k_reg_write16
+                0x00000000004473d0                pcd_state_loaded_mem
+                0x000000000044754c                PicoMemSetupCD
+ .text          0x0000000000447b30      0x1d0 pico/cd/sek.o
+                0x0000000000447b90                SekInitS68k
+                0x0000000000447bf4                SekResetS68k
+                0x0000000000447c44                SekInterruptS68k
+                0x0000000000447ca0                SekInterruptClearS68k
+ .text          0x0000000000447d00     0x10e0 pico/cd/cdc.o
+                0x0000000000447d00                cdc_init
+                0x0000000000447d20                cdc_reset
+                0x0000000000447d9c                cdc_context_save
+                0x0000000000447e40                cdc_context_load
+                0x0000000000447f14                cdc_context_load_old
+                0x00000000004480c8                cdc_dma_update
+                0x00000000004484a8                cdc_decoder_update
+                0x00000000004485e8                cdc_reg_w
+                0x0000000000448a50                cdc_reg_r
+                0x0000000000448ca8                cdc_host_r
+ .text          0x0000000000448de0     0x1cd0 pico/cd/cdd.o
+                0x0000000000448de0                cdd_reset
+                0x0000000000448e14                cdd_context_save
+                0x0000000000448e8c                cdd_context_load
+                0x0000000000448fe4                cdd_context_load_old
+                0x0000000000449008                cdd_unload
+                0x000000000044918c                cdd_load
+                0x000000000044968c                cdd_read_data
+                0x0000000000449728                cdd_update
+                0x0000000000449b4c                cdd_process
+ .text          0x000000000044aab0      0xf60 pico/cd/cd_image.o
+                0x000000000044aab0                load_cd_image
+ .text          0x000000000044ba10     0x16e0 pico/cd/cue.o
+                0x000000000044ba10                cue_parse
+                0x000000000044d064                cue_destroy
+ .text          0x000000000044d0f0      0xb20 pico/cd/gfx.o
+                0x000000000044d0f0                gfx_init
+                0x000000000044d4c8                gfx_context_save
+                0x000000000044d588                gfx_context_load
+                0x000000000044d644                gfx_start
+                0x000000000044d82c                gfx_update
+ .text          0x000000000044dc10      0x2f0 pico/cd/gfx_dma.o
+                0x000000000044dc10                DmaSlowCell
+ .text          0x000000000044df00       0x80 pico/cd/misc.o
+                0x000000000044df00                wram_2M_to_1M
+                0x000000000044df40                wram_1M_to_2M
+ .text          0x000000000044df80      0x620 pico/cd/pcm.o
+                0x000000000044df80                pcd_pcm_sync
+                0x000000000044e218                pcd_pcm_write
+                0x000000000044e374                pcd_pcm_read
+                0x000000000044e420                pcd_pcm_update
+ .text          0x000000000044e5a0     0x2a50 pico/32x/32x.o
+                0x000000000044ebc8                p32x_update_irls
+                0x000000000044ed74                p32x_trigger_irq
+                0x000000000044edc8                p32x_update_cmd_irq
+                0x000000000044ee54                Pico32xStartup
+                0x000000000044ef70                p32x_reset_sh2s
+                0x000000000044f17c                Pico32xInit
+                0x000000000044f1e0                PicoPower32x
+                0x000000000044f230                PicoUnload32x
+                0x000000000044f2b0                PicoReset32x
+                0x000000000044f454                p32x_schedule_hint
+                0x000000000044f580                p32x_event_schedule
+                0x000000000044f5c4                p32x_event_schedule_sh2
+                0x000000000044f65c                p32x_sync_other_sh2
+                0x000000000044f77c                p32x_sync_sh2s
+                0x000000000044f7ac                sync_sh2s_lockstep
+                0x000000000044f848                PicoFrame32x
+                0x0000000000450cec                Pico32xSetClocks
+                0x0000000000450d84                Pico32xStateLoaded
+ .text          0x0000000000450ff0     0x4420 pico/32x/memory.o
+                0x0000000000452fe4                p32x_m68k_poll_event
+                0x000000000045302c                p32x_sh2_poll_event
+                0x000000000045306c                PicoRead8_32x
+                0x00000000004530e0                PicoRead16_32x
+                0x0000000000453148                PicoWrite8_32x
+                0x0000000000453220                PicoWrite16_32x
+                0x00000000004532f0                p32x_sh2_read8
+                0x0000000000453334                p32x_sh2_read16
+                0x000000000045337c                p32x_sh2_read32
+                0x000000000045345c                p32x_sh2_write8
+                0x0000000000453478                p32x_sh2_write16
+                0x0000000000453494                p32x_sh2_write32
+                0x000000000045353c                Pico32xSwapDRAM
+                0x0000000000454434                PicoMemSetup32x
+                0x000000000045507c                p32x_update_banks
+                0x0000000000455344                Pico32xMemStateLoaded
+ .text          0x0000000000455410     0x17c0 pico/32x/draw.o
+                0x00000000004563c0                FinalizeLine32xRGB555
+                0x00000000004566c4                PicoDraw32xLayer
+                0x000000000045692c                PicoDraw32xLayerMdOnly
+                0x0000000000456b40                PicoDrawSetOutFormat32x
+ .text          0x0000000000456bd0     0x1580 pico/32x/sh2soc.o
+                0x00000000004571a4                p32x_timers_recalc
+                0x0000000000457234                p32x_timers_do
+                0x0000000000457334                sh2_peripheral_reset
+                0x0000000000457398                sh2_peripheral_read8
+                0x00000000004573ac                sh2_peripheral_read16
+                0x00000000004573c0                sh2_peripheral_read32
+                0x00000000004573d0                sh2_peripheral_write8
+                0x0000000000457624                sh2_peripheral_write16
+                0x00000000004576d8                sh2_peripheral_write32
+                0x0000000000457950                p32x_dreq0_trigger
+                0x0000000000457b90                p32x_dreq1_trigger
+ .text          0x0000000000458150      0xee0 pico/32x/pwm.o
+                0x000000000045848c                p32x_pwm_ctl_changed
+                0x0000000000458510                p32x_pwm_schedule
+                0x0000000000458624                p32x_pwm_schedule_sh2
+                0x0000000000458760                p32x_pwm_sync_to_sh2
+                0x00000000004587cc                p32x_pwm_irq_event
+                0x00000000004588e0                p32x_pwm_read16
+                0x00000000004589f4                p32x_pwm_write16
+                0x0000000000458c94                p32x_pwm_update
+                0x0000000000458f28                p32x_pwm_state_loaded
+ .text          0x0000000000459030      0x2e0 pico/pico/pico.o
+                0x0000000000459168                PicoReratePico
+                0x0000000000459200                PicoInitPico
+ .text          0x0000000000459310      0x2c0 pico/pico/memory.o
+                0x00000000004594e8                PicoMemSetupPico
+ .text          0x00000000004595d0      0x480 pico/pico/xpcm.o
+                0x00000000004595d0                PicoPicoPCMReset
+                0x000000000045960c                PicoPicoPCMRerate
+                0x0000000000459638                PicoPicoPCMUpdate
+ .text          0x0000000000459a50     0x2620 pico/carthw/carthw.o
+                0x000000000045a70c                carthw_ssf2_write16
+                0x000000000045a880                carthw_ssf2_write8
+                0x000000000045b8a0                carthw_ssf2_startup
+                0x000000000045b96c                carthw_Xin1_startup
+                0x000000000045b9ec                carthw_realtec_startup
+                0x000000000045baf8                carthw_radica_startup
+                0x000000000045bb78                carthw_pier_startup
+                0x000000000045bd74                carthw_sprot_new_location
+                0x000000000045bf04                carthw_sprot_startup
+                0x000000000045bf64                carthw_prot_lk3_startup
+ .text          0x000000000045c070      0x3d0 pico/carthw/eeprom_spi.o
+                0x000000000045c070                eeprom_spi_init
+                0x000000000045c0a8                eeprom_spi_write
+                0x000000000045c428                eeprom_spi_read
+ .text          0x000000000045c440      0x280 pico/carthw/svp/svp.o
+                0x000000000045c560                PicoSVPInit
+                0x000000000045c568                PicoSVPStartup
+ .text          0x000000000045c6c0      0x4c0 pico/carthw/svp/memory.o
+                0x000000000045c9a8                PicoSVPMemSetup
+ .text          0x000000000045cb80     0x3a30 pico/carthw/svp/ssp16.o
+                0x000000000045e954                ssp1601_reset
+                0x000000000045e97c                ssp1601_run
+ .text          0x00000000004605b0     0x1520 pico/sound/sound.o
+                0x0000000000460ac8                PsndReset
+                0x0000000000460cd4                PsndRerate
+                0x0000000000461148                PsndStartFrame
+                0x00000000004611d0                PsndDoDAC
+                0x000000000046129c                PsndDoPSG
+                0x000000000046133c                cdda_start_play
+                0x0000000000461440                PsndClear
+                0x0000000000461504                PsndGetSamples
+                0x00000000004618a4                PsndGetSamplesMS
+ .text          0x0000000000461ad0      0x650 pico/sound/sn76496.o
+                0x0000000000461ad0                SN76496Write
+                0x0000000000461c74                SN76496Update
+                0x0000000000461f98                SN76496_init
+ .text          0x0000000000462120     0xc6d0 pico/sound/ym2612.o
+                0x0000000000463788                YM2612UpdateOne_
+                0x0000000000466018                YM2612ResetChip_
+                0x0000000000466a84                YM2612Init_
+                0x000000000046d7a8                YM2612Write_
+                0x000000000046e080                YM2612PicoStateLoad_
+                0x000000000046e1bc                YM2612PicoStateSave2
+                0x000000000046e444                YM2612PicoStateLoad2
+                0x000000000046e7e0                YM2612GetRegs
+ .text          0x000000000046e7f0      0x190 pico/sound/mix.o
+                0x000000000046e7f0                mix_32_to_16l_stereo
+                0x000000000046e854                mix_32_to_16_mono
+                0x000000000046e8a4                mix_16h_to_32
+                0x000000000046e8d8                mix_16h_to_32_s1
+                0x000000000046e928                mix_16h_to_32_s2
+ .text          0x000000000046e980    0x5eea0 cpu/fame/famec.o
+                0x000000000046ea5c                fm68k_get_pc
+                0x000000000046ea64                fm68k_would_interrupt
+                0x000000000046ea7c                fm68k_emulate
+                0x00000000004cd734                fm68k_init
+                0x00000000004cd758                fm68k_reset
+                0x00000000004cd7f8                fm68k_idle_install
+                0x00000000004cd808                fm68k_idle_remove
+ .text          0x00000000004cd820     0xb430 cpu/cz80/cz80.o
+                0x00000000004cd828                Cz80_Init
+                0x00000000004cdd2c                Cz80_Reset
+                0x00000000004cdd74                Cz80_Exec
+                0x00000000004d8570                Cz80_Set_IRQ
+                0x00000000004d8898                Cz80_Get_Reg
+                0x00000000004d8964                Cz80_Set_Reg
+                0x00000000004d8a50                Cz80_Set_Fetch
+                0x00000000004d8c1c                Cz80_Set_ReadB
+                0x00000000004d8c24                Cz80_Set_WriteB
+                0x00000000004d8c2c                Cz80_Set_INPort
+                0x00000000004d8c34                Cz80_Set_OUTPort
+                0x00000000004d8c3c                Cz80_Set_IRQ_Callback
+ .text          0x00000000004d8c50       0xa0 cpu/drc/cmn.o
+                0x00000000004d8c50                drc_cmn_init
+                0x00000000004d8cdc                drc_cmn_cleanup
+ .text          0x00000000004d8cf0      0x430 cpu/sh2/sh2.o
+                0x00000000004d8cf0                sh2_init
+                0x00000000004d8d70                sh2_finish
+                0x00000000004d8d78                sh2_reset
+                0x00000000004d8de0                sh2_do_irq
+                0x00000000004d8eb8                sh2_irl_irq
+                0x00000000004d9018                sh2_internal_irq
+                0x00000000004d903c                sh2_pack
+                0x00000000004d90a8                sh2_unpack
+ .text          0x00000000004d9120     0x2a50 cpu/sh2/mame/sh2pico.o
+                0x00000000004d989c                sh2_execute_interpreter
+ .text          0x00000000004dbb70      0x490 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+                0x00000000004dbb70                __divdi3
+ .text          0x00000000004dc000      0x4c0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+                0x00000000004dc000                __moddi3
+ .text          0x00000000004dc4c0       0x50 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .text          0x00000000004dc510        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+ *(.gnu.warning)
+ *(.mips16.fn.*)
+ *(.mips16.call.*)
+
+.MIPS.stubs     0x00000000004dc510      0x890
+ .MIPS.stubs    0x00000000004dc510      0x890 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+                0x00000000004dc510                opendir
+                0x00000000004dc510                _MIPS_STUBS_
+                0x00000000004dc520                SDL_JoystickOpen
+                0x00000000004dc530                SDL_UnlockSurface
+                0x00000000004dc540                memcmp
+                0x00000000004dc550                qsort
+                0x00000000004dc560                ioctl
+                0x00000000004dc570                png_set_IHDR@@PNG16_0
+                0x00000000004dc580                remove
+                0x00000000004dc590                png_create_write_struct@@PNG16_0
+                0x00000000004dc5a0                realloc
+                0x00000000004dc5b0                __uClibc_main
+                0x00000000004dc5c0                SDL_WM_SetCaption
+                0x00000000004dc5d0                SDL_CreateRGBSurface
+                0x00000000004dc5e0                sscanf
+                0x00000000004dc5f0                gettimeofday
+                0x00000000004dc600                SDL_DisplayYUVOverlay
+                0x00000000004dc610                SDL_JoystickName
+                0x00000000004dc620                SDL_Quit
+                0x00000000004dc630                inflate
+                0x00000000004dc640                SDL_Delay
+                0x00000000004dc650                SDL_GetError
+                0x00000000004dc660                SDL_Flip
+                0x00000000004dc670                snprintf
+                0x00000000004dc680                png_write_info@@PNG16_0
+                0x00000000004dc690                png_set_longjmp_fn@@PNG16_0
+                0x00000000004dc6a0                strcmp
+                0x00000000004dc6b0                time
+                0x00000000004dc6c0                SDL_JoystickClose
+                0x00000000004dc6d0                inflateReset
+                0x00000000004dc6e0                inflateInit2_
+                0x00000000004dc6f0                memset
+                0x00000000004dc700                stpcpy
+                0x00000000004dc710                SDL_QuitSubSystem
+                0x00000000004dc720                alphasort
+                0x00000000004dc730                png_destroy_write_struct@@PNG16_0
+                0x00000000004dc740                malloc
+                0x00000000004dc750                getcwd
+                0x00000000004dc760                memmove
+                0x00000000004dc770                SDL_VideoDriverName
+                0x00000000004dc780                gzread
+                0x00000000004dc790                strcat
+                0x00000000004dc7a0                rand
+                0x00000000004dc7b0                log
+                0x00000000004dc7c0                strncmp
+                0x00000000004dc7d0                strcpy
+                0x00000000004dc7e0                strrchr
+                0x00000000004dc7f0                fstat
+                0x00000000004dc800                closedir
+                0x00000000004dc810                strdup
+                0x00000000004dc820                SDL_SoftStretch
+                0x00000000004dc830                sleep
+                0x00000000004dc840                open
+                0x00000000004dc850                pow
+                0x00000000004dc860                png_read_png@@PNG16_0
+                0x00000000004dc870                SDL_PauseAudio
+                0x00000000004dc880                strstr
+                0x00000000004dc890                SDL_NumJoysticks
+                0x00000000004dc8a0                png_get_rows@@PNG16_0
+                0x00000000004dc8b0                munmap
+                0x00000000004dc8c0                png_destroy_read_struct@@PNG16_0
+                0x00000000004dc8d0                perror
+                0x00000000004dc8e0                strchr
+                0x00000000004dc8f0                strncasecmp
+                0x00000000004dc900                png_get_image_height@@PNG16_0
+                0x00000000004dc910                rewind
+                0x00000000004dc920                ftell
+                0x00000000004dc930                SDL_JoystickEventState
+                0x00000000004dc940                SDL_PushEvent
+                0x00000000004dc950                png_create_info_struct@@PNG16_0
+                0x00000000004dc960                printf
+                0x00000000004dc970                SDL_CloseAudio
+                0x00000000004dc980                mremap
+                0x00000000004dc990                SDL_LockYUVOverlay
+                0x00000000004dc9a0                readlink
+                0x00000000004dc9b0                strncpy
+                0x00000000004dc9c0                putchar
+                0x00000000004dc9d0                png_get_bit_depth@@PNG16_0
+                0x00000000004dc9e0                exit
+                0x00000000004dc9f0                png_write_end@@PNG16_0
+                0x00000000004dca00                png_write_image@@PNG16_0
+                0x00000000004dca10                fprintf
+                0x00000000004dca20                vprintf
+                0x00000000004dca30                gzsetparams
+                0x00000000004dca40                floor
+                0x00000000004dca50                SDL_CreateYUVOverlay
+                0x00000000004dca60                fgets
+                0x00000000004dca70                inflateEnd
+                0x00000000004dca80                strncat
+                0x00000000004dca90                strtoul
+                0x00000000004dcaa0                close
+                0x00000000004dcab0                gmtime
+                0x00000000004dcac0                SDL_Init
+                0x00000000004dcad0                setlocale
+                0x00000000004dcae0                sin
+                0x00000000004dcaf0                calloc
+                0x00000000004dcb00                png_get_image_width@@PNG16_0
+                0x00000000004dcb10                read
+                0x00000000004dcb20                gzwrite
+                0x00000000004dcb30                SDL_UnlockYUVOverlay
+                0x00000000004dcb40                SDL_FreeYUVOverlay
+                0x00000000004dcb50                SDL_SetVideoMode
+                0x00000000004dcb60                __errno_location
+                0x00000000004dcb70                mkdir
+                0x00000000004dcb80                fcntl
+                0x00000000004dcb90                SDL_InitSubSystem
+                0x00000000004dcba0                vsnprintf
+                0x00000000004dcbb0                SDL_LockSurface
+                0x00000000004dcbc0                localtime
+                0x00000000004dcbd0                mprotect
+                0x00000000004dcbe0                crc32
+                0x00000000004dcbf0                atof
+                0x00000000004dcc00                png_init_io@@PNG16_0
+                0x00000000004dcc10                free
+                0x00000000004dcc20                strftime
+                0x00000000004dcc30                atoi
+                0x00000000004dcc40                stat
+                0x00000000004dcc50                _setjmp
+                0x00000000004dcc60                png_create_read_struct@@PNG16_0
+                0x00000000004dcc70                puts
+                0x00000000004dcc80                fopen
+                0x00000000004dcc90                SDL_PeepEvents
+                0x00000000004dcca0                select
+                0x00000000004dccb0                fileno
+                0x00000000004dccc0                SDL_GetVideoInfo
+                0x00000000004dccd0                sprintf
+                0x00000000004dcce0                getenv
+                0x00000000004dccf0                memcpy
+                0x00000000004dcd00                strlen
+                0x00000000004dcd10                scandir
+                0x00000000004dcd20                strtol
+                0x00000000004dcd30                usleep
+                0x00000000004dcd40                mmap
+                0x00000000004dcd50                strcasecmp
+                0x00000000004dcd60                SDL_OpenAudio
+                0x00000000004dcd70                gzopen
+                0x00000000004dcd80                SDL_PumpEvents
+
+.fini           0x00000000004dcda0       0x4c
+ *(SORT(.fini))
+ .fini          0x00000000004dcda0       0x1c /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+                0x00000000004dcda0                _fini
+ .fini          0x00000000004dcdbc       0x24 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .fini          0x00000000004dcde0        0xc /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+                [!provide]                        PROVIDE (__etext, .)
+                [!provide]                        PROVIDE (_etext, .)
+                [!provide]                        PROVIDE (etext, .)
+
+.rodata         0x00000000004dcdf0     0x8a90
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x00000000004dcdf0       0x46 platform/opendingux/inputmap.o
+                                         0x54 (size before relaxing)
+ *fill*         0x00000000004dce36        0xa 
+ .rodata        0x00000000004dce40       0x70 platform/opendingux/inputmap.o
+                0x00000000004dce40                in_sdl_key_map
+                0x00000000004dce68                in_sdl_defbinds
+ .rodata.str1.4
+                0x00000000004dceb0       0x47 platform/linux/emu.o
+                                         0x4c (size before relaxing)
+ *fill*         0x00000000004dcef7        0x1 
+ .rodata.str1.4
+                0x00000000004dcef8        0xf platform/common/plat_sdl.o
+                                         0x18 (size before relaxing)
+ *fill*         0x00000000004dcf07        0x9 
+ .rodata        0x00000000004dcf10       0xb0 platform/common/plat_sdl.o
+                0x00000000004dcf10                in_sdl_joy_map
+ .rodata.cst4   0x00000000004dcfc0       0x1c platform/common/plat_sdl.o
+ .rodata.str1.4
+                0x00000000004dcfdc      0x1dc platform/libpicofe/plat_sdl.o
+ .rodata.str1.4
+                0x00000000004dd1b8      0x28c platform/libpicofe/in_sdl.o
+                                        0x304 (size before relaxing)
+ .rodata.str1.4
+                0x00000000004dd444      0x16a platform/common/main.o
+                                        0x16c (size before relaxing)
+ *fill*         0x00000000004dd5ae        0x2 
+ .rodata        0x00000000004dd5b0       0x30 platform/common/main.o
+ .rodata.str1.4
+                0x00000000004dd5e0      0x578 platform/common/emu.o
+                                        0x598 (size before relaxing)
+ .rodata.str1.4
+                0x00000000004ddb58      0xb60 platform/common/menu_pico.o
+                                        0xb8c (size before relaxing)
+ *fill*         0x00000000004de6b8        0x8 
+ .rodata        0x00000000004de6c0      0x600 platform/common/menu_pico.o
+ .rodata.str1.4
+                0x00000000004decc0      0x2eb platform/common/config_file.o
+                                        0x340 (size before relaxing)
+ *fill*         0x00000000004defab        0x5 
+ .rodata        0x00000000004defb0      0x110 platform/common/config_file.o
+ .rodata.str1.4
+                0x00000000004df0c0      0x1eb platform/libpicofe/input.o
+                                        0x1ec (size before relaxing)
+ *fill*         0x00000000004df2ab        0x1 
+ .rodata.str1.4
+                0x00000000004df2ac      0x32f platform/libpicofe/readpng.o
+                                        0x338 (size before relaxing)
+ *fill*         0x00000000004df5db        0x1 
+ .rodata.str1.4
+                0x00000000004df5dc      0x553 platform/libpicofe/linux/in_evdev.o
+                                        0x624 (size before relaxing)
+ *fill*         0x00000000004dfb2f        0x1 
+ .rodata.str1.4
+                0x00000000004dfb30      0x13a platform/libpicofe/linux/plat.o
+                                        0x13c (size before relaxing)
+ *fill*         0x00000000004dfc6a        0x2 
+ .rodata.str1.4
+                0x00000000004dfc6c       0x29 platform/libpicofe/sndout.o
+                                         0x2c (size before relaxing)
+ *fill*         0x00000000004dfc95        0x3 
+ .rodata.str1.4
+                0x00000000004dfc98       0x13 platform/libpicofe/sndout_sdl.o
+                                         0x14 (size before relaxing)
+ *fill*         0x00000000004dfcab        0x1 
+ .rodata.str1.4
+                0x00000000004dfcac      0x402 unzip/unzip.o
+                                        0x408 (size before relaxing)
+ *fill*         0x00000000004e00ae        0x2 
+ .rodata.str1.4
+                0x00000000004e00b0       0x2a pico/pico.o
+                                         0x2c (size before relaxing)
+ *fill*         0x00000000004e00da        0x6 
+ .rodata        0x00000000004e00e0       0x80 pico/pico.o
+ .rodata.str1.4
+                0x00000000004e0160      0x4e5 pico/cart.o
+                                        0x518 (size before relaxing)
+ *fill*         0x00000000004e0645        0xb 
+ .rodata        0x00000000004e0650     0x1340 pico/cart.o
+ .rodata        0x00000000004e1990       0xf0 pico/memory.o
+ .rodata.str1.4
+                0x00000000004e1a80       0x85 pico/memory.o
+                                         0x88 (size before relaxing)
+ *fill*         0x00000000004e1b05        0x3 
+ .rodata.cst8   0x00000000004e1b08        0x8 pico/memory.o
+ .rodata.str1.4
+                0x00000000004e1b10      0x6e1 pico/state.o
+                                        0x6f8 (size before relaxing)
+ *fill*         0x00000000004e21f1        0xf 
+ .rodata        0x00000000004e2200      0x190 pico/state.o
+ .rodata        0x00000000004e2390       0x40 pico/sek.o
+ .rodata.str1.4
+                0x00000000004e23d0       0x31 pico/sek.o
+                                         0x34 (size before relaxing)
+ *fill*         0x00000000004e2401        0x3 
+ .rodata.str1.4
+                0x00000000004e2404       0x46 pico/z80if.o
+                                         0x4c (size before relaxing)
+ *fill*         0x00000000004e244a        0x2 
+ .rodata.str1.4
+                0x00000000004e244c       0x22 pico/videoport.o
+                                         0x24 (size before relaxing)
+ *fill*         0x00000000004e246e        0x2 
+ .rodata        0x00000000004e2470       0x10 pico/draw2.o
+ .rodata        0x00000000004e2480       0x50 pico/draw.o
+ .rodata        0x00000000004e24d0      0x400 pico/misc.o
+                0x00000000004e24d0                hcounts_32
+                0x00000000004e26d0                hcounts_40
+ .rodata        0x00000000004e28d0       0x30 pico/patch.o
+ .rodata.str1.4
+                0x00000000004e2900        0x5 pico/patch.o
+                                          0xc (size before relaxing)
+ *fill*         0x00000000004e2905        0x3 
+ .rodata.str1.4
+                0x00000000004e2908      0x542 pico/debug.o
+                                        0x54c (size before relaxing)
+ *fill*         0x00000000004e2e4a        0x2 
+ .rodata.str1.4
+                0x00000000004e2e4c      0x146 pico/media.o
+                                        0x184 (size before relaxing)
+ *fill*         0x00000000004e2f92        0xe 
+ .rodata        0x00000000004e2fa0       0x10 pico/media.o
+ .rodata.str1.4
+                0x00000000004e2fb0       0x4d pico/sms.o
+                                         0x50 (size before relaxing)
+ *fill*         0x00000000004e2ffd        0x3 
+ .rodata        0x00000000004e3000      0x6b0 pico/cd/memory.o
+ .rodata        0x00000000004e36b0       0xd0 pico/cd/cdc.o
+ .rodata.str1.4
+                0x00000000004e3780       0x83 pico/cd/cdd.o
+                                         0x94 (size before relaxing)
+ *fill*         0x00000000004e3803        0xd 
+ .rodata        0x00000000004e3810      0x2f0 pico/cd/cdd.o
+ .rodata.str1.4
+                0x00000000004e3b00      0x16a pico/cd/cd_image.o
+                                        0x170 (size before relaxing)
+ *fill*         0x00000000004e3c6a        0x2 
+ .rodata.str1.4
+                0x00000000004e3c6c      0x1f4 pico/cd/cue.o
+                                        0x214 (size before relaxing)
+ .rodata.str1.4
+                0x00000000004e3e60       0x57 pico/32x/32x.o
+                                         0x58 (size before relaxing)
+ *fill*         0x00000000004e3eb7        0x1 
+ .rodata.cst4   0x00000000004e3eb8        0xc pico/32x/32x.o
+ *fill*         0x00000000004e3ec4        0xc 
+ .rodata        0x00000000004e3ed0      0x580 pico/32x/memory.o
+ .rodata.str1.4
+                0x00000000004e4450       0x9b pico/32x/memory.o
+                                         0x9c (size before relaxing)
+ *fill*         0x00000000004e44eb        0x5 
+ .rodata        0x00000000004e44f0       0x30 pico/32x/pwm.o
+ .rodata.str1.4
+                0x00000000004e4520       0x19 pico/pico/pico.o
+                                         0x1c (size before relaxing)
+ *fill*         0x00000000004e4539        0x7 
+ .rodata        0x00000000004e4540       0x20 pico/pico/pico.o
+ .rodata        0x00000000004e4560       0x50 pico/pico/memory.o
+ .rodata        0x00000000004e45b0       0x60 pico/pico/xpcm.o
+ .rodata.str1.4
+                0x00000000004e4610      0x199 pico/carthw/carthw.o
+                                        0x1ac (size before relaxing)
+ *fill*         0x00000000004e47a9        0x7 
+ .rodata        0x00000000004e47b0       0x50 pico/carthw/carthw.o
+ .rodata        0x00000000004e4800       0x20 pico/carthw/eeprom_spi.o
+ .rodata.str1.4
+                0x00000000004e4820       0x35 pico/carthw/svp/svp.o
+                                         0x38 (size before relaxing)
+ *fill*         0x00000000004e4855        0xb 
+ .rodata        0x00000000004e4860      0x370 pico/carthw/svp/ssp16.o
+ .rodata.cst8   0x00000000004e4bd0       0x10 pico/sound/sn76496.o
+                                         0x18 (size before relaxing)
+ .rodata        0x00000000004e4be0      0x430 pico/sound/ym2612.o
+ .rodata.cst8   0x00000000004e5010       0xb8 pico/sound/ym2612.o
+                                         0xc8 (size before relaxing)
+ *fill*         0x00000000004e50c8        0x8 
+ .rodata        0x00000000004e50d0      0x400 cpu/fame/famec.o
+ .rodata        0x00000000004e54d0       0xa0 cpu/cz80/cz80.o
+ .rodata.str1.4
+                0x00000000004e5570       0x2c cpu/drc/cmn.o
+ .rodata.str1.4
+                0x00000000004e559c       0x20 cpu/sh2/mame/sh2pico.o
+ *fill*         0x00000000004e55bc        0x4 
+ .rodata        0x00000000004e55c0      0x2c0 cpu/sh2/mame/sh2pico.o
+
+.rodata1
+ *(.rodata1)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr   0x00000000004e5880       0x1c
+ *(.eh_frame_hdr)
+ .eh_frame_hdr  0x00000000004e5880       0x1c /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+                0x00000000004e5880                __GNU_EH_FRAME_HDR
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame       0x00000000004e589c       0x4c
+ *(.eh_frame)
+ .eh_frame      0x00000000004e589c        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .eh_frame      0x00000000004e589c       0x28 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .eh_frame      0x00000000004e58c4       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+                                         0x34 (size before relaxing)
+ .eh_frame      0x00000000004e58e4        0x4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.plt            0x00000000004e58e8        0x0
+ *(.plt)
+ .plt           0x00000000004e58e8        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.iplt
+ *(.iplt)
+                0x00000000004f58e8                . = DATA_SEGMENT_ALIGN (0x10000, 0x1000)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x00000000004f58e8        0x0
+                [!provide]                        PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end, .)
+
+.init_array     0x00000000004f58e8        0x0
+                [!provide]                        PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array)
+                [!provide]                        PROVIDE (__init_array_end, .)
+
+.fini_array     0x00000000004f58e8        0x0
+                [!provide]                        PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end, .)
+
+.ctors          0x00000000004f58e8        0x8
+ *crtbegin.o(.ctors)
+ .ctors         0x00000000004f58e8        0x4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+ .ctors         0x00000000004f58ec        0x4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+
+.dtors          0x00000000004f58f0        0x8
+ *crtbegin.o(.dtors)
+ .dtors         0x00000000004f58f0        0x4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+ .dtors         0x00000000004f58f4        0x4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+                0x00000000004f58f4                __DTOR_END__
+
+.jcr            0x00000000004f58f8        0x4
+ *(.jcr)
+ .jcr           0x00000000004f58f8        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .jcr           0x00000000004f58f8        0x4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+
+.data.rel.ro    0x00000000004f58fc     0x2db4
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ .data.rel.ro.local
+                0x00000000004f58fc      0x50c platform/opendingux/inputmap.o
+                0x00000000004f58fc                in_sdl_key_names
+ .data.rel.ro.local
+                0x00000000004f5e08      0x548 platform/libpicofe/in_sdl.o
+ .data.rel.ro.local
+                0x00000000004f6350       0x30 platform/common/emu.o
+ .data.rel.ro.local
+                0x00000000004f6380       0x44 platform/common/menu_pico.o
+ .data.rel.ro.local
+                0x00000000004f63c4      0xc3c platform/libpicofe/linux/in_evdev.o
+ .data.rel.ro.local
+                0x00000000004f7000       0xd8 pico/state.o
+ .data.rel.ro.local
+                0x00000000004f70d8       0x70 pico/cd/memory.o
+ .data.rel.ro.local
+                0x00000000004f7148       0x28 pico/cd/cd_image.o
+ .data.rel.ro.local
+                0x00000000004f7170       0x30 pico/32x/draw.o
+ .data.rel.ro.local
+                0x00000000004f71a0       0x80 pico/carthw/svp/ssp16.o
+ .data.rel.ro.local
+                0x00000000004f7220     0x1400 cpu/cz80/cz80.o
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+ .data.rel.ro   0x00000000004f8620       0x18 platform/common/plat_sdl.o
+ .data.rel.ro   0x00000000004f8638        0x8 pico/pico.o
+ .data.rel.ro   0x00000000004f8640        0x4 pico/memory.o
+ .data.rel.ro   0x00000000004f8644       0x14 pico/state.o
+ .data.rel.ro   0x00000000004f8658        0xc pico/videoport.o
+ .data.rel.ro   0x00000000004f8664        0x4 pico/draw2.o
+ .data.rel.ro   0x00000000004f8668        0x8 pico/draw.o
+ .data.rel.ro   0x00000000004f8670        0x4 pico/mode4.o
+ .data.rel.ro   0x00000000004f8674       0x10 pico/debug.o
+ .data.rel.ro   0x00000000004f8684        0x4 pico/sms.o
+ .data.rel.ro   0x00000000004f8688       0x10 pico/cd/mcd.o
+ .data.rel.ro   0x00000000004f8698        0xc pico/cd/gfx_dma.o
+ .data.rel.ro   0x00000000004f86a4        0xc pico/32x/32x.o
+                0x00000000004f86b0                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.got.plt        0x00000000004f86b0        0x0
+ *(.got.plt)
+ .got.plt       0x00000000004f86b0        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+
+.data           0x00000000004f86b0     0x1fb0
+                0x00000000004f86b0                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x00000000004f86b0       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+                0x00000000004f86b0                __data_start
+                0x00000000004f86b0                data_start
+ .data          0x00000000004f86c0        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .data          0x00000000004f86c0        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .data          0x00000000004f86c0        0x0 platform/opendingux/inputmap.o
+ .data          0x00000000004f86c0        0x0 platform/linux/emu.o
+ .data.rel.local
+                0x00000000004f86c0       0x20 platform/linux/emu.o
+                0x00000000004f86c0                renderer_names32x
+                0x00000000004f86d0                renderer_names
+ .data          0x00000000004f86e0        0x0 platform/linux/blit.o
+ .data          0x00000000004f86e0        0x0 platform/common/plat_sdl.o
+ .data          0x00000000004f86e0       0x10 platform/libpicofe/plat_sdl.o
+ .data          0x00000000004f86f0        0x0 platform/libpicofe/in_sdl.o
+ .data          0x00000000004f86f0        0x0 platform/libpicofe/plat_dummy.o
+ .data          0x00000000004f86f0       0x10 platform/common/main.o
+ .data          0x00000000004f8700       0x20 platform/common/emu.o
+                0x00000000004f8708                engineState
+                0x00000000004f870c                pico_pen_y
+                0x00000000004f8710                pico_pen_x
+                0x00000000004f8714                g_screen_ppitch
+                0x00000000004f8718                g_screen_height
+                0x00000000004f871c                g_screen_width
+ .data.rel.local
+                0x00000000004f8720        0x4 platform/common/emu.o
+                0x00000000004f8720                PicoConfigFile
+ *fill*         0x00000000004f8724        0xc 
+ .data          0x00000000004f8730       0x10 platform/common/menu_pico.o
+ .data.rel      0x00000000004f8740      0xbdc platform/common/menu_pico.o
+ .data.rel.local
+                0x00000000004f931c      0x508 platform/common/menu_pico.o
+                0x00000000004f96f8                indev_names
+                0x00000000004f9708                emuctrl_actions
+                0x00000000004f9778                me_ctrl_actions
+ *fill*         0x00000000004f9824        0xc 
+ .data          0x00000000004f9830        0x0 platform/common/config_file.o
+ .data          0x00000000004f9830        0x0 platform/libpicofe/input.o
+ .data          0x00000000004f9830        0x0 platform/libpicofe/readpng.o
+ .data          0x00000000004f9830      0xc00 platform/libpicofe/fonts.o
+                0x00000000004f9830                fontdata6x8
+                0x00000000004fa030                fontdata8x8
+ .data          0x00000000004fa430        0x0 platform/libpicofe/linux/in_evdev.o
+ .data          0x00000000004fa430        0x0 platform/libpicofe/linux/plat.o
+ .data          0x00000000004fa430        0x0 platform/libpicofe/sndout.o
+ .data.rel      0x00000000004fa430       0x38 platform/libpicofe/sndout.o
+ *fill*         0x00000000004fa468        0x8 
+ .data          0x00000000004fa470        0x0 platform/libpicofe/sndout_sdl.o
+ .data          0x00000000004fa470       0x20 platform/common/mp3.o
+                0x00000000004fa470                mpeg1_l3_bitrates
+ .data          0x00000000004fa490        0x0 platform/common/mp3_dummy.o
+ .data          0x00000000004fa490       0x10 unzip/unzip.o
+ .data          0x00000000004fa4a0        0x0 pico/pico.o
+ .data          0x00000000004fa4a0        0x0 pico/cart.o
+ .data          0x00000000004fa4a0        0x0 pico/memory.o
+ .data.rel.local
+                0x00000000004fa4a0        0xc pico/memory.o
+ *fill*         0x00000000004fa4ac        0x4 
+ .data          0x00000000004fa4b0        0x0 pico/state.o
+ .data          0x00000000004fa4b0        0x0 pico/sek.o
+ .data          0x00000000004fa4b0        0x0 pico/z80if.o
+ .data          0x00000000004fa4b0        0x0 pico/videoport.o
+ .data          0x00000000004fa4b0        0x0 pico/draw2.o
+ .data.rel      0x00000000004fa4b0        0x4 pico/draw2.o
+                0x00000000004fa4b0                PicoCramHigh
+ *fill*         0x00000000004fa4b4        0xc 
+ .data          0x00000000004fa4c0        0x0 pico/draw.o
+ .data.rel.local
+                0x00000000004fa4c0        0x8 pico/draw.o
+                0x00000000004fa4c0                DrawLineDestBase
+ *fill*         0x00000000004fa4c8        0x8 
+ .data          0x00000000004fa4d0        0x0 pico/mode4.o
+ .data          0x00000000004fa4d0        0x0 pico/misc.o
+ .data          0x00000000004fa4d0       0x10 pico/eeprom.o
+ .data          0x00000000004fa4e0       0x70 pico/patch.o
+ .data          0x00000000004fa550        0x0 pico/debug.o
+ .data          0x00000000004fa550        0x0 pico/media.o
+ .data          0x00000000004fa550        0x0 pico/sms.o
+ .data          0x00000000004fa550        0x0 pico/cd/mcd.o
+ .data          0x00000000004fa550        0x0 pico/cd/memory.o
+ .data          0x00000000004fa550        0x0 pico/cd/sek.o
+ .data          0x00000000004fa550        0x0 pico/cd/cdc.o
+ .data          0x00000000004fa550        0x0 pico/cd/cdd.o
+ .data          0x00000000004fa550        0x0 pico/cd/cd_image.o
+ .data          0x00000000004fa550        0x0 pico/cd/cue.o
+ .data          0x00000000004fa550        0x0 pico/cd/gfx.o
+ .data          0x00000000004fa550        0x0 pico/cd/gfx_dma.o
+ .data          0x00000000004fa550       0x40 pico/cd/misc.o
+                0x00000000004fa550                formatted_bram
+ .data          0x00000000004fa590        0x0 pico/cd/pcm.o
+ .data          0x00000000004fa590        0x0 pico/32x/32x.o
+ .data          0x00000000004fa590        0x0 pico/32x/memory.o
+ .data          0x00000000004fa590        0x0 pico/32x/draw.o
+ .data          0x00000000004fa590        0x0 pico/32x/sh2soc.o
+ .data          0x00000000004fa590        0x0 pico/32x/pwm.o
+ .data          0x00000000004fa590       0x10 pico/pico/pico.o
+ .data          0x00000000004fa5a0        0x0 pico/pico/memory.o
+ .data          0x00000000004fa5a0       0x10 pico/pico/xpcm.o
+ .data          0x00000000004fa5b0       0x10 pico/carthw/carthw.o
+ .data.rel.local
+                0x00000000004fa5c0       0x48 pico/carthw/carthw.o
+ .data.rel      0x00000000004fa608       0x18 pico/carthw/carthw.o
+ .data          0x00000000004fa620        0x0 pico/carthw/eeprom_spi.o
+ .data          0x00000000004fa620       0x30 pico/carthw/svp/svp.o
+ .data          0x00000000004fa650        0x0 pico/carthw/svp/memory.o
+ .data          0x00000000004fa650        0x0 pico/carthw/svp/ssp16.o
+ .data          0x00000000004fa650        0x0 pico/sound/sound.o
+ .data.rel      0x00000000004fa650        0x4 pico/sound/sound.o
+                0x00000000004fa650                PsndMix_32_to_16l
+ *fill*         0x00000000004fa654        0xc 
+ .data          0x00000000004fa660        0x0 pico/sound/sn76496.o
+ .data          0x00000000004fa660        0x0 pico/sound/ym2612.o
+ .data          0x00000000004fa660        0x0 pico/sound/mix.o
+ .data          0x00000000004fa660        0x0 cpu/fame/famec.o
+ .data          0x00000000004fa660        0x0 cpu/cz80/cz80.o
+ .data          0x00000000004fa660        0x0 cpu/drc/cmn.o
+ .data          0x00000000004fa660        0x0 cpu/sh2/sh2.o
+ .data          0x00000000004fa660        0x0 cpu/sh2/mame/sh2pico.o
+ .data          0x00000000004fa660        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .data          0x00000000004fa660        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+ .data          0x00000000004fa660        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .data          0x00000000004fa660        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+
+.rld_map        0x00000000004fa660        0x4
+ .rld_map       0x00000000004fa660        0x4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+                0x00000000004fa660                __RLD_MAP
+
+.tm_clone_table
+                0x00000000004fa664        0x0
+ .tm_clone_table
+                0x00000000004fa664        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .tm_clone_table
+                0x00000000004fa664        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+
+.data1
+ *(.data1)
+                0x00000000004fa664                . = .
+                0x00000000004fa664                . = .
+                0x0000000000502660                _gp = (ALIGN (0x10) + 0x7ff0)
+
+.got            0x00000000004fa670      0xa50
+ *(.got)
+ .got           0x00000000004fa670      0xa50 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+                0x00000000004fa670                _GLOBAL_OFFSET_TABLE_
+
+.sdata          0x00000000004fb0c0        0x4
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata         0x00000000004fb0c0        0x4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+                0x00000000004fb0c0                __dso_handle
+
+.lit8
+ *(.lit8)
+
+.lit4
+ *(.lit4)
+                0x00000000004fb0c4                _edata = .
+                [!provide]                        PROVIDE (edata, .)
+                0x00000000004fb0c4                . = .
+                0x00000000004fb0c4                __bss_start = .
+                0x00000000004fb0c4                _fbss = .
+
+.sbss           0x00000000004fb0c4       0xa8
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+ .scommon       0x00000000004fb0c4       0x18 platform/libpicofe/plat_sdl.o
+                0x00000000004fb0c4                plat_sdl_screen
+                0x00000000004fb0c8                plat_sdl_quit_cb
+                0x00000000004fb0cc                plat_sdl_gl_active
+                0x00000000004fb0d0                plat_sdl_overlay
+                0x00000000004fb0d4                ScreenSurface
+                0x00000000004fb0d8                plat_sdl_resize_cb
+ .scommon       0x00000000004fb0dc        0x4 platform/common/main.o
+                0x00000000004fb0dc                g_argv
+ .scommon       0x00000000004fb0e0       0x10 platform/common/emu.o
+                0x00000000004fb0e0                g_screen_ptr
+                0x00000000004fb0e4                flip_after_sync
+                0x00000000004fb0e8                rom_fname_reload
+                0x00000000004fb0ec                pico_inp_mode
+ .scommon       0x00000000004fb0f0       0x1c platform/common/menu_pico.o
+                0x00000000004fb0f0                g_autostateld_opt
+                0x00000000004fb0f4                g_menuscreen_w
+                0x00000000004fb0f8                g_menubg_ptr
+                0x00000000004fb0fc                g_menuscreen_ptr
+                0x00000000004fb100                g_menuscreen_h
+                0x00000000004fb104                g_menuscreen_pp
+                0x00000000004fb108                g_menubg_src_ptr
+ .scommon       0x00000000004fb10c        0x4 platform/libpicofe/linux/in_evdev.o
+                0x00000000004fb10c                in_evdev_allow_abs_only
+ .scommon       0x00000000004fb110        0xc pico/cart.o
+                0x00000000004fb110                PicoGameLoaded
+                0x00000000004fb114                PicoCartMemSetup
+                0x00000000004fb118                PicoCartUnloadHook
+ .scommon       0x00000000004fb11c        0xc pico/state.o
+                0x00000000004fb11c                PicoStateProgressCB
+                0x00000000004fb120                carthw_chunks
+                0x00000000004fb124                PicoLoadStateHook
+ .scommon       0x00000000004fb128        0xc pico/draw.o
+                0x00000000004fb128                DrawLineDestIncrement
+                0x00000000004fb12c                rendlines
+                0x00000000004fb130                rendstatus_old
+ .scommon       0x00000000004fb134        0x8 pico/cd/sek.o
+                0x00000000004fb134                SekCycleCntS68k
+                0x00000000004fb138                SekCycleAimS68k
+ .scommon       0x00000000004fb13c       0x10 pico/32x/memory.o
+                0x00000000004fb13c                Pico32xMem
+                0x00000000004fb140                p32x_bios_m
+                0x00000000004fb144                p32x_bios_g
+                0x00000000004fb148                p32x_bios_s
+ .scommon       0x00000000004fb14c        0xc pico/32x/draw.o
+                0x00000000004fb14c                Pico32xDrawMode
+                0x00000000004fb150                PicoScan32xEnd
+                0x00000000004fb154                PicoScan32xBegin
+ .scommon       0x00000000004fb158        0xc pico/carthw/carthw.o
+                0x00000000004fb158                carthw_ssf2_banks
+                0x00000000004fb160                carthw_ssf2_active
+ .scommon       0x00000000004fb164        0x4 pico/sound/sn76496.o
+                0x00000000004fb164                sn76496_regs
+ .scommon       0x00000000004fb168        0x4 cpu/drc/cmn.o
+                0x00000000004fb168                tcache
+
+.bss            0x00000000004fc000   0x33a000
+ *(.dynbss)
+ .dynbss        0x00000000004fc000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00000000004fc000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+ .bss           0x00000000004fc000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .bss           0x00000000004fc000       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .bss           0x00000000004fc020        0x0 platform/opendingux/inputmap.o
+ .bss           0x00000000004fc020        0x0 platform/linux/emu.o
+ .bss           0x00000000004fc020        0x0 platform/linux/blit.o
+ .bss           0x00000000004fc020      0x210 platform/common/plat_sdl.o
+ .bss           0x00000000004fc230       0x50 platform/libpicofe/plat_sdl.o
+ .bss           0x00000000004fc280       0x10 platform/libpicofe/in_sdl.o
+ .bss           0x00000000004fc290        0x0 platform/libpicofe/plat_dummy.o
+ .bss           0x00000000004fc290        0x0 platform/common/main.o
+ .bss           0x00000000004fc290     0x1100 platform/common/emu.o
+                0x00000000004fc290                movie_data
+                0x00000000004fc294                reset_timing
+                0x00000000004fc298                config_slot_current
+                0x00000000004fc29c                config_slot
+                0x00000000004fc2a0                state_slot
+ .bss           0x00000000004fd390      0x210 platform/common/menu_pico.o
+                0x00000000004fd390                menu_error_msg
+ .bss           0x00000000004fd5a0        0x0 platform/common/config_file.o
+ .bss           0x00000000004fd5a0      0x180 platform/libpicofe/input.o
+ .bss           0x00000000004fd720        0x0 platform/libpicofe/readpng.o
+ .bss           0x00000000004fd720        0x0 platform/libpicofe/fonts.o
+ .bss           0x00000000004fd720        0x0 platform/libpicofe/linux/in_evdev.o
+ .bss           0x00000000004fd720       0x10 platform/libpicofe/linux/plat.o
+ .bss           0x00000000004fd730        0x0 platform/libpicofe/sndout.o
+ .bss           0x00000000004fd730    0x10010 platform/libpicofe/sndout_sdl.o
+ .bss           0x000000000050d740       0x20 platform/common/mp3.o
+ .bss           0x000000000050d760        0x0 platform/common/mp3_dummy.o
+ .bss           0x000000000050d760        0x0 unzip/unzip.o
+ .bss           0x000000000050d760       0x10 pico/pico.o
+                0x000000000050d760                PicoLineHook
+                0x000000000050d764                PicoResetHook
+ .bss           0x000000000050d770       0x10 pico/cart.o
+                0x000000000050d770                PicoCDLoadProgressCB
+                0x000000000050d774                PicoCartLoadProgressCB
+ .bss           0x000000000050d780        0x0 pico/memory.o
+ .bss           0x000000000050d780       0x20 pico/state.o
+ .bss           0x000000000050d7a0       0x10 pico/sek.o
+ .bss           0x000000000050d7b0        0x0 pico/z80if.o
+ .bss           0x000000000050d7b0       0x10 pico/videoport.o
+                0x000000000050d7b0                PicoDmaHook
+ .bss           0x000000000050d7c0    0x16d40 pico/draw2.o
+                0x000000000050d7c0                PicoPrepareCram
+ .bss           0x0000000000524500      0xa40 pico/draw.o
+                0x0000000000524500                PicoScanEnd
+                0x0000000000524504                PicoScanBegin
+ .bss           0x0000000000524f40       0x10 pico/mode4.o
+ .bss           0x0000000000524f50        0x0 pico/misc.o
+ .bss           0x0000000000524f50        0x0 pico/eeprom.o
+ .bss           0x0000000000524f50       0x10 pico/patch.o
+                0x0000000000524f50                PicoPatchCount
+                0x0000000000524f54                PicoPatches
+ .bss           0x0000000000524f60     0x2000 pico/debug.o
+ .bss           0x0000000000526f60        0x0 pico/media.o
+ .bss           0x0000000000526f60       0x10 pico/sms.o
+ .bss           0x0000000000526f70       0x10 pico/cd/mcd.o
+ .bss           0x0000000000526f80        0x0 pico/cd/memory.o
+ .bss           0x0000000000526f80        0x0 pico/cd/sek.o
+ .bss           0x0000000000526f80     0x4950 pico/cd/cdc.o
+ .bss           0x000000000052b8d0        0x0 pico/cd/cdd.o
+ .bss           0x000000000052b8d0        0x0 pico/cd/cd_image.o
+ .bss           0x000000000052b8d0        0x0 pico/cd/cue.o
+ .bss           0x000000000052b8d0      0x720 pico/cd/gfx.o
+ .bss           0x000000000052bff0        0x0 pico/cd/gfx_dma.o
+ .bss           0x000000000052bff0        0x0 pico/cd/misc.o
+ .bss           0x000000000052bff0        0x0 pico/cd/pcm.o
+ .bss           0x000000000052bff0       0x10 pico/32x/32x.o
+ .bss           0x000000000052c000      0xc20 pico/32x/memory.o
+ .bss           0x000000000052cc20        0x0 pico/32x/draw.o
+ .bss           0x000000000052cc20       0x10 pico/32x/sh2soc.o
+ .bss           0x000000000052cc30       0x20 pico/32x/pwm.o
+ .bss           0x000000000052cc50       0x10 pico/pico/pico.o
+ .bss           0x000000000052cc60        0x0 pico/pico/memory.o
+ .bss           0x000000000052cc60       0x10 pico/pico/xpcm.o
+ .bss           0x000000000052cc70       0x20 pico/carthw/carthw.o
+ .bss           0x000000000052cc90       0x10 pico/carthw/eeprom_spi.o
+ .bss           0x000000000052cca0       0x10 pico/carthw/svp/svp.o
+                0x000000000052cca0                svp
+ .bss           0x000000000052ccb0        0x0 pico/carthw/svp/memory.o
+ .bss           0x000000000052ccb0       0x10 pico/carthw/svp/ssp16.o
+                0x000000000052ccb0                ssp
+ .bss           0x000000000052ccc0     0x1e20 pico/sound/sound.o
+ .bss           0x000000000052eae0       0xc0 pico/sound/sn76496.o
+ .bss           0x000000000052eba0    0x24260 pico/sound/ym2612.o
+ .bss           0x0000000000552e00        0x0 pico/sound/mix.o
+ .bss           0x0000000000552e00    0x40010 cpu/fame/famec.o
+ .bss           0x0000000000592e10    0x41500 cpu/cz80/cz80.o
+ .bss           0x00000000005d4310        0x0 cpu/drc/cmn.o
+ .bss           0x00000000005d4310        0x0 cpu/sh2/sh2.o
+ .bss           0x00000000005d4310        0x0 cpu/sh2/mame/sh2pico.o
+ .bss           0x00000000005d4310        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .bss           0x00000000005d4310        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+ .bss           0x00000000005d4310        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .bss           0x00000000005d4310        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+ *(COMMON)
+ COMMON         0x00000000005d4310       0x34 platform/libpicofe/plat_dummy.o
+                0x00000000005d4310                plat_target
+ COMMON         0x00000000005d4344      0x2e0 platform/common/emu.o
+                0x00000000005d4344                rom_fname_loaded
+                0x00000000005d4544                currentConfig
+                0x00000000005d45b4                defaultConfig
+ COMMON         0x00000000005d4624       0x1c platform/libpicofe/sndout.o
+                0x00000000005d4624                sndout_current
+ COMMON         0x00000000005d4640    0x224f4 pico/pico.o
+                0x00000000005d4640                PicoIn
+                0x00000000005d4670                PicoMem
+                0x00000000005f67f0                Pico
+ COMMON         0x00000000005f6b34     0x1000 pico/memory.o
+                0x00000000005f6b34                m68k_write16_map
+                0x00000000005f6f34                m68k_read16_map
+                0x00000000005f7334                m68k_write8_map
+                0x00000000005f7734                m68k_read8_map
+ COMMON         0x00000000005f7b34      0x4ac pico/sek.o
+                0x00000000005f7b34                PicoCpuFM68k
+ COMMON         0x00000000005f7fe0       0x40 pico/z80if.o
+                0x00000000005f7fe0                z80_write_map
+                0x00000000005f8000                z80_read_map
+ COMMON         0x00000000005f8020     0x1e00 pico/draw.o
+                0x00000000005f8020                HighLnSpr
+ COMMON         0x00000000005f9e20      0x100 pico/media.o
+                0x00000000005f9e20                media_id_header
+ COMMON         0x00000000005f9f20       0x10 pico/cd/mcd.o
+                0x00000000005f9f20                pcd_event_times
+ COMMON         0x00000000005f9f30     0x1000 pico/cd/memory.o
+                0x00000000005f9f30                s68k_write16_map
+                0x00000000005fa330                s68k_read16_map
+                0x00000000005fa730                s68k_read8_map
+                0x00000000005fab30                s68k_write8_map
+ COMMON         0x00000000005faf30      0x4ac pico/cd/sek.o
+                0x00000000005faf30                PicoCpuFS68k
+ COMMON         0x00000000005fb3dc      0x66c pico/cd/cdd.o
+                0x00000000005fb3dc                cdd
+ COMMON         0x00000000005fba48     0x2684 pico/32x/32x.o
+                0x00000000005fba48                Pico32x
+                0x00000000005fbb08                p32x_event_times
+                0x00000000005fbb14                sh2s
+ COMMON         0x00000000005fe0cc      0x208 pico/pico/pico.o
+                0x00000000005fe0cc                PicoPicohw
+ COMMON         0x00000000005fe2d4     0x1200 pico/sound/sound.o
+                0x00000000005fe2d4                cdda_out_buffer
+ *fill*         0x00000000005ff4d4        0x4 
+ COMMON         0x00000000005ff4d8    0x365e0 pico/sound/ym2612.o
+                0x00000000005ff4d8                ym_tl_tab2
+                0x0000000000600ed8                ym2612
+                0x0000000000601ab8                ym_tl_tab
+ COMMON         0x0000000000635ab8       0xc0 cpu/cz80/cz80.o
+                0x0000000000635ab8                CZ80
+ *fill*         0x0000000000635b78      0x488 
+ COMMON         0x0000000000636000   0x200000 cpu/drc/cmn.o
+                0x0000000000636000                tcache_default
+                0x0000000000836000                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000000000836000                . = ALIGN (0x4)
+                0x0000000000836000                . = SEGMENT_START ("ldata-segment", .)
+                0x0000000000836000                . = ALIGN (0x4)
+                0x0000000000836000                _end = .
+                [!provide]                        PROVIDE (end, .)
+                0x0000000000836000                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x32
+ *(.comment)
+ .comment       0x0000000000000000       0x11 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x21 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+                                         0x22 (size before relaxing)
+ .comment       0x0000000000000032       0x22 platform/opendingux/inputmap.o
+ .comment       0x0000000000000032       0x22 platform/linux/emu.o
+ .comment       0x0000000000000032       0x22 platform/linux/blit.o
+ .comment       0x0000000000000032       0x22 platform/common/plat_sdl.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/plat_sdl.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/in_sdl.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/plat_dummy.o
+ .comment       0x0000000000000032       0x22 platform/common/main.o
+ .comment       0x0000000000000032       0x22 platform/common/emu.o
+ .comment       0x0000000000000032       0x22 platform/common/menu_pico.o
+ .comment       0x0000000000000032       0x22 platform/common/config_file.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/input.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/readpng.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/fonts.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/linux/in_evdev.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/linux/plat.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/sndout.o
+ .comment       0x0000000000000032       0x22 platform/libpicofe/sndout_sdl.o
+ .comment       0x0000000000000032       0x22 platform/common/mp3.o
+ .comment       0x0000000000000032       0x22 platform/common/mp3_dummy.o
+ .comment       0x0000000000000032       0x22 unzip/unzip.o
+ .comment       0x0000000000000032       0x22 pico/pico.o
+ .comment       0x0000000000000032       0x22 pico/cart.o
+ .comment       0x0000000000000032       0x22 pico/memory.o
+ .comment       0x0000000000000032       0x22 pico/state.o
+ .comment       0x0000000000000032       0x22 pico/sek.o
+ .comment       0x0000000000000032       0x22 pico/z80if.o
+ .comment       0x0000000000000032       0x22 pico/videoport.o
+ .comment       0x0000000000000032       0x22 pico/draw2.o
+ .comment       0x0000000000000032       0x22 pico/draw.o
+ .comment       0x0000000000000032       0x22 pico/mode4.o
+ .comment       0x0000000000000032       0x22 pico/misc.o
+ .comment       0x0000000000000032       0x22 pico/eeprom.o
+ .comment       0x0000000000000032       0x22 pico/patch.o
+ .comment       0x0000000000000032       0x22 pico/debug.o
+ .comment       0x0000000000000032       0x22 pico/media.o
+ .comment       0x0000000000000032       0x22 pico/sms.o
+ .comment       0x0000000000000032       0x22 pico/cd/mcd.o
+ .comment       0x0000000000000032       0x22 pico/cd/memory.o
+ .comment       0x0000000000000032       0x22 pico/cd/sek.o
+ .comment       0x0000000000000032       0x22 pico/cd/cdc.o
+ .comment       0x0000000000000032       0x22 pico/cd/cdd.o
+ .comment       0x0000000000000032       0x22 pico/cd/cd_image.o
+ .comment       0x0000000000000032       0x22 pico/cd/cue.o
+ .comment       0x0000000000000032       0x22 pico/cd/gfx.o
+ .comment       0x0000000000000032       0x22 pico/cd/gfx_dma.o
+ .comment       0x0000000000000032       0x22 pico/cd/misc.o
+ .comment       0x0000000000000032       0x22 pico/cd/pcm.o
+ .comment       0x0000000000000032       0x22 pico/32x/32x.o
+ .comment       0x0000000000000032       0x22 pico/32x/memory.o
+ .comment       0x0000000000000032       0x22 pico/32x/draw.o
+ .comment       0x0000000000000032       0x22 pico/32x/sh2soc.o
+ .comment       0x0000000000000032       0x22 pico/32x/pwm.o
+ .comment       0x0000000000000032       0x22 pico/pico/pico.o
+ .comment       0x0000000000000032       0x22 pico/pico/memory.o
+ .comment       0x0000000000000032       0x22 pico/pico/xpcm.o
+ .comment       0x0000000000000032       0x22 pico/carthw/carthw.o
+ .comment       0x0000000000000032       0x22 pico/carthw/eeprom_spi.o
+ .comment       0x0000000000000032       0x22 pico/carthw/svp/svp.o
+ .comment       0x0000000000000032       0x22 pico/carthw/svp/memory.o
+ .comment       0x0000000000000032       0x22 pico/carthw/svp/ssp16.o
+ .comment       0x0000000000000032       0x22 pico/sound/sound.o
+ .comment       0x0000000000000032       0x22 pico/sound/sn76496.o
+ .comment       0x0000000000000032       0x22 pico/sound/ym2612.o
+ .comment       0x0000000000000032       0x22 pico/sound/mix.o
+ .comment       0x0000000000000032       0x22 cpu/fame/famec.o
+ .comment       0x0000000000000032       0x22 cpu/cz80/cz80.o
+ .comment       0x0000000000000032       0x22 cpu/drc/cmn.o
+ .comment       0x0000000000000032       0x22 cpu/sh2/sh2.o
+ .comment       0x0000000000000032       0x22 cpu/sh2/mame/sh2pico.o
+ .comment       0x0000000000000032       0x22 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .comment       0x0000000000000032       0x22 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+ .comment       0x0000000000000032       0x22 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .comment       0x0000000000000032       0x12 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+
+.pdr            0x0000000000000000     0x6c20
+ .pdr           0x0000000000000000       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+ .pdr           0x0000000000000020       0x40 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .pdr           0x0000000000000060        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .pdr           0x0000000000000060        0x0 platform/opendingux/inputmap.o
+ .pdr           0x0000000000000060      0x200 platform/linux/emu.o
+ .pdr           0x0000000000000260       0xc0 platform/linux/blit.o
+ .pdr           0x0000000000000320      0x1a0 platform/common/plat_sdl.o
+ .pdr           0x00000000000004c0       0xa0 platform/libpicofe/plat_sdl.o
+ .pdr           0x0000000000000560       0xe0 platform/libpicofe/in_sdl.o
+ .pdr           0x0000000000000640       0x60 platform/libpicofe/plat_dummy.o
+ .pdr           0x00000000000006a0       0x40 platform/common/main.o
+ .pdr           0x00000000000006e0      0x4c0 platform/common/emu.o
+ .pdr           0x0000000000000ba0      0x6c0 platform/common/menu_pico.o
+ .pdr           0x0000000000001260       0xa0 platform/common/config_file.o
+ .pdr           0x0000000000001300      0x440 platform/libpicofe/input.o
+ .pdr           0x0000000000001740       0x40 platform/libpicofe/readpng.o
+ .pdr           0x0000000000001780       0x60 platform/libpicofe/fonts.o
+ .pdr           0x00000000000017e0      0x160 platform/libpicofe/linux/in_evdev.o
+ .pdr           0x0000000000001940      0x180 platform/libpicofe/linux/plat.o
+ .pdr           0x0000000000001ac0       0xe0 platform/libpicofe/sndout.o
+ .pdr           0x0000000000001ba0       0xe0 platform/libpicofe/sndout_sdl.o
+ .pdr           0x0000000000001c80       0x80 platform/common/mp3.o
+ .pdr           0x0000000000001d00       0x40 platform/common/mp3_dummy.o
+ .pdr           0x0000000000001d40      0x100 unzip/unzip.o
+ .pdr           0x0000000000001e40      0x160 pico/pico.o
+ .pdr           0x0000000000001fa0      0x1a0 pico/cart.o
+ .pdr           0x0000000000002140      0x740 pico/memory.o
+ .pdr           0x0000000000002880      0x140 pico/state.o
+ .pdr           0x00000000000029c0      0x180 pico/sek.o
+ .pdr           0x0000000000002b40       0xc0 pico/z80if.o
+ .pdr           0x0000000000002c00      0x180 pico/videoport.o
+ .pdr           0x0000000000002d80      0x140 pico/draw2.o
+ .pdr           0x0000000000002ec0      0x4e0 pico/draw.o
+ .pdr           0x00000000000033a0      0x100 pico/mode4.o
+ .pdr           0x00000000000034a0       0x60 pico/misc.o
+ .pdr           0x0000000000003500       0x60 pico/eeprom.o
+ .pdr           0x0000000000003560      0x120 pico/patch.o
+ .pdr           0x0000000000003680      0x120 pico/debug.o
+ .pdr           0x00000000000037a0       0x40 pico/media.o
+ .pdr           0x00000000000037e0      0x140 pico/sms.o
+ .pdr           0x0000000000003920      0x260 pico/cd/mcd.o
+ .pdr           0x0000000000003b80      0x780 pico/cd/memory.o
+ .pdr           0x0000000000004300       0xa0 pico/cd/sek.o
+ .pdr           0x00000000000043a0      0x140 pico/cd/cdc.o
+ .pdr           0x00000000000044e0      0x120 pico/cd/cdd.o
+ .pdr           0x0000000000004600       0x20 pico/cd/cd_image.o
+ .pdr           0x0000000000004620       0x40 pico/cd/cue.o
+ .pdr           0x0000000000004660       0xa0 pico/cd/gfx.o
+ .pdr           0x0000000000004700       0x20 pico/cd/gfx_dma.o
+ .pdr           0x0000000000004720       0x40 pico/cd/misc.o
+ .pdr           0x0000000000004760       0x80 pico/cd/pcm.o
+ .pdr           0x00000000000047e0      0x2c0 pico/32x/32x.o
+ .pdr           0x0000000000004aa0      0x860 pico/32x/memory.o
+ .pdr           0x0000000000005300      0x200 pico/32x/draw.o
+ .pdr           0x0000000000005500      0x1a0 pico/32x/sh2soc.o
+ .pdr           0x00000000000056a0      0x140 pico/32x/pwm.o
+ .pdr           0x00000000000057e0       0x80 pico/pico/pico.o
+ .pdr           0x0000000000005860       0xa0 pico/pico/memory.o
+ .pdr           0x0000000000005900       0x60 pico/pico/xpcm.o
+ .pdr           0x0000000000005960      0x520 pico/carthw/carthw.o
+ .pdr           0x0000000000005e80       0x60 pico/carthw/eeprom_spi.o
+ .pdr           0x0000000000005ee0       0xc0 pico/carthw/svp/svp.o
+ .pdr           0x0000000000005fa0       0xe0 pico/carthw/svp/memory.o
+ .pdr           0x0000000000006080      0x360 pico/carthw/svp/ssp16.o
+ .pdr           0x00000000000063e0      0x160 pico/sound/sound.o
+ .pdr           0x0000000000006540       0x60 pico/sound/sn76496.o
+ .pdr           0x00000000000065a0      0x140 pico/sound/ym2612.o
+ .pdr           0x00000000000066e0       0xa0 pico/sound/mix.o
+ .pdr           0x0000000000006780      0x120 cpu/fame/famec.o
+ .pdr           0x00000000000068a0      0x1a0 cpu/cz80/cz80.o
+ .pdr           0x0000000000006a40       0x40 cpu/drc/cmn.o
+ .pdr           0x0000000000006a80      0x100 cpu/sh2/sh2.o
+ .pdr           0x0000000000006b80       0x60 cpu/sh2/mame/sh2pico.o
+ .pdr           0x0000000000006be0       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .pdr           0x0000000000006c00       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+ .pdr           0x0000000000006c20        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .pdr           0x0000000000006c20        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x8e8
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x18 platform/opendingux/inputmap.o
+ .debug_aranges
+                0x0000000000000018       0x20 platform/linux/emu.o
+ .debug_aranges
+                0x0000000000000038       0x20 platform/linux/blit.o
+ .debug_aranges
+                0x0000000000000058       0x20 platform/common/plat_sdl.o
+ .debug_aranges
+                0x0000000000000078       0x20 platform/libpicofe/plat_sdl.o
+ .debug_aranges
+                0x0000000000000098       0x20 platform/libpicofe/in_sdl.o
+ .debug_aranges
+                0x00000000000000b8       0x20 platform/libpicofe/plat_dummy.o
+ .debug_aranges
+                0x00000000000000d8       0x28 platform/common/main.o
+ .debug_aranges
+                0x0000000000000100       0x20 platform/common/emu.o
+ .debug_aranges
+                0x0000000000000120       0x20 platform/common/menu_pico.o
+ .debug_aranges
+                0x0000000000000140       0x20 platform/common/config_file.o
+ .debug_aranges
+                0x0000000000000160       0x20 platform/libpicofe/input.o
+ .debug_aranges
+                0x0000000000000180       0x20 platform/libpicofe/readpng.o
+ .debug_aranges
+                0x00000000000001a0       0x20 platform/libpicofe/fonts.o
+ .debug_aranges
+                0x00000000000001c0       0x20 platform/libpicofe/linux/in_evdev.o
+ .debug_aranges
+                0x00000000000001e0       0x20 platform/libpicofe/linux/plat.o
+ .debug_aranges
+                0x0000000000000200       0x20 platform/libpicofe/sndout.o
+ .debug_aranges
+                0x0000000000000220       0x20 platform/libpicofe/sndout_sdl.o
+ .debug_aranges
+                0x0000000000000240       0x20 platform/common/mp3.o
+ .debug_aranges
+                0x0000000000000260       0x20 platform/common/mp3_dummy.o
+ .debug_aranges
+                0x0000000000000280       0x20 unzip/unzip.o
+ .debug_aranges
+                0x00000000000002a0       0x20 pico/pico.o
+ .debug_aranges
+                0x00000000000002c0       0x28 pico/cart.o
+ .debug_aranges
+                0x00000000000002e8       0x20 pico/memory.o
+ .debug_aranges
+                0x0000000000000308       0x20 pico/state.o
+ .debug_aranges
+                0x0000000000000328       0x20 pico/sek.o
+ .debug_aranges
+                0x0000000000000348       0x20 pico/z80if.o
+ .debug_aranges
+                0x0000000000000368       0x20 pico/videoport.o
+ .debug_aranges
+                0x0000000000000388       0x20 pico/draw2.o
+ .debug_aranges
+                0x00000000000003a8       0x20 pico/draw.o
+ .debug_aranges
+                0x00000000000003c8       0x20 pico/mode4.o
+ .debug_aranges
+                0x00000000000003e8       0x20 pico/misc.o
+ .debug_aranges
+                0x0000000000000408       0x20 pico/eeprom.o
+ .debug_aranges
+                0x0000000000000428       0x20 pico/patch.o
+ .debug_aranges
+                0x0000000000000448       0x20 pico/debug.o
+ .debug_aranges
+                0x0000000000000468       0x20 pico/media.o
+ .debug_aranges
+                0x0000000000000488       0x20 pico/sms.o
+ .debug_aranges
+                0x00000000000004a8       0x20 pico/cd/mcd.o
+ .debug_aranges
+                0x00000000000004c8       0x20 pico/cd/memory.o
+ .debug_aranges
+                0x00000000000004e8       0x20 pico/cd/sek.o
+ .debug_aranges
+                0x0000000000000508       0x20 pico/cd/cdc.o
+ .debug_aranges
+                0x0000000000000528       0x20 pico/cd/cdd.o
+ .debug_aranges
+                0x0000000000000548       0x20 pico/cd/cd_image.o
+ .debug_aranges
+                0x0000000000000568       0x20 pico/cd/cue.o
+ .debug_aranges
+                0x0000000000000588       0x20 pico/cd/gfx.o
+ .debug_aranges
+                0x00000000000005a8       0x20 pico/cd/gfx_dma.o
+ .debug_aranges
+                0x00000000000005c8       0x20 pico/cd/misc.o
+ .debug_aranges
+                0x00000000000005e8       0x20 pico/cd/pcm.o
+ .debug_aranges
+                0x0000000000000608       0x20 pico/32x/32x.o
+ .debug_aranges
+                0x0000000000000628       0x20 pico/32x/memory.o
+ .debug_aranges
+                0x0000000000000648       0x20 pico/32x/draw.o
+ .debug_aranges
+                0x0000000000000668       0x20 pico/32x/sh2soc.o
+ .debug_aranges
+                0x0000000000000688       0x20 pico/32x/pwm.o
+ .debug_aranges
+                0x00000000000006a8       0x20 pico/pico/pico.o
+ .debug_aranges
+                0x00000000000006c8       0x20 pico/pico/memory.o
+ .debug_aranges
+                0x00000000000006e8       0x20 pico/pico/xpcm.o
+ .debug_aranges
+                0x0000000000000708       0x20 pico/carthw/carthw.o
+ .debug_aranges
+                0x0000000000000728       0x20 pico/carthw/eeprom_spi.o
+ .debug_aranges
+                0x0000000000000748       0x20 pico/carthw/svp/svp.o
+ .debug_aranges
+                0x0000000000000768       0x20 pico/carthw/svp/memory.o
+ .debug_aranges
+                0x0000000000000788       0x20 pico/carthw/svp/ssp16.o
+ .debug_aranges
+                0x00000000000007a8       0x20 pico/sound/sound.o
+ .debug_aranges
+                0x00000000000007c8       0x20 pico/sound/sn76496.o
+ .debug_aranges
+                0x00000000000007e8       0x20 pico/sound/ym2612.o
+ .debug_aranges
+                0x0000000000000808       0x20 pico/sound/mix.o
+ .debug_aranges
+                0x0000000000000828       0x20 cpu/cz80/cz80.o
+ .debug_aranges
+                0x0000000000000848       0x20 cpu/drc/cmn.o
+ .debug_aranges
+                0x0000000000000868       0x20 cpu/sh2/sh2.o
+ .debug_aranges
+                0x0000000000000888       0x20 cpu/sh2/mame/sh2pico.o
+ .debug_aranges
+                0x00000000000008a8       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .debug_aranges
+                0x00000000000008c8       0x20 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000    0x76cdc
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0x744 platform/opendingux/inputmap.o
+ .debug_info    0x0000000000000744     0x150d platform/linux/emu.o
+ .debug_info    0x0000000000001c51      0x1f7 platform/linux/blit.o
+ .debug_info    0x0000000000001e48     0x13b8 platform/common/plat_sdl.o
+ .debug_info    0x0000000000003200     0x1bce platform/libpicofe/plat_sdl.o
+ .debug_info    0x0000000000004dce     0x1ea7 platform/libpicofe/in_sdl.o
+ .debug_info    0x0000000000006c75      0x1cb platform/libpicofe/plat_dummy.o
+ .debug_info    0x0000000000006e40      0x6a6 platform/common/main.o
+ .debug_info    0x00000000000074e6     0x6830 platform/common/emu.o
+ .debug_info    0x000000000000dd16     0x8cdb platform/common/menu_pico.o
+ .debug_info    0x00000000000169f1     0x21cf platform/common/config_file.o
+ .debug_info    0x0000000000018bc0     0x2056 platform/libpicofe/input.o
+ .debug_info    0x000000000001ac16      0xa7c platform/libpicofe/readpng.o
+ .debug_info    0x000000000001b692      0x3a1 platform/libpicofe/fonts.o
+ .debug_info    0x000000000001ba33     0x14a8 platform/libpicofe/linux/in_evdev.o
+ .debug_info    0x000000000001cedb      0xcd2 platform/libpicofe/linux/plat.o
+ .debug_info    0x000000000001dbad      0x22b platform/libpicofe/sndout.o
+ .debug_info    0x000000000001ddd8      0x776 platform/libpicofe/sndout_sdl.o
+ .debug_info    0x000000000001e54e      0xa18 platform/common/mp3.o
+ .debug_info    0x000000000001ef66      0x2f8 platform/common/mp3_dummy.o
+ .debug_info    0x000000000001f25e     0x12c7 unzip/unzip.o
+ .debug_info    0x0000000000020525     0x1e7e pico/pico.o
+ .debug_info    0x00000000000223a3     0x45ae pico/cart.o
+ .debug_info    0x0000000000026951     0x4f45 pico/memory.o
+ .debug_info    0x000000000002b896     0x41ff pico/state.o
+ .debug_info    0x000000000002fa95      0xdc9 pico/sek.o
+ .debug_info    0x000000000003085e      0xf0c pico/z80if.o
+ .debug_info    0x000000000003176a     0x186b pico/videoport.o
+ .debug_info    0x0000000000032fd5     0x1607 pico/draw2.o
+ .debug_info    0x00000000000345dc     0x3810 pico/draw.o
+ .debug_info    0x0000000000037dec      0xef1 pico/mode4.o
+ .debug_info    0x0000000000038cdd      0x246 pico/misc.o
+ .debug_info    0x0000000000038f23      0xcc8 pico/eeprom.o
+ .debug_info    0x0000000000039beb     0x13cd pico/patch.o
+ .debug_info    0x000000000003afb8     0x3074 pico/debug.o
+ .debug_info    0x000000000003e02c     0x180d pico/media.o
+ .debug_info    0x000000000003f839     0x13d0 pico/sms.o
+ .debug_info    0x0000000000040c09     0x2492 pico/cd/mcd.o
+ .debug_info    0x000000000004309b     0x3687 pico/cd/memory.o
+ .debug_info    0x0000000000046722      0xe7f pico/cd/sek.o
+ .debug_info    0x00000000000475a1      0xef1 pico/cd/cdc.o
+ .debug_info    0x0000000000048492     0x19b8 pico/cd/cdd.o
+ .debug_info    0x0000000000049e4a     0x18f2 pico/cd/cd_image.o
+ .debug_info    0x000000000004b73c     0x17ac pico/cd/cue.o
+ .debug_info    0x000000000004cee8      0xf84 pico/cd/gfx.o
+ .debug_info    0x000000000004de6c      0xc21 pico/cd/gfx_dma.o
+ .debug_info    0x000000000004ea8d      0x1d7 pico/cd/misc.o
+ .debug_info    0x000000000004ec64      0xf80 pico/cd/pcm.o
+ .debug_info    0x000000000004fbe4     0x3259 pico/32x/32x.o
+ .debug_info    0x0000000000052e3d     0x404b pico/32x/memory.o
+ .debug_info    0x0000000000056e88     0x1ae2 pico/32x/draw.o
+ .debug_info    0x000000000005896a     0x1d37 pico/32x/sh2soc.o
+ .debug_info    0x000000000005a6a1     0x163b pico/32x/pwm.o
+ .debug_info    0x000000000005bcdc      0xbc9 pico/pico/pico.o
+ .debug_info    0x000000000005c8a5      0xd0f pico/pico/memory.o
+ .debug_info    0x000000000005d5b4      0x9db pico/pico/xpcm.o
+ .debug_info    0x000000000005df8f     0x2706 pico/carthw/carthw.o
+ .debug_info    0x0000000000060695      0x77c pico/carthw/eeprom_spi.o
+ .debug_info    0x0000000000060e11      0xc31 pico/carthw/svp/svp.o
+ .debug_info    0x0000000000061a42      0xfa5 pico/carthw/svp/memory.o
+ .debug_info    0x00000000000629e7     0x1e9d pico/carthw/svp/ssp16.o
+ .debug_info    0x0000000000064884     0x1b90 pico/sound/sound.o
+ .debug_info    0x0000000000066414      0x33d pico/sound/sn76496.o
+ .debug_info    0x0000000000066751     0x39d3 pico/sound/ym2612.o
+ .debug_info    0x000000000006a124      0x1b2 pico/sound/mix.o
+ .debug_info    0x000000000006a2d6     0x6cb2 cpu/cz80/cz80.o
+ .debug_info    0x0000000000070f88      0x6f5 cpu/drc/cmn.o
+ .debug_info    0x000000000007167d      0x62a cpu/sh2/sh2.o
+ .debug_info    0x0000000000071ca7     0x43ea cpu/sh2/mame/sh2pico.o
+ .debug_info    0x0000000000076091      0x601 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .debug_info    0x0000000000076692      0x64a /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+
+.debug_abbrev   0x0000000000000000     0xea2d
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0xb9 platform/opendingux/inputmap.o
+ .debug_abbrev  0x00000000000000b9      0x3d8 platform/linux/emu.o
+ .debug_abbrev  0x0000000000000491       0xf2 platform/linux/blit.o
+ .debug_abbrev  0x0000000000000583      0x2e3 platform/common/plat_sdl.o
+ .debug_abbrev  0x0000000000000866      0x386 platform/libpicofe/plat_sdl.o
+ .debug_abbrev  0x0000000000000bec      0x3d3 platform/libpicofe/in_sdl.o
+ .debug_abbrev  0x0000000000000fbf       0xbf platform/libpicofe/plat_dummy.o
+ .debug_abbrev  0x000000000000107e      0x1eb platform/common/main.o
+ .debug_abbrev  0x0000000000001269      0x6d2 platform/common/emu.o
+ .debug_abbrev  0x000000000000193b      0x6ce platform/common/menu_pico.o
+ .debug_abbrev  0x0000000000002009      0x39a platform/common/config_file.o
+ .debug_abbrev  0x00000000000023a3      0x4c4 platform/libpicofe/input.o
+ .debug_abbrev  0x0000000000002867      0x1c6 platform/libpicofe/readpng.o
+ .debug_abbrev  0x0000000000002a2d      0x184 platform/libpicofe/fonts.o
+ .debug_abbrev  0x0000000000002bb1      0x399 platform/libpicofe/linux/in_evdev.o
+ .debug_abbrev  0x0000000000002f4a      0x28b platform/libpicofe/linux/plat.o
+ .debug_abbrev  0x00000000000031d5      0x152 platform/libpicofe/sndout.o
+ .debug_abbrev  0x0000000000003327      0x21a platform/libpicofe/sndout_sdl.o
+ .debug_abbrev  0x0000000000003541      0x305 platform/common/mp3.o
+ .debug_abbrev  0x0000000000003846       0xe7 platform/common/mp3_dummy.o
+ .debug_abbrev  0x000000000000392d      0x33f unzip/unzip.o
+ .debug_abbrev  0x0000000000003c6c      0x4fd pico/pico.o
+ .debug_abbrev  0x0000000000004169      0x55d pico/cart.o
+ .debug_abbrev  0x00000000000046c6      0x72a pico/memory.o
+ .debug_abbrev  0x0000000000004df0      0x54c pico/state.o
+ .debug_abbrev  0x000000000000533c      0x370 pico/sek.o
+ .debug_abbrev  0x00000000000056ac      0x29b pico/z80if.o
+ .debug_abbrev  0x0000000000005947      0x4ed pico/videoport.o
+ .debug_abbrev  0x0000000000005e34      0x3a7 pico/draw2.o
+ .debug_abbrev  0x00000000000061db      0x513 pico/draw.o
+ .debug_abbrev  0x00000000000066ee      0x3dd pico/mode4.o
+ .debug_abbrev  0x0000000000006acb      0x144 pico/misc.o
+ .debug_abbrev  0x0000000000006c0f      0x2b5 pico/eeprom.o
+ .debug_abbrev  0x0000000000006ec4      0x373 pico/patch.o
+ .debug_abbrev  0x0000000000007237      0x402 pico/debug.o
+ .debug_abbrev  0x0000000000007639      0x39e pico/media.o
+ .debug_abbrev  0x00000000000079d7      0x3fb pico/sms.o
+ .debug_abbrev  0x0000000000007dd2      0x555 pico/cd/mcd.o
+ .debug_abbrev  0x0000000000008327      0x5f1 pico/cd/memory.o
+ .debug_abbrev  0x0000000000008918      0x2cb pico/cd/sek.o
+ .debug_abbrev  0x0000000000008be3      0x350 pico/cd/cdc.o
+ .debug_abbrev  0x0000000000008f33      0x415 pico/cd/cdd.o
+ .debug_abbrev  0x0000000000009348      0x33a pico/cd/cd_image.o
+ .debug_abbrev  0x0000000000009682      0x306 pico/cd/cue.o
+ .debug_abbrev  0x0000000000009988      0x36a pico/cd/gfx.o
+ .debug_abbrev  0x0000000000009cf2      0x212 pico/cd/gfx_dma.o
+ .debug_abbrev  0x0000000000009f04       0xd5 pico/cd/misc.o
+ .debug_abbrev  0x0000000000009fd9      0x27f pico/cd/pcm.o
+ .debug_abbrev  0x000000000000a258      0x5f5 pico/32x/32x.o
+ .debug_abbrev  0x000000000000a84d      0x607 pico/32x/memory.o
+ .debug_abbrev  0x000000000000ae54      0x37c pico/32x/draw.o
+ .debug_abbrev  0x000000000000b1d0      0x46d pico/32x/sh2soc.o
+ .debug_abbrev  0x000000000000b63d      0x428 pico/32x/pwm.o
+ .debug_abbrev  0x000000000000ba65      0x232 pico/pico/pico.o
+ .debug_abbrev  0x000000000000bc97      0x2a3 pico/pico/memory.o
+ .debug_abbrev  0x000000000000bf3a      0x200 pico/pico/xpcm.o
+ .debug_abbrev  0x000000000000c13a      0x4d7 pico/carthw/carthw.o
+ .debug_abbrev  0x000000000000c611      0x1a6 pico/carthw/eeprom_spi.o
+ .debug_abbrev  0x000000000000c7b7      0x333 pico/carthw/svp/svp.o
+ .debug_abbrev  0x000000000000caea      0x33b pico/carthw/svp/memory.o
+ .debug_abbrev  0x000000000000ce25      0x424 pico/carthw/svp/ssp16.o
+ .debug_abbrev  0x000000000000d249      0x4b5 pico/sound/sound.o
+ .debug_abbrev  0x000000000000d6fe      0x1a0 pico/sound/sn76496.o
+ .debug_abbrev  0x000000000000d89e      0x3c2 pico/sound/ym2612.o
+ .debug_abbrev  0x000000000000dc60       0x92 pico/sound/mix.o
+ .debug_abbrev  0x000000000000dcf2      0x433 cpu/cz80/cz80.o
+ .debug_abbrev  0x000000000000e125      0x159 cpu/drc/cmn.o
+ .debug_abbrev  0x000000000000e27e      0x1db cpu/sh2/sh2.o
+ .debug_abbrev  0x000000000000e459      0x30a cpu/sh2/mame/sh2pico.o
+ .debug_abbrev  0x000000000000e763      0x165 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .debug_abbrev  0x000000000000e8c8      0x165 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+
+.debug_line     0x0000000000000000    0x1df83
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000       0xed platform/opendingux/inputmap.o
+ .debug_line    0x00000000000000ed      0x302 platform/linux/emu.o
+ .debug_line    0x00000000000003ef       0xbf platform/linux/blit.o
+ .debug_line    0x00000000000004ae      0x69d platform/common/plat_sdl.o
+ .debug_line    0x0000000000000b4b      0x52d platform/libpicofe/plat_sdl.o
+ .debug_line    0x0000000000001078      0x5ae platform/libpicofe/in_sdl.o
+ .debug_line    0x0000000000001626       0x59 platform/libpicofe/plat_dummy.o
+ .debug_line    0x000000000000167f      0x2e5 platform/common/main.o
+ .debug_line    0x0000000000001964     0x14a4 platform/common/emu.o
+ .debug_line    0x0000000000002e08     0x278c platform/common/menu_pico.o
+ .debug_line    0x0000000000005594      0x7b5 platform/common/config_file.o
+ .debug_line    0x0000000000005d49      0x8f3 platform/libpicofe/input.o
+ .debug_line    0x000000000000663c      0x435 platform/libpicofe/readpng.o
+ .debug_line    0x0000000000006a71      0x1cc platform/libpicofe/fonts.o
+ .debug_line    0x0000000000006c3d      0x70d platform/libpicofe/linux/in_evdev.o
+ .debug_line    0x000000000000734a      0x43e platform/libpicofe/linux/plat.o
+ .debug_line    0x0000000000007788       0x77 platform/libpicofe/sndout.o
+ .debug_line    0x00000000000077ff      0x35d platform/libpicofe/sndout_sdl.o
+ .debug_line    0x0000000000007b5c      0x35b platform/common/mp3.o
+ .debug_line    0x0000000000007eb7      0x1e5 platform/common/mp3_dummy.o
+ .debug_line    0x000000000000809c      0x4c5 unzip/unzip.o
+ .debug_line    0x0000000000008561      0x725 pico/pico.o
+ .debug_line    0x0000000000008c86      0xc77 pico/cart.o
+ .debug_line    0x00000000000098fd      0xda4 pico/memory.o
+ .debug_line    0x000000000000a6a1      0xf58 pico/state.o
+ .debug_line    0x000000000000b5f9      0x2fc pico/sek.o
+ .debug_line    0x000000000000b8f5      0x1bf pico/z80if.o
+ .debug_line    0x000000000000bab4      0x4b7 pico/videoport.o
+ .debug_line    0x000000000000bf6b      0x52a pico/draw2.o
+ .debug_line    0x000000000000c495     0x14d5 pico/draw.o
+ .debug_line    0x000000000000d96a      0x2b6 pico/mode4.o
+ .debug_line    0x000000000000dc20       0x67 pico/misc.o
+ .debug_line    0x000000000000dc87      0x313 pico/eeprom.o
+ .debug_line    0x000000000000df9a      0x5c5 pico/patch.o
+ .debug_line    0x000000000000e55f      0x7b8 pico/debug.o
+ .debug_line    0x000000000000ed17      0x2b2 pico/media.o
+ .debug_line    0x000000000000efc9      0x332 pico/sms.o
+ .debug_line    0x000000000000f2fb      0x935 pico/cd/mcd.o
+ .debug_line    0x000000000000fc30      0xd95 pico/cd/memory.o
+ .debug_line    0x00000000000109c5      0x152 pico/cd/sek.o
+ .debug_line    0x0000000000010b17      0x37b pico/cd/cdc.o
+ .debug_line    0x0000000000010e92      0x5a6 pico/cd/cdd.o
+ .debug_line    0x0000000000011438      0x549 pico/cd/cd_image.o
+ .debug_line    0x0000000000011981      0x5df pico/cd/cue.o
+ .debug_line    0x0000000000011f60      0x370 pico/cd/gfx.o
+ .debug_line    0x00000000000122d0      0x147 pico/cd/gfx_dma.o
+ .debug_line    0x0000000000012417       0x8d pico/cd/misc.o
+ .debug_line    0x00000000000124a4      0x21b pico/cd/pcm.o
+ .debug_line    0x00000000000126bf      0xb19 pico/32x/32x.o
+ .debug_line    0x00000000000131d8      0xea7 pico/32x/memory.o
+ .debug_line    0x000000000001407f      0x50f pico/32x/draw.o
+ .debug_line    0x000000000001458e      0x4ea pico/32x/sh2soc.o
+ .debug_line    0x0000000000014a78      0x417 pico/32x/pwm.o
+ .debug_line    0x0000000000014e8f      0x175 pico/pico/pico.o
+ .debug_line    0x0000000000015004      0x174 pico/pico/memory.o
+ .debug_line    0x0000000000015178      0x15e pico/pico/xpcm.o
+ .debug_line    0x00000000000152d6      0x7ad pico/carthw/carthw.o
+ .debug_line    0x0000000000015a83      0x134 pico/carthw/eeprom_spi.o
+ .debug_line    0x0000000000015bb7      0x11b pico/carthw/svp/svp.o
+ .debug_line    0x0000000000015cd2      0x218 pico/carthw/svp/memory.o
+ .debug_line    0x0000000000015eea      0xd87 pico/carthw/svp/ssp16.o
+ .debug_line    0x0000000000016c71      0x4ec pico/sound/sound.o
+ .debug_line    0x000000000001715d      0x1a6 pico/sound/sn76496.o
+ .debug_line    0x0000000000017303     0x2694 pico/sound/ym2612.o
+ .debug_line    0x0000000000019997       0x79 pico/sound/mix.o
+ .debug_line    0x0000000000019a10     0x39ad cpu/cz80/cz80.o
+ .debug_line    0x000000000001d3bd       0x77 cpu/drc/cmn.o
+ .debug_line    0x000000000001d434      0x10d cpu/sh2/sh2.o
+ .debug_line    0x000000000001d541      0x8d5 cpu/sh2/mame/sh2pico.o
+ .debug_line    0x000000000001de16       0xb5 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .debug_line    0x000000000001decb       0xb8 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+
+.debug_frame    0x0000000000000000     0x7bb0
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000      0x1f4 platform/linux/emu.o
+ .debug_frame   0x00000000000001f4       0x70 platform/linux/blit.o
+ .debug_frame   0x0000000000000264      0x190 platform/common/plat_sdl.o
+ .debug_frame   0x00000000000003f4       0xdc platform/libpicofe/plat_sdl.o
+ .debug_frame   0x00000000000004d0      0x130 platform/libpicofe/in_sdl.o
+ .debug_frame   0x0000000000000600       0x40 platform/libpicofe/plat_dummy.o
+ .debug_frame   0x0000000000000640       0x8c platform/common/main.o
+ .debug_frame   0x00000000000006cc      0x710 platform/common/emu.o
+ .debug_frame   0x0000000000000ddc      0xa1c platform/common/menu_pico.o
+ .debug_frame   0x00000000000017f8      0x15c platform/common/config_file.o
+ .debug_frame   0x0000000000001954      0x57c platform/libpicofe/input.o
+ .debug_frame   0x0000000000001ed0       0x80 platform/libpicofe/readpng.o
+ .debug_frame   0x0000000000001f50       0x8c platform/libpicofe/fonts.o
+ .debug_frame   0x0000000000001fdc      0x1b0 platform/libpicofe/linux/in_evdev.o
+ .debug_frame   0x000000000000218c      0x1f8 platform/libpicofe/linux/plat.o
+ .debug_frame   0x0000000000002384       0x94 platform/libpicofe/sndout.o
+ .debug_frame   0x0000000000002418      0x138 platform/libpicofe/sndout_sdl.o
+ .debug_frame   0x0000000000002550       0xd0 platform/common/mp3.o
+ .debug_frame   0x0000000000002620       0x30 platform/common/mp3_dummy.o
+ .debug_frame   0x0000000000002650      0x190 unzip/unzip.o
+ .debug_frame   0x00000000000027e0      0x1f4 pico/pico.o
+ .debug_frame   0x00000000000029d4      0x328 pico/cart.o
+ .debug_frame   0x0000000000002cfc      0x610 pico/memory.o
+ .debug_frame   0x000000000000330c      0x1a0 pico/state.o
+ .debug_frame   0x00000000000034ac      0x15c pico/sek.o
+ .debug_frame   0x0000000000003608       0xc4 pico/z80if.o
+ .debug_frame   0x00000000000036cc      0x164 pico/videoport.o
+ .debug_frame   0x0000000000003830      0x198 pico/draw2.o
+ .debug_frame   0x00000000000039c8      0x4e0 pico/draw.o
+ .debug_frame   0x0000000000003ea8      0x150 pico/mode4.o
+ .debug_frame   0x0000000000003ff8       0x40 pico/misc.o
+ .debug_frame   0x0000000000004038       0x40 pico/eeprom.o
+ .debug_frame   0x0000000000004078      0x1f4 pico/patch.o
+ .debug_frame   0x000000000000426c      0x1cc pico/debug.o
+ .debug_frame   0x0000000000004438       0xa0 pico/media.o
+ .debug_frame   0x00000000000044d8      0x1e4 pico/sms.o
+ .debug_frame   0x00000000000046bc      0x314 pico/cd/mcd.o
+ .debug_frame   0x00000000000049d0      0x620 pico/cd/memory.o
+ .debug_frame   0x0000000000004ff0       0x80 pico/cd/sek.o
+ .debug_frame   0x0000000000005070      0x128 pico/cd/cdc.o
+ .debug_frame   0x0000000000005198      0x168 pico/cd/cdd.o
+ .debug_frame   0x0000000000005300       0x6c pico/cd/cd_image.o
+ .debug_frame   0x000000000000536c       0xac pico/cd/cue.o
+ .debug_frame   0x0000000000005418       0xcc pico/cd/gfx.o
+ .debug_frame   0x00000000000054e4       0x20 pico/cd/gfx_dma.o
+ .debug_frame   0x0000000000005504       0x30 pico/cd/misc.o
+ .debug_frame   0x0000000000005534       0xd0 pico/cd/pcm.o
+ .debug_frame   0x0000000000005604      0x300 pico/32x/32x.o
+ .debug_frame   0x0000000000005904      0x86c pico/32x/memory.o
+ .debug_frame   0x0000000000006170      0x2ac pico/32x/draw.o
+ .debug_frame   0x000000000000641c      0x260 pico/32x/sh2soc.o
+ .debug_frame   0x000000000000667c      0x1c4 pico/32x/pwm.o
+ .debug_frame   0x0000000000006840       0x80 pico/pico/pico.o
+ .debug_frame   0x00000000000068c0       0x74 pico/pico/memory.o
+ .debug_frame   0x0000000000006934       0x7c pico/pico/xpcm.o
+ .debug_frame   0x00000000000069b0      0x670 pico/carthw/carthw.o
+ .debug_frame   0x0000000000007020       0x40 pico/carthw/eeprom_spi.o
+ .debug_frame   0x0000000000007060       0x90 pico/carthw/svp/svp.o
+ .debug_frame   0x00000000000070f0       0x98 pico/carthw/svp/memory.o
+ .debug_frame   0x0000000000007188      0x1ec pico/carthw/svp/ssp16.o
+ .debug_frame   0x0000000000007374      0x1ec pico/sound/sound.o
+ .debug_frame   0x0000000000007560       0x74 pico/sound/sn76496.o
+ .debug_frame   0x00000000000075d4      0x1d0 pico/sound/ym2612.o
+ .debug_frame   0x00000000000077a4       0x60 pico/sound/mix.o
+ .debug_frame   0x0000000000007804      0x190 cpu/cz80/cz80.o
+ .debug_frame   0x0000000000007994       0x40 cpu/drc/cmn.o
+ .debug_frame   0x00000000000079d4       0xf8 cpu/sh2/sh2.o
+ .debug_frame   0x0000000000007acc       0xe4 cpu/sh2/mame/sh2pico.o
+
+.debug_str      0x0000000000000000     0xe26a
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0xc60 platform/opendingux/inputmap.o
+                                        0xc9e (size before relaxing)
+ .debug_str     0x0000000000000c60      0x978 platform/linux/emu.o
+                                        0xc02 (size before relaxing)
+ .debug_str     0x00000000000015d8       0x81 platform/linux/blit.o
+                                        0x14e (size before relaxing)
+ .debug_str     0x0000000000001659      0x710 platform/common/plat_sdl.o
+                                       0x140d (size before relaxing)
+ .debug_str     0x0000000000001d69      0x450 platform/libpicofe/plat_sdl.o
+                                       0x16d8 (size before relaxing)
+ .debug_str     0x00000000000021b9      0x35d platform/libpicofe/in_sdl.o
+                                       0x1681 (size before relaxing)
+ .debug_str     0x0000000000002516       0x49 platform/libpicofe/plat_dummy.o
+                                        0x221 (size before relaxing)
+ .debug_str     0x000000000000255f      0x127 platform/common/main.o
+                                        0x485 (size before relaxing)
+ .debug_str     0x0000000000002686      0xaa8 platform/common/emu.o
+                                       0x17e7 (size before relaxing)
+ .debug_str     0x000000000000312e     0x1276 platform/common/menu_pico.o
+                                       0x20b2 (size before relaxing)
+ .debug_str     0x00000000000043a4      0x10c platform/common/config_file.o
+                                        0xe9a (size before relaxing)
+ .debug_str     0x00000000000044b0      0x44e platform/libpicofe/input.o
+                                        0x88c (size before relaxing)
+ .debug_str     0x00000000000048fe       0xfe platform/libpicofe/readpng.o
+                                        0x3fb (size before relaxing)
+ .debug_str     0x00000000000049fc       0x57 platform/libpicofe/fonts.o
+                                        0x1dd (size before relaxing)
+ .debug_str     0x0000000000004a53      0x2a6 platform/libpicofe/linux/in_evdev.o
+                                        0x7c9 (size before relaxing)
+ .debug_str     0x0000000000004cf9      0x151 platform/libpicofe/linux/plat.o
+                                        0x54b (size before relaxing)
+ .debug_str     0x0000000000004e4a       0x7e platform/libpicofe/sndout.o
+                                        0x201 (size before relaxing)
+ .debug_str     0x0000000000004ec8       0xd5 platform/libpicofe/sndout_sdl.o
+                                        0x5b5 (size before relaxing)
+ .debug_str     0x0000000000004f9d      0x100 platform/common/mp3.o
+                                        0x4f6 (size before relaxing)
+ .debug_str     0x000000000000509d       0x42 platform/common/mp3_dummy.o
+                                        0x2e1 (size before relaxing)
+ .debug_str     0x00000000000050df      0x3e6 unzip/unzip.o
+                                        0x6d8 (size before relaxing)
+ .debug_str     0x00000000000054c5      0x48f pico/pico.o
+                                        0xad1 (size before relaxing)
+ .debug_str     0x0000000000005954      0x372 pico/cart.o
+                                        0xe9f (size before relaxing)
+ .debug_str     0x0000000000005cc6      0x551 pico/memory.o
+                                        0xe99 (size before relaxing)
+ .debug_str     0x0000000000006217      0x6a0 pico/state.o
+                                        0xef3 (size before relaxing)
+ .debug_str     0x00000000000068b7      0x111 pico/sek.o
+                                        0x808 (size before relaxing)
+ .debug_str     0x00000000000069c8      0x120 pico/z80if.o
+                                        0x791 (size before relaxing)
+ .debug_str     0x0000000000006ae8      0x159 pico/videoport.o
+                                        0xa31 (size before relaxing)
+ .debug_str     0x0000000000006c41      0x295 pico/draw2.o
+                                        0x7a6 (size before relaxing)
+ .debug_str     0x0000000000006ed6      0x512 pico/draw.o
+                                        0xbf2 (size before relaxing)
+ .debug_str     0x00000000000073e8      0x11a pico/mode4.o
+                                        0x7bf (size before relaxing)
+ .debug_str     0x0000000000007502       0x42 pico/misc.o
+                                        0x22d (size before relaxing)
+ .debug_str     0x0000000000007544       0x7e pico/eeprom.o
+                                        0x692 (size before relaxing)
+ .debug_str     0x00000000000075c2       0xdb pico/patch.o
+                                        0x832 (size before relaxing)
+ .debug_str     0x000000000000769d       0xe7 pico/debug.o
+                                        0xf95 (size before relaxing)
+ .debug_str     0x0000000000007784      0x14b pico/media.o
+                                        0xa02 (size before relaxing)
+ .debug_str     0x00000000000078cf       0xf4 pico/sms.o
+                                        0x843 (size before relaxing)
+ .debug_str     0x00000000000079c3      0x23c pico/cd/mcd.o
+                                        0xd6a (size before relaxing)
+ .debug_str     0x0000000000007bff      0x59d pico/cd/memory.o
+                                        0xefe (size before relaxing)
+ .debug_str     0x000000000000819c       0x7e pico/cd/sek.o
+                                        0x85f (size before relaxing)
+ .debug_str     0x000000000000821a      0x166 pico/cd/cdc.o
+                                        0x823 (size before relaxing)
+ .debug_str     0x0000000000008380      0x142 pico/cd/cdd.o
+                                        0x8ef (size before relaxing)
+ .debug_str     0x00000000000084c2       0xa1 pico/cd/cd_image.o
+                                        0x957 (size before relaxing)
+ .debug_str     0x0000000000008563       0xb3 pico/cd/cue.o
+                                        0x735 (size before relaxing)
+ .debug_str     0x0000000000008616      0x138 pico/cd/gfx.o
+                                        0x896 (size before relaxing)
+ .debug_str     0x000000000000874e       0x23 pico/cd/gfx_dma.o
+                                        0x658 (size before relaxing)
+ .debug_str     0x0000000000008771       0x39 pico/cd/misc.o
+                                        0x212 (size before relaxing)
+ .debug_str     0x00000000000087aa       0x5d pico/cd/pcm.o
+                                        0x844 (size before relaxing)
+ .debug_str     0x0000000000008807      0x292 pico/32x/32x.o
+                                        0xefd (size before relaxing)
+ .debug_str     0x0000000000008a99      0x697 pico/32x/memory.o
+                                       0x1069 (size before relaxing)
+ .debug_str     0x0000000000009130      0x1e9 pico/32x/draw.o
+                                        0x8db (size before relaxing)
+ .debug_str     0x0000000000009319      0x1d8 pico/32x/sh2soc.o
+                                        0xa3d (size before relaxing)
+ .debug_str     0x00000000000094f1      0x181 pico/32x/pwm.o
+                                        0xa62 (size before relaxing)
+ .debug_str     0x0000000000009672       0x8c pico/pico/pico.o
+                                        0x7c1 (size before relaxing)
+ .debug_str     0x00000000000096fe       0x76 pico/pico/memory.o
+                                        0x72d (size before relaxing)
+ .debug_str     0x0000000000009774       0x8a pico/pico/xpcm.o
+                                        0x69d (size before relaxing)
+ .debug_str     0x00000000000097fe      0x49e pico/carthw/carthw.o
+                                        0xba1 (size before relaxing)
+ .debug_str     0x0000000000009c9c       0xa2 pico/carthw/eeprom_spi.o
+                                        0x5af (size before relaxing)
+ .debug_str     0x0000000000009d3e      0x135 pico/carthw/svp/svp.o
+                                        0x756 (size before relaxing)
+ .debug_str     0x0000000000009e73      0x106 pico/carthw/svp/memory.o
+                                        0x776 (size before relaxing)
+ .debug_str     0x0000000000009f79      0x1a3 pico/carthw/svp/ssp16.o
+                                        0x7dc (size before relaxing)
+ .debug_str     0x000000000000a11c      0x153 pico/sound/sound.o
+                                        0xa63 (size before relaxing)
+ .debug_str     0x000000000000a26f       0xc6 pico/sound/sn76496.o
+                                        0x1d0 (size before relaxing)
+ .debug_str     0x000000000000a335      0x499 pico/sound/ym2612.o
+                                        0x79c (size before relaxing)
+ .debug_str     0x000000000000a7ce       0x79 pico/sound/mix.o
+                                        0x123 (size before relaxing)
+ .debug_str     0x000000000000a847     0x33c7 cpu/cz80/cz80.o
+                                       0x368e (size before relaxing)
+ .debug_str     0x000000000000dc0e       0x41 cpu/drc/cmn.o
+                                        0x52b (size before relaxing)
+ .debug_str     0x000000000000dc4f       0x7a cpu/sh2/sh2.o
+                                        0x324 (size before relaxing)
+ .debug_str     0x000000000000dcc9      0x3d4 cpu/sh2/mame/sh2pico.o
+                                        0x6bd (size before relaxing)
+ .debug_str     0x000000000000e09d      0x1c4 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+                                        0x282 (size before relaxing)
+ .debug_str     0x000000000000e261        0x9 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+                                        0x282 (size before relaxing)
+
+.debug_loc      0x0000000000000000    0x6f622
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x4a5 platform/linux/emu.o
+ .debug_loc     0x00000000000004a5      0x424 platform/linux/blit.o
+ .debug_loc     0x00000000000008c9      0x4a4 platform/common/plat_sdl.o
+ .debug_loc     0x0000000000000d6d      0x3ea platform/libpicofe/plat_sdl.o
+ .debug_loc     0x0000000000001157     0x1bd1 platform/libpicofe/in_sdl.o
+ .debug_loc     0x0000000000002d28      0x1bc platform/common/main.o
+ .debug_loc     0x0000000000002ee4     0x5bea platform/common/emu.o
+ .debug_loc     0x0000000000008ace     0xc247 platform/common/menu_pico.o
+ .debug_loc     0x0000000000014d15     0x10d5 platform/common/config_file.o
+ .debug_loc     0x0000000000015dea     0x2ea1 platform/libpicofe/input.o
+ .debug_loc     0x0000000000018c8b      0xad9 platform/libpicofe/readpng.o
+ .debug_loc     0x0000000000019764      0x6d0 platform/libpicofe/fonts.o
+ .debug_loc     0x0000000000019e34     0x11fa platform/libpicofe/linux/in_evdev.o
+ .debug_loc     0x000000000001b02e      0xb31 platform/libpicofe/linux/plat.o
+ .debug_loc     0x000000000001bb5f       0x2c platform/libpicofe/sndout.o
+ .debug_loc     0x000000000001bb8b      0x3c6 platform/libpicofe/sndout_sdl.o
+ .debug_loc     0x000000000001bf51      0x7b0 platform/common/mp3.o
+ .debug_loc     0x000000000001c701      0xecd unzip/unzip.o
+ .debug_loc     0x000000000001d5ce     0x12d0 pico/pico.o
+ .debug_loc     0x000000000001e89e     0x2464 pico/cart.o
+ .debug_loc     0x0000000000020d02     0x61c6 pico/memory.o
+ .debug_loc     0x0000000000026ec8     0x17c7 pico/state.o
+ .debug_loc     0x000000000002868f      0x3c3 pico/sek.o
+ .debug_loc     0x0000000000028a52      0x103 pico/z80if.o
+ .debug_loc     0x0000000000028b55      0xe73 pico/videoport.o
+ .debug_loc     0x00000000000299c8     0x1e0d pico/draw2.o
+ .debug_loc     0x000000000002b7d5     0x78c2 pico/draw.o
+ .debug_loc     0x0000000000033097      0xe15 pico/mode4.o
+ .debug_loc     0x0000000000033eac      0x12d pico/misc.o
+ .debug_loc     0x0000000000033fd9      0x99f pico/eeprom.o
+ .debug_loc     0x0000000000034978      0xf74 pico/patch.o
+ .debug_loc     0x00000000000358ec     0x113a pico/debug.o
+ .debug_loc     0x0000000000036a26      0xa81 pico/media.o
+ .debug_loc     0x00000000000374a7      0x788 pico/sms.o
+ .debug_loc     0x0000000000037c2f     0x1577 pico/cd/mcd.o
+ .debug_loc     0x00000000000391a6     0x5209 pico/cd/memory.o
+ .debug_loc     0x000000000003e3af      0x14a pico/cd/sek.o
+ .debug_loc     0x000000000003e4f9      0x797 pico/cd/cdc.o
+ .debug_loc     0x000000000003ec90      0xc2e pico/cd/cdd.o
+ .debug_loc     0x000000000003f8be      0xe7c pico/cd/cd_image.o
+ .debug_loc     0x000000000004073a     0x17bd pico/cd/cue.o
+ .debug_loc     0x0000000000041ef7      0x9b6 pico/cd/gfx.o
+ .debug_loc     0x00000000000428ad      0x3e4 pico/cd/gfx_dma.o
+ .debug_loc     0x0000000000042c91      0x11c pico/cd/misc.o
+ .debug_loc     0x0000000000042dad      0x464 pico/cd/pcm.o
+ .debug_loc     0x0000000000043211     0x1c9a pico/32x/32x.o
+ .debug_loc     0x0000000000044eab     0x461f pico/32x/memory.o
+ .debug_loc     0x00000000000494ca     0x1dd0 pico/32x/draw.o
+ .debug_loc     0x000000000004b29a     0x17be pico/32x/sh2soc.o
+ .debug_loc     0x000000000004ca58      0xdcc pico/32x/pwm.o
+ .debug_loc     0x000000000004d824       0x1e pico/pico/pico.o
+ .debug_loc     0x000000000004d842      0x16f pico/pico/memory.o
+ .debug_loc     0x000000000004d9b1      0x2b6 pico/pico/xpcm.o
+ .debug_loc     0x000000000004dc67     0x21f7 pico/carthw/carthw.o
+ .debug_loc     0x000000000004fe5e       0x21 pico/carthw/eeprom_spi.o
+ .debug_loc     0x000000000004fe7f       0x96 pico/carthw/svp/svp.o
+ .debug_loc     0x000000000004ff15      0x3b5 pico/carthw/svp/memory.o
+ .debug_loc     0x00000000000502ca     0x34a9 pico/carthw/svp/ssp16.o
+ .debug_loc     0x0000000000053773      0xe3b pico/sound/sound.o
+ .debug_loc     0x00000000000545ae      0x37b pico/sound/sn76496.o
+ .debug_loc     0x0000000000054929     0xfd0d pico/sound/ym2612.o
+ .debug_loc     0x0000000000064636      0x397 pico/sound/mix.o
+ .debug_loc     0x00000000000649cd     0x5d67 cpu/cz80/cz80.o
+ .debug_loc     0x000000000006a734       0x1f cpu/drc/cmn.o
+ .debug_loc     0x000000000006a753      0x2ce cpu/sh2/sh2.o
+ .debug_loc     0x000000000006aa21     0x3ae0 cpu/sh2/mame/sh2pico.o
+ .debug_loc     0x000000000006e501      0x8b6 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .debug_loc     0x000000000006edb7      0x86b /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000    0x10040
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000      0x198 platform/linux/emu.o
+ .debug_ranges  0x0000000000000198       0x18 platform/common/plat_sdl.o
+ .debug_ranges  0x00000000000001b0       0x18 platform/libpicofe/plat_sdl.o
+ .debug_ranges  0x00000000000001c8      0x228 platform/libpicofe/in_sdl.o
+ .debug_ranges  0x00000000000003f0       0x18 platform/common/main.o
+ .debug_ranges  0x0000000000000408     0x14d0 platform/common/emu.o
+ .debug_ranges  0x00000000000018d8     0x1d30 platform/common/menu_pico.o
+ .debug_ranges  0x0000000000003608      0x6c0 platform/common/config_file.o
+ .debug_ranges  0x0000000000003cc8      0x330 platform/libpicofe/input.o
+ .debug_ranges  0x0000000000003ff8       0xe8 platform/libpicofe/readpng.o
+ .debug_ranges  0x00000000000040e0       0x30 platform/libpicofe/fonts.o
+ .debug_ranges  0x0000000000004110      0x140 platform/libpicofe/linux/in_evdev.o
+ .debug_ranges  0x0000000000004250       0x60 platform/libpicofe/linux/plat.o
+ .debug_ranges  0x00000000000042b0      0x1a8 platform/common/mp3.o
+ .debug_ranges  0x0000000000004458      0x230 unzip/unzip.o
+ .debug_ranges  0x0000000000004688      0x540 pico/pico.o
+ .debug_ranges  0x0000000000004bc8      0x670 pico/cart.o
+ .debug_ranges  0x0000000000005238      0xba8 pico/memory.o
+ .debug_ranges  0x0000000000005de0      0x320 pico/state.o
+ .debug_ranges  0x0000000000006100       0x48 pico/sek.o
+ .debug_ranges  0x0000000000006148       0x40 pico/z80if.o
+ .debug_ranges  0x0000000000006188      0x2d0 pico/videoport.o
+ .debug_ranges  0x0000000000006458      0x208 pico/draw2.o
+ .debug_ranges  0x0000000000006660      0x9b0 pico/draw.o
+ .debug_ranges  0x0000000000007010       0xd8 pico/mode4.o
+ .debug_ranges  0x00000000000070e8      0x400 pico/eeprom.o
+ .debug_ranges  0x00000000000074e8      0x100 pico/patch.o
+ .debug_ranges  0x00000000000075e8      0x100 pico/debug.o
+ .debug_ranges  0x00000000000076e8       0xd8 pico/media.o
+ .debug_ranges  0x00000000000077c0      0x108 pico/sms.o
+ .debug_ranges  0x00000000000078c8      0x610 pico/cd/mcd.o
+ .debug_ranges  0x0000000000007ed8      0x970 pico/cd/memory.o
+ .debug_ranges  0x0000000000008848       0xe0 pico/cd/cdc.o
+ .debug_ranges  0x0000000000008928      0x7a8 pico/cd/cdd.o
+ .debug_ranges  0x00000000000090d0      0x248 pico/cd/cd_image.o
+ .debug_ranges  0x0000000000009318      0x2f0 pico/cd/cue.o
+ .debug_ranges  0x0000000000009608       0x68 pico/cd/gfx.o
+ .debug_ranges  0x0000000000009670       0x90 pico/cd/gfx_dma.o
+ .debug_ranges  0x0000000000009700      0x730 pico/32x/32x.o
+ .debug_ranges  0x0000000000009e30      0x848 pico/32x/memory.o
+ .debug_ranges  0x000000000000a678      0x1d8 pico/32x/draw.o
+ .debug_ranges  0x000000000000a850      0x2d8 pico/32x/sh2soc.o
+ .debug_ranges  0x000000000000ab28      0x260 pico/32x/pwm.o
+ .debug_ranges  0x000000000000ad88       0x48 pico/pico/memory.o
+ .debug_ranges  0x000000000000add0       0x50 pico/pico/xpcm.o
+ .debug_ranges  0x000000000000ae20      0x6c0 pico/carthw/carthw.o
+ .debug_ranges  0x000000000000b4e0       0x40 pico/carthw/svp/memory.o
+ .debug_ranges  0x000000000000b520      0xc48 pico/carthw/svp/ssp16.o
+ .debug_ranges  0x000000000000c168      0x120 pico/sound/sound.o
+ .debug_ranges  0x000000000000c288       0x80 pico/sound/sn76496.o
+ .debug_ranges  0x000000000000c308     0x1698 pico/sound/ym2612.o
+ .debug_ranges  0x000000000000d9a0     0x1dc8 cpu/cz80/cz80.o
+ .debug_ranges  0x000000000000f768       0x58 cpu/sh2/sh2.o
+ .debug_ranges  0x000000000000f7c0      0x730 cpu/sh2/mame/sh2pico.o
+ .debug_ranges  0x000000000000fef0       0xb0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .debug_ranges  0x000000000000ffa0       0xa0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+
+.debug_macro
+ *(.debug_macro)
+
+.gnu.attributes
+                0x0000000000000000       0x10
+ *(.gnu.attributes)
+ .gnu.attributes
+                0x0000000000000000       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crt1.o
+ .gnu.attributes
+                0x0000000000000010       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .gnu.attributes
+                0x0000000000000020       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .gnu.attributes
+                0x0000000000000030       0x10 platform/opendingux/inputmap.o
+ .gnu.attributes
+                0x0000000000000040       0x10 platform/linux/emu.o
+ .gnu.attributes
+                0x0000000000000050       0x10 platform/linux/blit.o
+ .gnu.attributes
+                0x0000000000000060       0x10 platform/common/plat_sdl.o
+ .gnu.attributes
+                0x0000000000000070       0x10 platform/libpicofe/plat_sdl.o
+ .gnu.attributes
+                0x0000000000000080       0x10 platform/libpicofe/in_sdl.o
+ .gnu.attributes
+                0x0000000000000090       0x10 platform/libpicofe/plat_dummy.o
+ .gnu.attributes
+                0x00000000000000a0       0x10 platform/common/main.o
+ .gnu.attributes
+                0x00000000000000b0       0x10 platform/common/emu.o
+ .gnu.attributes
+                0x00000000000000c0       0x10 platform/common/menu_pico.o
+ .gnu.attributes
+                0x00000000000000d0       0x10 platform/common/config_file.o
+ .gnu.attributes
+                0x00000000000000e0       0x10 platform/libpicofe/input.o
+ .gnu.attributes
+                0x00000000000000f0       0x10 platform/libpicofe/readpng.o
+ .gnu.attributes
+                0x0000000000000100       0x10 platform/libpicofe/fonts.o
+ .gnu.attributes
+                0x0000000000000110       0x10 platform/libpicofe/linux/in_evdev.o
+ .gnu.attributes
+                0x0000000000000120       0x10 platform/libpicofe/linux/plat.o
+ .gnu.attributes
+                0x0000000000000130       0x10 platform/libpicofe/sndout.o
+ .gnu.attributes
+                0x0000000000000140       0x10 platform/libpicofe/sndout_sdl.o
+ .gnu.attributes
+                0x0000000000000150       0x10 platform/common/mp3.o
+ .gnu.attributes
+                0x0000000000000160       0x10 platform/common/mp3_dummy.o
+ .gnu.attributes
+                0x0000000000000170       0x10 unzip/unzip.o
+ .gnu.attributes
+                0x0000000000000180       0x10 pico/pico.o
+ .gnu.attributes
+                0x0000000000000190       0x10 pico/cart.o
+ .gnu.attributes
+                0x00000000000001a0       0x10 pico/memory.o
+ .gnu.attributes
+                0x00000000000001b0       0x10 pico/state.o
+ .gnu.attributes
+                0x00000000000001c0       0x10 pico/sek.o
+ .gnu.attributes
+                0x00000000000001d0       0x10 pico/z80if.o
+ .gnu.attributes
+                0x00000000000001e0       0x10 pico/videoport.o
+ .gnu.attributes
+                0x00000000000001f0       0x10 pico/draw2.o
+ .gnu.attributes
+                0x0000000000000200       0x10 pico/draw.o
+ .gnu.attributes
+                0x0000000000000210       0x10 pico/mode4.o
+ .gnu.attributes
+                0x0000000000000220       0x10 pico/misc.o
+ .gnu.attributes
+                0x0000000000000230       0x10 pico/eeprom.o
+ .gnu.attributes
+                0x0000000000000240       0x10 pico/patch.o
+ .gnu.attributes
+                0x0000000000000250       0x10 pico/debug.o
+ .gnu.attributes
+                0x0000000000000260       0x10 pico/media.o
+ .gnu.attributes
+                0x0000000000000270       0x10 pico/sms.o
+ .gnu.attributes
+                0x0000000000000280       0x10 pico/cd/mcd.o
+ .gnu.attributes
+                0x0000000000000290       0x10 pico/cd/memory.o
+ .gnu.attributes
+                0x00000000000002a0       0x10 pico/cd/sek.o
+ .gnu.attributes
+                0x00000000000002b0       0x10 pico/cd/cdc.o
+ .gnu.attributes
+                0x00000000000002c0       0x10 pico/cd/cdd.o
+ .gnu.attributes
+                0x00000000000002d0       0x10 pico/cd/cd_image.o
+ .gnu.attributes
+                0x00000000000002e0       0x10 pico/cd/cue.o
+ .gnu.attributes
+                0x00000000000002f0       0x10 pico/cd/gfx.o
+ .gnu.attributes
+                0x0000000000000300       0x10 pico/cd/gfx_dma.o
+ .gnu.attributes
+                0x0000000000000310       0x10 pico/cd/misc.o
+ .gnu.attributes
+                0x0000000000000320       0x10 pico/cd/pcm.o
+ .gnu.attributes
+                0x0000000000000330       0x10 pico/32x/32x.o
+ .gnu.attributes
+                0x0000000000000340       0x10 pico/32x/memory.o
+ .gnu.attributes
+                0x0000000000000350       0x10 pico/32x/draw.o
+ .gnu.attributes
+                0x0000000000000360       0x10 pico/32x/sh2soc.o
+ .gnu.attributes
+                0x0000000000000370       0x10 pico/32x/pwm.o
+ .gnu.attributes
+                0x0000000000000380       0x10 pico/pico/pico.o
+ .gnu.attributes
+                0x0000000000000390       0x10 pico/pico/memory.o
+ .gnu.attributes
+                0x00000000000003a0       0x10 pico/pico/xpcm.o
+ .gnu.attributes
+                0x00000000000003b0       0x10 pico/carthw/carthw.o
+ .gnu.attributes
+                0x00000000000003c0       0x10 pico/carthw/eeprom_spi.o
+ .gnu.attributes
+                0x00000000000003d0       0x10 pico/carthw/svp/svp.o
+ .gnu.attributes
+                0x00000000000003e0       0x10 pico/carthw/svp/memory.o
+ .gnu.attributes
+                0x00000000000003f0       0x10 pico/carthw/svp/ssp16.o
+ .gnu.attributes
+                0x0000000000000400       0x10 pico/sound/sound.o
+ .gnu.attributes
+                0x0000000000000410       0x10 pico/sound/sn76496.o
+ .gnu.attributes
+                0x0000000000000420       0x10 pico/sound/ym2612.o
+ .gnu.attributes
+                0x0000000000000430       0x10 pico/sound/mix.o
+ .gnu.attributes
+                0x0000000000000440       0x10 cpu/fame/famec.o
+ .gnu.attributes
+                0x0000000000000450       0x10 cpu/cz80/cz80.o
+ .gnu.attributes
+                0x0000000000000460       0x10 cpu/drc/cmn.o
+ .gnu.attributes
+                0x0000000000000470       0x10 cpu/sh2/sh2.o
+ .gnu.attributes
+                0x0000000000000480       0x10 cpu/sh2/mame/sh2pico.o
+ .gnu.attributes
+                0x0000000000000490       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .gnu.attributes
+                0x00000000000004a0       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+ .gnu.attributes
+                0x00000000000004b0       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .gnu.attributes
+                0x00000000000004c0       0x10 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+
+.gptab.sdata
+ *(.gptab.data)
+ *(.gptab.sdata)
+
+.gptab.sbss
+ *(.gptab.bss)
+ *(.gptab.sbss)
+
+.mdebug.abi32   0x0000000000000000        0x0
+ *(.mdebug.abi32)
+ .mdebug.abi32  0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crti.o
+ .mdebug.abi32  0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtbegin.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/opendingux/inputmap.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/linux/emu.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/linux/blit.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/common/plat_sdl.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/plat_sdl.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/in_sdl.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/plat_dummy.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/common/main.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/common/emu.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/common/menu_pico.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/common/config_file.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/input.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/readpng.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/fonts.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/linux/in_evdev.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/linux/plat.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/sndout.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/libpicofe/sndout_sdl.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/common/mp3.o
+ .mdebug.abi32  0x0000000000000000        0x0 platform/common/mp3_dummy.o
+ .mdebug.abi32  0x0000000000000000        0x0 unzip/unzip.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/pico.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cart.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/memory.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/state.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/sek.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/z80if.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/videoport.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/draw2.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/draw.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/mode4.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/misc.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/eeprom.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/patch.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/debug.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/media.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/sms.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/mcd.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/memory.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/sek.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/cdc.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/cdd.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/cd_image.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/cue.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/gfx.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/gfx_dma.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/misc.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/cd/pcm.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/32x/32x.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/32x/memory.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/32x/draw.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/32x/sh2soc.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/32x/pwm.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/pico/pico.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/pico/memory.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/pico/xpcm.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/carthw/carthw.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/carthw/eeprom_spi.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/carthw/svp/svp.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/carthw/svp/memory.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/carthw/svp/ssp16.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/sound/sound.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/sound/sn76496.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/sound/ym2612.o
+ .mdebug.abi32  0x0000000000000000        0x0 pico/sound/mix.o
+ .mdebug.abi32  0x0000000000000000        0x0 cpu/fame/famec.o
+ .mdebug.abi32  0x0000000000000000        0x0 cpu/cz80/cz80.o
+ .mdebug.abi32  0x0000000000000000        0x0 cpu/drc/cmn.o
+ .mdebug.abi32  0x0000000000000000        0x0 cpu/sh2/sh2.o
+ .mdebug.abi32  0x0000000000000000        0x0 cpu/sh2/mame/sh2pico.o
+ .mdebug.abi32  0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_divdi3.o)
+ .mdebug.abi32  0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/libgcc.a(_moddi3.o)
+ .mdebug.abi32  0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/lib/gcc/mipsel-buildroot-linux-uclibc/5.4.0/crtend.o
+ .mdebug.abi32  0x0000000000000000        0x0 /home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/lib/crtn.o
+
+.mdebug.abiN32
+ *(.mdebug.abiN32)
+
+.mdebug.abi64
+ *(.mdebug.abi64)
+
+.mdebug.abiO64
+ *(.mdebug.abiO64)
+
+.mdebug.eabi32
+ *(.mdebug.eabi32)
+
+.mdebug.eabi64
+ *(.mdebug.eabi64)
+
+.gcc_compiled_long32
+ *(.gcc_compiled_long32)
+
+.gcc_compiled_long64
+ *(.gcc_compiled_long64)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(PicoDrive elf32-tradlittlemips)

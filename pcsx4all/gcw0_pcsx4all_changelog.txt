@@ -1,0 +1,20 @@
+gcw0_pcsx4all_20170830_4.opk:
+1. fix bug: some case cannot press any key
+2. use strip --strip-unneeded to reduce size
+
+gcw0_pcsx4all_20170830_3.opk:
+1. long press start+select can speedup(force frameskip 3), and then press start or select to restore the menu setting
+
+gcw0_pcsx4all_20170830_2.opk:
+1. Analog Arrow Keys off: press analog down(but not analog left+down/right+down) can into menu
+
+gcw0_pcsx4all_20170830_1.opk:
+1. auto fix Grandia(SLPS02124)'s 368x240 -> 352x240
+2. change [pixel skip] to [Clip 368 -> 352], for fix other disp bug like Grandia
+3. change menu key:
+	select+start: menu
+	start+select: none(for tekken3 quit to main menu)
+4. add [Analog Arrow Keys] in core settings,
+	Analog Arrow Keys off: analog left=L2, analog right=R2, analog up=L2+R2, analog down=menu
+	Analog Arrow Keys on: analog stick = arrow keys, select+B=B, select+L1=L2, select+L2=R2
+
