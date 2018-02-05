@@ -1,0 +1,6 @@
+title=仙劍
+icon=skins/Default/icons/sdlpal.png
+exec=/bin/bash
+clock=859190325
+selectorbrowser=true
+wrapper=true

@@ -308,7 +308,8 @@ GMenu2X::GMenu2X() {
 	}
 #elif defined(TARGET_RETROGAME)
 	SDL_ShowCursor(0);
-	s->raw = SDL_SetVideoMode(resX, resY, confInt["videoBpp"], SDL_HWSURFACE|SDL_DOUBLEBUF);
+	s->ScreenSurface = SDL_SetVideoMode(320, 480, confInt["videoBpp"], SDL_HWSURFACE|SDL_DOUBLEBUF);
+	s->raw = SDL_CreateRGBSurface(SDL_SWSURFACE, resX, resY, 16, 0, 0, 0, 0);
 #else
 	s->raw = SDL_SetVideoMode(resX, resY, confInt["videoBpp"], SDL_HWSURFACE|SDL_DOUBLEBUF);
 #endif
@@ -461,6 +462,10 @@ void GMenu2X::initMenu() {
 			if (fwType=="gph" && !f200)
 				menu->addActionLink(i,"USB Nand",MakeDelegate(this,&GMenu2X::activateNandUsb),tr["Activate Usb on Nand"],"skin:icons/usb.png");
 			//menu->addActionLink(i,"USB Root",MakeDelegate(this,&GMenu2X::activateRootUsb),tr["Activate Usb on the root of the Gp2x Filesystem"],"skin:icons/usb.png");
+#endif
+
+#if defined(TARGET_RETROGAME)
+			menu->addActionLink(i,"USB",MakeDelegate(this,&GMenu2X::activateSdUsb),tr["Activate Usb on SD"],"skin:icons/usb.png");
 #endif
 			if (fileExists(path+"log.txt"))
 				menu->addActionLink(i,tr["Log Viewer"],MakeDelegate(this,&GMenu2X::viewLog),tr["Displays last launched program's output"],"skin:icons/ebook.png");
@@ -851,10 +856,16 @@ void GMenu2X::main() {
 				skinConfInt["topBarHeight"], skinConfColors[COLOR_SELECTION_BG]);
 			x += skinConfInt["linkWidth"]/2;
 			if (sc.exists(sectionIcon))
+#if defined(TARGET_RETROGAME)
+				sc[sectionIcon]->blit(s,x-16,sectionLinkPadding + 3,32,32);
+#else
 				sc[sectionIcon]->blit(s,x-16,sectionLinkPadding,32,32);
+#endif
 			else
 				sc.skinRes("icons/section.png")->blit(s,x-16,sectionLinkPadding,32,32);
+#if !defined(TARGET_RETROGAME)
 			s->write( font, menu->getSections()[i], x, skinConfInt["topBarHeight"]-sectionLinkPadding, HAlignCenter, VAlignBottom );
+#endif
 		}
 
 		//Links
@@ -919,19 +930,6 @@ void GMenu2X::main() {
 		sc.skinRes(batteryIcon)->blit( s, resX-19, bottomBarIconY );
 
 		//On Screen Help
-#if defined(TARGET_RETROGAME)
-		if (input.isActive(MANUAL)) {
-			s->box(10,80,300,143, skinConfColors[COLOR_MESSAGE_BOX_BG]);
-			s->rectangle( 12,82,296,helpBoxHeight, skinConfColors[COLOR_MESSAGE_BOX_BORDER] );
-			s->write( font, tr["CONTROLS"], 20, 85 );
-			s->write( font, tr["A: Launch link / Confirm action"], 20, 105 );
-			s->write( font, tr["L, R: Change section"], 20, 120 );
-			s->write( font, tr["X: Show manual/readme"], 20, 135 );
-			s->write( font, tr["BACKLIGHT: Change backlight value"], 20, 150 );
-			s->write( font, tr["Y+BACKLIGHT: Trun on/off volume"], 20, 165 );
-			s->write( font, tr["SELECT: Show contextual menu"], 20, 180 );
-			s->write( font, tr["START: Show options menu"], 20, 195 );
-#else
 		if (input.isActive(MODIFIER)) {
 			s->box(10,50,300,143, skinConfColors[COLOR_MESSAGE_BOX_BG]);
 			s->rectangle( 12,52,296,helpBoxHeight, skinConfColors[COLOR_MESSAGE_BOX_BORDER] );
@@ -943,7 +941,6 @@ void GMenu2X::main() {
 			s->write( font, tr["A+VOLUP, A+VOLDOWN: Change volume"], 20, 140 );
 			s->write( font, tr["SELECT: Show contextual menu"], 20, 155 );
 			s->write( font, tr["START: Show options menu"], 20, 170 );
-#endif
 			if (fwType=="open2x") s->write( font, tr["X: Toggle speaker mode"], 20, 185 );
 		}
 

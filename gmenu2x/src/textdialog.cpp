@@ -75,11 +75,7 @@ void TextDialog::preProcess() {
 }
 
 void TextDialog::drawText(vector<string> *text, uint firstRow, uint rowsPerPage) {
-#if defined(TARGET_RETROGAME)
-	gmenu2x->s->setClipRect(0,76,gmenu2x->resX-10,gmenu2x->resY-60);
-#else
 	gmenu2x->s->setClipRect(0,41,gmenu2x->resX-10,gmenu2x->resY-60);
-#endif
 
 	for (uint i=firstRow; i<firstRow+rowsPerPage && i<text->size(); i++) {
 		int rowY;
@@ -94,11 +90,7 @@ void TextDialog::drawText(vector<string> *text, uint firstRow, uint rowsPerPage)
 	}
 
 	gmenu2x->s->clearClipRect();
-#if defined(TARGET_RETROGAME)
-	gmenu2x->drawScrollBar(rowsPerPage,text->size(),firstRow,77,gmenu2x->resY-99);
-#else
 	gmenu2x->drawScrollBar(rowsPerPage,text->size(),firstRow,42,gmenu2x->resY-65);
-#endif
 }
 
 void TextDialog::exec() {

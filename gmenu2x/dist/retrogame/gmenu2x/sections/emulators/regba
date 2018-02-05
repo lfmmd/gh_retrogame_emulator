@@ -1,0 +1,6 @@
+title=regba
+icon=skins/Default/icons/regba.png
+exec=/bin/bash
+clock=859190325
+selectorbrowser=true
+wrapper=true

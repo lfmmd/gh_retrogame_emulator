@@ -1,0 +1,6 @@
+title=picodrive
+icon=skins/Default/icons/picodrive.png
+exec=/bin/bash
+clock=859190325
+selectorbrowser=true
+wrapper=true

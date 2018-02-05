@@ -1,0 +1,6 @@
+title=gnuboy
+icon=skins/Default/icons/gnuboy.png
+exec=/bin/bash
+clock=859190325
+selectorbrowser=true
+wrapper=true

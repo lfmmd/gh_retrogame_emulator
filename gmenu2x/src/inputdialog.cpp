@@ -124,11 +124,7 @@ void InputDialog::setKeyboard(int kb) {
 }
 
 bool InputDialog::exec() {
-#if defined(TARGET_RETROGAME)
-	SDL_Rect box = {0, 45, 0, gmenu2x->font->getHeight()+4};
-#else
 	SDL_Rect box = {0, 60, 0, gmenu2x->font->getHeight()+4};
-#endif
 
 	Uint32 caretTick = 0, curTick;
 	bool caretOn = true;

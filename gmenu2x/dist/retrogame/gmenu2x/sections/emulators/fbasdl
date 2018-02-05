@@ -1,0 +1,6 @@
+title=fbasdl
+icon=skins/Default/icons/fbasdl.png
+exec=/bin/bash
+clock=859190325
+selectorbrowser=true
+wrapper=true

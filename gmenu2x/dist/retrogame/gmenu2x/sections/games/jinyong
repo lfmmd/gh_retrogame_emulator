@@ -1,0 +1,6 @@
+title=金庸
+icon=skins/Default/icons/jinyong.png
+exec=/bin/bash
+clock=859190325
+selectorbrowser=true
+wrapper=true

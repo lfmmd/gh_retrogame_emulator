@@ -28,13 +28,13 @@
 /* #undef BSD */
 
 /* Determines if the compilers supports always_inline attribute. */
-#define C_ATTRIBUTE_ALWAYS_INLINE 1
+/* #undef C_ATTRIBUTE_ALWAYS_INLINE */
 
 /* Determines if the compilers supports fastcall attribute. */
 /* #undef C_ATTRIBUTE_FASTCALL */
 
 /* Define to 1 to use inlined memory functions in cpu core */
-#define C_CORE_INLINE 1
+/* #undef C_CORE_INLINE */
 
 /* Define to 1 to enable internal debugger, requires libcurses */
 /* #undef C_DEBUG */
@@ -48,7 +48,7 @@
 
 /* Define to 1 to use recompiling cpu core. Can not be used together with the
    dynamic-x86 core */
-#define C_DYNREC 1
+/* #undef C_DYNREC */
 
 /* Define to 1 to enable floating point emulation */
 #define C_FPU 1
@@ -88,10 +88,10 @@
 #define C_SSHOT 1
 
 /* The type of cpu this target has */
-#define C_TARGETCPU MIPSEL
+#define C_TARGETCPU UNKNOWN
 
 /* Define to 1 to use a unaligned memory access */
-#define C_UNALIGNED_MEMORY 1
+/* #undef C_UNALIGNED_MEMORY */
 
 /* define to 1 if you have XKBlib.h and X11 lib */
 /* #undef C_X11_XKB */
@@ -109,7 +109,7 @@
 #define ENVIRON_LINKED 1
 
 /* Define to 1 to use ALSA for MIDI */
-/* #undef HAVE_ALSA */
+#define HAVE_ALSA 1
 
 /* Define to 1 if you have the <ddraw.h> header file. */
 /* #undef HAVE_DDRAW_H */
@@ -118,7 +118,7 @@
 #define HAVE_INTTYPES_H 1
 
 /* Define to 1 if you have the `asound' library (-lasound). */
-/* #undef HAVE_LIBASOUND */
+#define HAVE_LIBASOUND 1
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1

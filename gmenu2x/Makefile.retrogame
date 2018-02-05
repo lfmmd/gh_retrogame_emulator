@@ -1,5 +1,5 @@
 TARGET=retrogame
-DEBUG=1
+DEBUG=0
 
 ifeq ($(DEBUG),0)
   CROSS_COMPILE=mipsel-linux-
@@ -55,14 +55,13 @@ endif
 	install -m644 -D COPYING $(DISTDIR)/COPYING
 	install -m644 -D ChangeLog $(DISTDIR)/ChangeLog
 	cp -RH assets/skins assets/translations $(DISTDIR)
-	cp -RH assets/$(TARGET)/skin.conf $(DISTDIR)/skins/Default
 	cp -RH assets/$(TARGET)/BlackJeans.png $(DISTDIR)/skins/Default/wallpapers
+	cp -RH assets/$(TARGET)/skin.conf $(DISTDIR)/skins/Default
 	cp -RH assets/$(TARGET)/font.ttf $(DISTDIR)/skins/Default
 	cp -RH assets/$(TARGET)/gmenu2x.conf $(DISTDIR)
-	cp -RH assets/$(TARGET)/l_enabled.png $(DISTDIR)/skins/Default/imgs
-	cp -RH assets/$(TARGET)/r_enabled.png $(DISTDIR)/skins/Default/imgs
-	cp -RH assets/$(TARGET)/l_disabled.png $(DISTDIR)/skins/Default/imgs
-	cp -RH assets/$(TARGET)/r_disabled.png $(DISTDIR)/skins/Default/imgs
+	cp -RH assets/$(TARGET)/icons/* $(DISTDIR)/skins/Default/icons/
+	cp -RH assets/$(TARGET)/emulators/* $(DISTDIR)/sections/emulators/
+	cp -RH assets/$(TARGET)/games/* $(DISTDIR)/sections/games/
 
 -include $(patsubst src/%.cpp, $(OBJDIR)/src/%.d, $(SOURCES))
 
