@@ -73,7 +73,23 @@ int
 main(int argc, char *argv[])
 {
   cpu_init();
+
+#ifndef NO_STDIO_REDIRECT
+  /* Redirect standard output and standard error. */
+  /* TODO: Error checking. */
+  freopen(STDOUT_FILE, "w", stdout);
+  freopen(STDERR_FILE, "w", stderr);
+  setvbuf(stdout, NULL, _IOLBF, BUFSIZ);  /* Line buffered */
+  setbuf(stderr, NULL);          /* No buffering */
+#endif /* NO_STDIO_REDIRECT */
+
   atexit(cleanup_output);
+
+#ifdef GP2X_MODE
+  gp2xInsmodMMUhack();
+#endif
+
   SDL_main(argc,argv);
+
   return 0;
 }

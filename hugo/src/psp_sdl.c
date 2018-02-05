@@ -33,7 +33,7 @@
   int            psp_font_width  = 8; 
   int            psp_font_height = 8; 
 
-  SDL_Surface *screen_surface;
+  SDL_Surface *ScreenSurface;
   SDL_Surface *back_surface;
   SDL_Surface *back2_surface;
 
@@ -119,11 +119,11 @@ void
 psp_sdl_black_screen()
 {
   SDL_FillRect(back_surface,NULL,SDL_MapRGB(back_surface->format,0x0,0x0,0x0));
-  SDL_SoftStretch(back_surface, NULL, screen_surface, NULL);
-  SDL_Flip(screen_surface);
+  SDL_SoftStretch(back_surface, NULL, ScreenSurface, NULL);
+  SDL_Flip(ScreenSurface);
   SDL_FillRect(back_surface,NULL,SDL_MapRGB(back_surface->format,0x0,0x0,0x0));
-  SDL_SoftStretch(back_surface, NULL, screen_surface, NULL);
-  SDL_Flip(screen_surface);
+  SDL_SoftStretch(back_surface, NULL, ScreenSurface, NULL);
+  SDL_Flip(ScreenSurface);
 }
 
 void
@@ -422,9 +422,18 @@ psp_sdl_unlock(void)
 void
 psp_sdl_flip(void)
 {
-  //SDL_Flip(back_surface);
-  SDL_SoftStretch(back_surface, NULL, screen_surface, NULL);
-  SDL_Flip(screen_surface);
+  int x, y;
+  uint32_t *src = back_surface->pixels;
+  uint32_t *dst = ScreenSurface->pixels;
+
+  for(y=0; y<240; y++){
+    for(x=0; x<160; x++){
+      *dst++ = *src++;
+    }
+    dst+= 160;
+  }
+  //SDL_SoftStretch(back_surface, NULL, ScreenSurface, NULL);
+  SDL_Flip(ScreenSurface);
 }
 
 #define  systemRedShift      (back_surface->format->Rshift)
@@ -671,17 +680,12 @@ psp_sdl_init(void)
   }
 
   psp_sdl_select_font_6x10();
-  screen_surface=SDL_SetVideoMode(PSP_SDL_SCREEN_WIDTH,PSP_SDL_SCREEN_HEIGHT, 16 , SDL_SWSURFACE);
-  if ( !screen_surface) {
+
+  ScreenSurface=SDL_SetVideoMode(320, 480, 16 , SDL_SWSURFACE);
+  back_surface = SDL_CreateRGBSurface(SDL_SWSURFACE, PSP_SDL_SCREEN_WIDTH,PSP_SDL_SCREEN_HEIGHT, 16, 0, 0, 0, 0);
+  if ( !back_surface) {
     return 0;
   }
-
-  back_surface = SDL_CreateRGBSurface(SDL_SWSURFACE, 320, 240,
-    screen_surface->format->BitsPerPixel,
-    screen_surface->format->Rmask,
-    screen_surface->format->Gmask,
-    screen_surface->format->Bmask, 0);
-
   blit_surface = SDL_CreateRGBSurface(SDL_SWSURFACE, 
     HUGO_MAX_WIDTH, HUGO_MAX_HEIGHT,
     back_surface->format->BitsPerPixel,

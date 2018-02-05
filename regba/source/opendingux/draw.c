@@ -40,7 +40,7 @@ SDL_Surface *OutputSurface = NULL;
 SDL_Surface *BorderSurface = NULL;
 
 video_scale_type PerGameScaleMode = 0;
-video_scale_type ScaleMode = unscaled;
+video_scale_type ScaleMode = fullscreen;
 
 #define COLOR_PROGRESS_BACKGROUND   RGB888_TO_RGB565(  0,   0,   0)
 #define COLOR_PROGRESS_TEXT_CONTENT RGB888_TO_RGB565(255, 255, 255)
@@ -309,28 +309,28 @@ static inline void gba_upscale(uint16_t *to, uint16_t *from,
 				? b_a
 				: Lo(b_a) /* 'a' verbatim to low pixel */ |
 				  Raise(Average(Hi(b_a), Lo(b_a))) /* ba to high pixel */;
-      *(uint32_t*) (to + dst_pitch) = *(uint32_t*) (to);
+      //*(uint32_t*) (to + dst_pitch) = *(uint32_t*) (to);
 
 			// Generate c_bc from b_a and d_c.
 			*(uint32_t*) (to + 2) = likely(Hi(b_a) == Lo(d_c))
 				? Lo(d_c) | Raise(Lo(d_c))
 				: Raise(Lo(d_c)) /* 'c' verbatim to high pixel */ |
 				  Average(Lo(d_c), Hi(b_a)) /* bc to low pixel */;
-      *(uint32_t*) (to + 2 + dst_pitch) = *(uint32_t*) (to + 2);
+      //*(uint32_t*) (to + 2 + dst_pitch) = *(uint32_t*) (to + 2);
 
 			// Generate de_d from d_c and f_e.
 			*(uint32_t*) (to + 4) = likely(Hi(d_c) == Lo(f_e))
 				? Lo(f_e) | Raise(Lo(f_e))
 				: Hi(d_c) /* 'd' verbatim to low pixel */ |
 				  Raise(Average(Lo(f_e), Hi(d_c))) /* de to high pixel */;
-      *(uint32_t*) (to + 4 + dst_pitch) = *(uint32_t*) (to + 4);
+      //*(uint32_t*) (to + 4 + dst_pitch) = *(uint32_t*) (to + 4);
 
 			// Generate f_ef from f_e.
 			*(uint32_t*) (to + 6) = likely(Hi(f_e) == Lo(f_e))
 				? f_e
 				: Raise(Hi(f_e)) /* 'f' verbatim to high pixel */ |
 				  Average(Hi(f_e), Lo(f_e)) /* ef to low pixel */;
-      *(uint32_t*) (to + 6 + dst_pitch) = *(uint32_t*) (to + 6);
+      //*(uint32_t*) (to + 6 + dst_pitch) = *(uint32_t*) (to + 6);
 
 			if (likely(y + 1 < src_y))  // Is there a source row 2?
 			{
@@ -345,7 +345,7 @@ static inline void gba_upscale(uint16_t *to, uint16_t *from,
 					? bh_ag
 					: Lo(bh_ag) /* ag verbatim to low pixel */ |
 					  Raise(Average(Hi(bh_ag), Lo(bh_ag))) /* abgh to high pixel */;
-        *(uint32_t*) (to + (dst_pitch * 3)) = *(uint32_t*) (to + (dst_pitch * 2));
+        //*(uint32_t*) (to + (dst_pitch * 3)) = *(uint32_t*) (to + (dst_pitch * 2));
 
 				// Generate ci_bchi from b_a, d_c, h_g and j_i.
 				uint32_t ci_bh =
@@ -355,7 +355,7 @@ static inline void gba_upscale(uint16_t *to, uint16_t *from,
 					? ci_bh
 					: Raise(Hi(ci_bh)) /* ci verbatim to high pixel */ |
 					  Average(Hi(ci_bh), Lo(ci_bh)) /* bchi to low pixel */;
-        *(uint32_t*) (to + (dst_pitch * 3) + 4) = *(uint32_t*) (to + (dst_pitch * 2) + 4);
+        //*(uint32_t*) (to + (dst_pitch * 3) + 4) = *(uint32_t*) (to + (dst_pitch * 2) + 4);
 
 				// Generate fl_efkl from f_e and l_k.
 				uint32_t fl_ek = Average32(f_e, l_k);
@@ -363,7 +363,7 @@ static inline void gba_upscale(uint16_t *to, uint16_t *from,
 					? fl_ek
 					: Raise(Hi(fl_ek)) /* fl verbatim to high pixel */ |
 					  Average(Hi(fl_ek), Lo(fl_ek)) /* efkl to low pixel */;
-        *(uint32_t*) (to + (dst_pitch * 3) + 12) = *(uint32_t*) (to + (dst_pitch * 2) + 12);
+        //*(uint32_t*) (to + (dst_pitch * 3) + 12) = *(uint32_t*) (to + (dst_pitch * 2) + 12);
 
 				// Generate dejk_dj from d_c, f_e, j_i and l_k.
 				uint32_t ek_dj =
@@ -373,7 +373,7 @@ static inline void gba_upscale(uint16_t *to, uint16_t *from,
 					? ek_dj
 					: Lo(ek_dj) /* dj verbatim to low pixel */ |
 					  Raise(Average(Hi(ek_dj), Lo(ek_dj))) /* dejk to high pixel */;
-        *(uint32_t*) (to + (dst_pitch * 3) + 8) = *(uint32_t*) (to + (dst_pitch * 2) + 8);
+        //*(uint32_t*) (to + (dst_pitch * 3) + 8) = *(uint32_t*) (to + (dst_pitch * 2) + 8);
 
 				// -- Row 3 --
 				// Generate gh_g from h_g.
@@ -381,28 +381,28 @@ static inline void gba_upscale(uint16_t *to, uint16_t *from,
 					? h_g
 					: Lo(h_g) /* 'g' verbatim to low pixel */ |
 					  Raise(Average(Hi(h_g), Lo(h_g))) /* gh to high pixel */;
-        *(uint32_t*) (to + (dst_pitch * 5)) = *(uint32_t*) (to + (dst_pitch * 4));
+        //*(uint32_t*) (to + (dst_pitch * 5)) = *(uint32_t*) (to + (dst_pitch * 4));
 
 				// Generate i_hi from g_h and j_i.
 				*(uint32_t*) ((uint8_t*) to + (dst_pitch * 4) + 4) = likely(Hi(h_g) == Lo(j_i))
 					? Lo(j_i) | Raise(Lo(j_i))
 					: Raise(Lo(j_i)) /* 'i' verbatim to high pixel */ |
 					  Average(Lo(j_i), Hi(h_g)) /* hi to low pixel */;
-        *(uint32_t*) (to + (dst_pitch * 5)) = *(uint32_t*) (to + (dst_pitch * 4));
+        //*(uint32_t*) (to + (dst_pitch * 5)) = *(uint32_t*) (to + (dst_pitch * 4));
 
 				// Generate jk_j from j_i and l_k.
 				*(uint32_t*) ((uint8_t*) to + (dst_pitch * 4) + 8) = likely(Hi(j_i) == Lo(l_k))
 					? Lo(l_k) | Raise(Lo(l_k))
 					: Hi(j_i) /* 'j' verbatim to low pixel */ |
 					  Raise(Average(Hi(j_i), Lo(l_k))) /* jk to high pixel */;
-        *(uint32_t*) (to + (dst_pitch * 5)) = *(uint32_t*) (to + (dst_pitch * 4));
+        //*(uint32_t*) (to + (dst_pitch * 5)) = *(uint32_t*) (to + (dst_pitch * 4));
 
 				// Generate l_kl from l_k.
 				*(uint32_t*) ((uint8_t*) to + (dst_pitch * 4) + 12) = likely(Hi(l_k) == Lo(l_k))
 					? l_k
 					: Raise(Hi(l_k)) /* 'l' verbatim to high pixel */ |
 					  Average(Hi(l_k), Lo(l_k)) /* kl to low pixel */;
-        *(uint32_t*) (to + (dst_pitch * 5)) = *(uint32_t*) (to + (dst_pitch * 4));
+        //*(uint32_t*) (to + (dst_pitch * 5)) = *(uint32_t*) (to + (dst_pitch * 4));
 			}
 
 			from += 6;
@@ -651,25 +651,25 @@ static inline void gba_upscale_subpixel(uint16_t *to, uint16_t *from,
 
 			// -- Row 1 pixel 1 (X = 0) --
 			*to = a;
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch)) = *(uint16_t*) ((uint8_t*) to);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch)) = *(uint16_t*) ((uint8_t*) to);
 
 			// -- Row 1 pixel 2 (X = 0.75) --
 			*(uint16_t*) ((uint8_t*) to + 2) = likely(a == b)
 				? a
 				: SubpixelRGB1_3(a, b);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 2) = *(uint16_t*) ((uint8_t*) to + 2);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 2) = *(uint16_t*) ((uint8_t*) to + 2);
 
 			// -- Row 1 pixel 3 (X = 1.5) --
 			*(uint16_t*) ((uint8_t*) to + 4) = likely(b == c)
 				? b
 				: SubpixelRGB1_1(b, c);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 4) = *(uint16_t*) ((uint8_t*) to + 4);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 4) = *(uint16_t*) ((uint8_t*) to + 4);
 
 			// -- Row 1 pixel 4 (X = 2.25) --
 			*(uint16_t*) ((uint8_t*) to + 6) = likely(c == d)
 				? c
 				: SubpixelRGB3_1(c, d);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 6) = *(uint16_t*) ((uint8_t*) to + 6);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 6) = *(uint16_t*) ((uint8_t*) to + 6);
 
 			// -- Row 2 --
 			// All pixels in this row are blended from the two rows.
@@ -682,7 +682,7 @@ static inline void gba_upscale_subpixel(uint16_t *to, uint16_t *from,
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 2)) = likely(a == e)
 				? a
 				: Average(a, e);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3)) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2));
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3)) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2));
 
 			// -- Row 2 pixel 2 (X = 0.75) --
 			uint16_t e1f3 = likely(e == f)
@@ -694,7 +694,7 @@ static inline void gba_upscale_subpixel(uint16_t *to, uint16_t *from,
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 2) = likely(a1b3 == e1f3)
 				? a1b3
 				: Average(a1b3, e1f3);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 2) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 2);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 2) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 2);
 
 			// -- Row 2 pixel 3 (X = 1.5) --
 			uint16_t fg = likely(f == g)
@@ -706,7 +706,7 @@ static inline void gba_upscale_subpixel(uint16_t *to, uint16_t *from,
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 4) = likely(bc == fg)
 				? bc
 				: Average(bc, fg);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 4) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 4);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 4) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 4);
 
 			// -- Row 2 pixel 4 (X = 2.25) --
 			uint16_t g3h1 = likely(g == h)
@@ -718,31 +718,31 @@ static inline void gba_upscale_subpixel(uint16_t *to, uint16_t *from,
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 6) = /* in Y */ likely(g3h1 == c3d1)
 				? c3d1
 				: Average(c3d1, g3h1);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 6) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 6);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 6) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 6);
 
 			// -- Row 3 --
 
 			// -- Row 3 pixel 1 (X = 0) --
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 4)) = e;
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5)) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4));
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5)) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4));
 
 			// -- Row 3 pixel 2 (X = 0.75) --
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 2) = likely(e == f)
 				? e
 				: SubpixelRGB1_3(e, f);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 2) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 2);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 2) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 2);
 
 			// -- Row 3 pixel 3 (X = 1.5) --
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 4) = likely(f == g)
 				? f
 				: SubpixelRGB1_1(f, g);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 4) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 4);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 4) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 4);
 
 			// -- Row 3 pixel 4 (X = 2.25) --
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 6) = likely(g == h)
 				? g
 				: SubpixelRGB3_1(g, h);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 6) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 6);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 6) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 6);
 
 			from += 3;
 			to   += 4;
@@ -1279,25 +1279,25 @@ static inline void gba_upscale_bilinear(uint16_t *to, uint16_t *from,
 
 			// -- Row 1 pixel 1 (X = 0) --
 			*to = a;
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch)) = *(uint16_t*) ((uint8_t*) to);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch)) = *(uint16_t*) ((uint8_t*) to);
 
 			// -- Row 1 pixel 2 (X = 0.75) --
 			*(uint16_t*) ((uint8_t*) to + 2) = likely(a == b)
 				? a
 				: AverageQuarters3_1(b, a);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 2) = *(uint16_t*) ((uint8_t*) to + 2);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 2) = *(uint16_t*) ((uint8_t*) to + 2);
 
 			// -- Row 1 pixel 3 (X = 1.5) --
 			*(uint16_t*) ((uint8_t*) to + 4) = likely(b == c)
 				? b
 				: Average(b, c);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 4) = *(uint16_t*) ((uint8_t*) to + 4);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 4) = *(uint16_t*) ((uint8_t*) to + 4);
 
 			// -- Row 1 pixel 4 (X = 2.25) --
 			*(uint16_t*) ((uint8_t*) to + 6) = likely(c == d)
 				? c
 				: AverageQuarters3_1(c, d);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 6) = *(uint16_t*) ((uint8_t*) to + 6);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch) + 6) = *(uint16_t*) ((uint8_t*) to + 6);
 
 			// -- Row 2 --
 			// All pixels in this row are blended from the two rows.
@@ -1310,7 +1310,7 @@ static inline void gba_upscale_bilinear(uint16_t *to, uint16_t *from,
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 2)) = likely(a == e)
 				? a
 				: Average(a, e);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3)) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2));
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3)) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2));
 
 			// -- Row 2 pixel 2 (X = 0.75) --
 			uint16_t e1f3 = likely(e == f)
@@ -1322,7 +1322,7 @@ static inline void gba_upscale_bilinear(uint16_t *to, uint16_t *from,
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 2) = likely(a1b3 == e1f3)
 				? a1b3
 				: Average(a1b3, e1f3);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 2) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 2);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 2) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 2);
 
 			// -- Row 2 pixel 3 (X = 1.5) --
 			uint16_t fg = likely(f == g)
@@ -1334,7 +1334,7 @@ static inline void gba_upscale_bilinear(uint16_t *to, uint16_t *from,
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 4) = likely(bc == fg)
 				? bc
 				: Average(bc, fg);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 4) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 4);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 4) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 4);
 
 			// -- Row 2 pixel 4 (X = 2.25) --
 			uint16_t g3h1 = likely(g == h)
@@ -1346,31 +1346,31 @@ static inline void gba_upscale_bilinear(uint16_t *to, uint16_t *from,
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 6) = /* in Y */ likely(g3h1 == c3d1)
 				? c3d1
 				: Average(c3d1, g3h1);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 6) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 6);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 3) + 6) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 2) + 6);
 
 			// -- Row 3 --
 
 			// -- Row 3 pixel 1 (X = 0) --
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 4)) = e;
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5)) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4));
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5)) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4));
 
 			// -- Row 3 pixel 2 (X = 0.75) --
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 2) = likely(e == f)
 				? e
 				: AverageQuarters3_1(f, e);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 2) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 2);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 2) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 2);
 
 			// -- Row 3 pixel 3 (X = 1.5) --
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 4) = likely(f == g)
 				? f
 				: Average(f, g);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 4) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 4);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 4) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 4);
 
 			// -- Row 3 pixel 4 (X = 2.25) --
 			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 6) = likely(g == h)
 				? g
 				: AverageQuarters3_1(g, h);
-			*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 6) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 6);
+			//*(uint16_t*) ((uint8_t*) to + (dst_pitch * 5) + 6) = *(uint16_t*) ((uint8_t*) to + (dst_pitch * 4) + 6);
 
 			from += 3;
 			to   += 4;
@@ -1399,7 +1399,7 @@ static inline void gba_render(uint16_t* Dest, uint16_t* Src,
 		for (X = 0; X < GBA_SCREEN_WIDTH * sizeof(uint16_t) / sizeof(uint32_t); X++)
 		{
 			*(uint32_t*) Dest = bgr555_to_rgb565(*(uint32_t*) Src);
-			*((uint32_t*) Dest + DestPitch) = bgr555_to_rgb565(*(uint32_t*) Src);
+			//*((uint32_t*) Dest + DestPitch) = bgr555_to_rgb565(*(uint32_t*) Src);
 			Dest += 2;
 			Src += 2;
 		}
@@ -1420,7 +1420,7 @@ static inline void gba_convert(uint16_t* Dest, uint16_t* Src,
 		for (X = 0; X < GBA_SCREEN_WIDTH * sizeof(uint16_t) / sizeof(uint32_t); X++)
 		{
 			*(uint32_t*) Dest = bgr555_to_rgb565(*(uint32_t*) Src);
-			*((uint32_t*) Dest + DestPitch) = bgr555_to_rgb565(*(uint32_t*) Src);
+			//*((uint32_t*) Dest + DestPitch) = bgr555_to_rgb565(*(uint32_t*) Src);
 			Dest += 2;
 			Src += 2;
 		}

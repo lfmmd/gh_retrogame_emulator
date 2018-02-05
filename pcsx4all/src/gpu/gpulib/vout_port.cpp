@@ -661,6 +661,8 @@ void vout_update(void)
 		case 256: {
 			for (int y1=y0+h1; y0<y1; y0+=incY) {
 				GPU_Blit256(src16 + src16_offs, dst16, isRGB24);
+				//GPU_Blit256(src16 + src16_offs, dst16 + VIDEO_WIDTH, isRGB24);
+				dst16 += VIDEO_WIDTH;
 				dst16 += VIDEO_WIDTH;
 				src16_offs = (src16_offs + h0) & src16_offs_msk;
 			}
@@ -671,11 +673,14 @@ void vout_update(void)
 				if (use_clip_368 == false || isRGB24)
 				{
 				    GPU_Blit368(src16 + src16_offs, dst16, isRGB24/*, 0*/);
+				    //GPU_Blit368(src16 + src16_offs, dst16 + VIDEO_WIDTH, isRGB24/*, 0*/);
 				}
 				else
 				{
 				    GPU_Blit368_clip(src16 + src16_offs, dst16);
+				    //GPU_Blit368_clip(src16 + src16_offs, dst16 + VIDEO_WIDTH);
 				}
+				dst16 += VIDEO_WIDTH;
 				dst16 += VIDEO_WIDTH;
 				src16_offs = (src16_offs + h0) & src16_offs_msk;
 			}
@@ -686,6 +691,8 @@ void vout_update(void)
 			src16_offs &= ~1;
 			for (int y1=y0+h1; y0<y1; y0+=incY) {
 				GPU_Blit320(src16 + src16_offs, dst16, isRGB24);
+				//GPU_Blit320(src16 + src16_offs, dst16 + VIDEO_WIDTH, isRGB24);
+				dst16 += VIDEO_WIDTH;
 				dst16 += VIDEO_WIDTH;
 				src16_offs = (src16_offs + h0) & src16_offs_msk;
 			}
@@ -694,6 +701,8 @@ void vout_update(void)
 		case 384: {
 			for (int y1=y0+h1; y0<y1; y0+=incY) {
 				GPU_Blit384(src16 + src16_offs, dst16, isRGB24);
+				//GPU_Blit384(src16 + src16_offs, dst16 + VIDEO_WIDTH, isRGB24);
+				dst16 += VIDEO_WIDTH;
 				dst16 += VIDEO_WIDTH;
 				src16_offs = (src16_offs + h0) & src16_offs_msk;
 			}
@@ -702,6 +711,8 @@ void vout_update(void)
 		case 512: {
 			for (int y1=y0+h1; y0<y1; y0+=incY) {
 				GPU_Blit512(src16 + src16_offs, dst16, isRGB24);
+				//GPU_Blit512(src16 + src16_offs, dst16 + VIDEO_WIDTH, isRGB24);
+				dst16 += VIDEO_WIDTH;
 				dst16 += VIDEO_WIDTH;
 				src16_offs = (src16_offs + h0) & src16_offs_msk;
 			}
@@ -710,6 +721,8 @@ void vout_update(void)
 		case 640: {
 			for (int y1=y0+h1; y0<y1; y0+=incY) {
 				GPU_Blit640(src16 + src16_offs, dst16, isRGB24);
+				//GPU_Blit640(src16 + src16_offs, dst16 + VIDEO_WIDTH, isRGB24);
+				dst16 += VIDEO_WIDTH;
 				dst16 += VIDEO_WIDTH;
 				src16_offs = (src16_offs + h0) & src16_offs_msk;
 			}

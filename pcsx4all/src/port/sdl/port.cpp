@@ -1210,9 +1210,9 @@ int main (int argc, char **argv)
 	int flags = SDL_HWSURFACE | SDL_DOUBLEBUF;
 #endif
 
-	screen = SDL_SetVideoMode(320, 240, 16, flags);
+	screen = SDL_SetVideoMode(320, 480, 16, flags);
 	if (!screen) {
-		puts("NO Set VideoMode 320x240x16");
+		puts("NO Set VideoMode 320x480x16");
 		exit(0);
 	}
 

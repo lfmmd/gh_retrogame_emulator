@@ -8,7 +8,6 @@
 #define PALETTE_BUFFER_LENGTH	256*2*4
 
 static SDL_Surface *mScreen = NULL;
-static SDL_Surface *ScreenSurface = NULL;
 static u32 mSoundThreadFlag=0;
 static u32 mSoundLastCpuSpeed=0;
 static u32 mPaletteBuffer[PALETTE_BUFFER_LENGTH];
@@ -216,9 +215,8 @@ u32 sal_VideoInit(u32 bpp)
 	
 	mBpp=bpp;
 
-  printf("1 bpp :%d\n", bpp);
 	//Set up the screen
-	ScreenSurface = SDL_SetVideoMode( 320, 480, bpp, SDL_HWSURFACE |
+	mScreen = SDL_SetVideoMode( 320, 480, bpp, SDL_HWSURFACE |
 #ifdef SDL_TRIPLEBUF
 		SDL_TRIPLEBUF
 #else
@@ -226,7 +224,6 @@ u32 sal_VideoInit(u32 bpp)
 #endif
 		);
     
-    mScreen = SDL_CreateRGBSurface(SDL_SWSURFACE, 320, 240, bpp, 0, 0, 0, 0);
     	//If there was an error in setting up the screen
     	if( mScreen == NULL )
     	{
@@ -275,15 +272,13 @@ void sal_VideoEnterGame(u32 fullscreenOption, u32 pal, u32 refreshRate)
 	}
 	if (SDL_MUSTLOCK(mScreen))
 		SDL_UnlockSurface(mScreen);
-  printf("1 mbpp :%d\n", mBpp);
-	ScreenSurface = SDL_SetVideoMode(320, 480, mBpp, SDL_HWSURFACE |
+	mScreen = SDL_SetVideoMode(320, 480, mBpp, SDL_HWSURFACE |
 #ifdef SDL_TRIPLEBUF
 		SDL_TRIPLEBUF
 #else
 		SDL_DOUBLEBUF
 #endif
 		);
-  mScreen = SDL_CreateRGBSurface(SDL_SWSURFACE, Width, Height, mBpp, 0, 0, 0, 0);
 	mRefreshRate = refreshRate;
 	if (SDL_MUSTLOCK(mScreen))
 		SDL_LockSurface(mScreen);
@@ -303,9 +298,7 @@ void sal_VideoExitGame()
 #ifdef GCW_ZERO
 	if (SDL_MUSTLOCK(mScreen))
 		SDL_UnlockSurface(mScreen);
-  printf("2 mbpp :%d\n",mBpp);
-	ScreenSurface = SDL_SetVideoMode(320, 480, mBpp, SDL_HWSURFACE | SDL_DOUBLEBUF);
-  mScreen = SDL_CreateRGBSurface(SDL_SWSURFACE, 320, 240, mBpp, 0, 0, 0, 0);
+	mScreen = SDL_SetVideoMode(320, 480, mBpp, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	if (SDL_MUSTLOCK(mScreen))
 		SDL_LockSurface(mScreen);
 #endif
@@ -324,10 +317,7 @@ void sal_VideoFlip(s32 vsync)
 {
 	if (SDL_MUSTLOCK(ScreenSurface)) {
 		SDL_UnlockSurface(ScreenSurface); 
-		//SDL_Flip(mScreen);
-    SDL_SoftStretch(mScreen, NULL, ScreenSurface, NULL);
-    SDL_Flip(ScreenSurface);
-		SDL_LockSurface(ScreenSurface);
+		SDL_Flip(mScreen);
 	} else
 		SDL_Flip(ScreenSurface);
 }
