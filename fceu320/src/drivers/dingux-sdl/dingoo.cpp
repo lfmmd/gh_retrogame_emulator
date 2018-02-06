@@ -549,8 +549,8 @@ int main(int argc, char *argv[]) {
 		printf("Could not initialize SDL: %s.\n", SDL_GetError());
 		return(-1);
 	}
-	
-  // Initialize the configuration system
+
+	// Initialize the configuration system
 	g_config = InitConfig();
 
 	if (!g_config) {

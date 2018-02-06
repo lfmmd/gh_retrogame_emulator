@@ -1,6 +1,0 @@
-title=dosbox
-icon=skins/Default/icons/dosbox.png
-exec=/bin/bash
-clock=859190325
-selectorbrowser=true
-wrapper=true

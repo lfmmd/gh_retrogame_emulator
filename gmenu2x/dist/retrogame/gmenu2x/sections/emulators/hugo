@@ -1,6 +1,0 @@
-title=hugo
-icon=skins/Default/icons/hugo.png
-exec=/bin/bash
-clock=859190325
-selectorbrowser=true
-wrapper=true

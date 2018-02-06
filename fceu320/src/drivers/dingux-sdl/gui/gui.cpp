@@ -36,6 +36,7 @@ static int counter = 0;
 
 void FCEUGUI_Flip()
 {
+#if 0
 	SDL_Rect dstrect;
 
 	dstrect.x = (screen->w - 320) / 2;
@@ -43,6 +44,11 @@ void FCEUGUI_Flip()
 
 	SDL_BlitSurface(gui_screen, 0, screen, &dstrect);
 	SDL_Flip(screen);
+#else
+  // fix for retrogame
+  SDL_SoftStretch(gui_screen, NULL, screen, NULL);
+	SDL_Flip(screen);
+#endif
 }
 
 void readkey() 

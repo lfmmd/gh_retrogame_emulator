@@ -57,14 +57,12 @@ RESTART:
 
 		// Go to previous folder or return ...
 		if (parsekey(DINGOO_B)) {
-			printf("press B\n");
 			list->Enter(-1);
 			goto RESTART;
 		}
 
 		// Enter folder or select rom ...
 		if (parsekey(DINGOO_A)) {
-			printf("press A\n");
 			if (list->GetSize(index) == -1) {
 				list->Enter(index);
 				goto RESTART;
@@ -75,7 +73,6 @@ RESTART:
 		}
 
 		if (parsekey(DINGOO_X)) {
-			printf("press X\n");
 			return 0;
 		}
 
@@ -203,10 +200,9 @@ RESTART:
 				if (justsavedromdir == 1){
 					DrawText(gui_screen, "ROM dir successfully saved!", 8, 225);
 				} else {
-					// comment by Steward
-					//if (list->GetSize(index) == -1)
-						//DrawText(gui_screen, "SELECT - Save ROM dir", 8, 225);
-					//else
+					if (list->GetSize(index) == -1)
+						DrawText(gui_screen, "SELECT - Save ROM dir", 8, 225);
+					else
 						DrawText(gui_screen, "SELECT - Save ROM dir", 8, 225);
 				}
 				justsavedromdir = 0;

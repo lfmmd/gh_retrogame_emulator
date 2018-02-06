@@ -158,7 +158,6 @@ int InitVideo(FCEUGI *gi) {
 	// initialize dingoo video mode
 	if (!s_VideoModeSet) {
 		uint32 vm = 0; // 0 - 320x240, 1 - 400x240, 2 - 480x272
-
 		#define NUMOFVIDEOMODES 3
 		struct {
 			uint32 x;
@@ -173,7 +172,7 @@ int InitVideo(FCEUGI *gi) {
 		//{
 			//if(SDL_VideoModeOK(VModes[vm].x, VModes[vm].y, 16, SDL_HWSURFACE | DINGOO_MULTIBUF) != 0)
 			//{
-				screen = SDL_SetVideoMode(320, 480, /*VModes[vm].x, VModes[vm].y*/ 16, SDL_HWSURFACE | DINGOO_MULTIBUF);
+				screen = SDL_SetVideoMode(320, 480, /*VModes[vm].x, VModes[vm].y,*/ 16, SDL_HWSURFACE | DINGOO_MULTIBUF);
 				s_VideoModeSet = true;
 				//break;
 			//}
@@ -350,7 +349,9 @@ void BlitScreen(uint8 *XBuf) {
 				pBuf += (s_srendline * 256) + 8;
 				register uint16 *dest = (uint16 *) screen->pixels;
 				//dest += (320 * s_srendline) + 20;
-				dest += (screen->w * s_srendline) + (screen->w - 280) / 2 + ((screen->h - 240) / 2) * screen->w;
+
+				dest += (screen->w * s_srendline) + (screen->w - 280) / 2 + ((screen->h - 466) / 2) * screen->w;
+				//dest += (screen->w * s_srendline) + (screen->w - 280) / 2 + ((screen->h - 240) / 2) * screen->w;
 
 				// semi fullscreen no blur
 				for (y = s_tlines; y; y--) {
@@ -368,6 +369,7 @@ void BlitScreen(uint8 *XBuf) {
 					pBuf += 16;
 					//dest += 40;
 					dest += screen->w - 280;
+          dest += 320;
 				}
 		}
 	} else { // native res
@@ -388,8 +390,8 @@ void BlitScreen(uint8 *XBuf) {
 		// XXX soules - not entirely sure why this is being done yet
 		pBuf += (s_srendline * 256) + NOFFSET;
 		//dest += (s_srendline * 320) + pinc >> 1;
-		dest += (screen->w/2 * s_srendline) + pinc / 2 + ((screen->h - 240) / 4) * screen->w;
 
+	  dest += (screen->w/2 * s_srendline) + pinc / 2 + ((screen->h - 240) / 4) * screen->w;
 		for (y = s_tlines; y; y--, pBuf += 256 - NWIDTH) {
 			for (x = NWIDTH >> 3; x; x--) {
 				__builtin_prefetch(dest + 4, 1);

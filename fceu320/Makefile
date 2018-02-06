@@ -186,14 +186,13 @@ UTILS_OBJS = $(SRC)utils/crc32.o $(SRC)utils/endian.o $(SRC)utils/general.o \
 	$(SRC)utils/xstring.o $(SRC)utils/ioapi.o $(SRC)utils/ConvertUTF.o
 
 COMMON_DRIVER_OBJS = $(SRC)drivers/common/args.o $(SRC)drivers/common/cheat.o \
-	$(SRC)drivers/common/config.o $(SRC)drivers/common/configSys.o $(SRC)drivers/common/nes_ntsc.o
+	$(SRC)drivers/common/config.o $(SRC)drivers/common/configSys.o  $(SRC)drivers/common/nes_ntsc.o
 
 GUI_OBJS = \
 	$(SRC)drivers/dingux-sdl/gui/gui.o \
 	$(SRC)drivers/dingux-sdl/gui/file_list.o \
 	$(SRC)drivers/dingux-sdl/gui/font.o
 
-MINIMAL_OBJS = 
 DRIVER_OBJS = $(SRC)drivers/dingux-sdl/config.o $(SRC)drivers/dingux-sdl/input.o \
 	$(SRC)drivers/dingux-sdl/dingoo.o $(SRC)drivers/dingux-sdl/dingoo-joystick.o \
 	$(SRC)drivers/dingux-sdl/dingoo-throttle.o $(SRC)drivers/dingux-sdl/dingoo-sound.o \
@@ -210,17 +209,17 @@ CXX = mipsel-linux-g++
 LD = mipsel-linux-g++
 AS = mipsel-linux-as
 
-INCLUDEDIR=
-CFLAGS = -I$(SRC)
-CXXFLAGS =
+INCLUDEDIR=$(TOOLCHAIN)/include
+CFLAGS = -I$(INCLUDEDIR) -I$(SRC)
+CXXFLAGS = -I$(INCLUDEDIR)
 
-LIBDIR=
 LDFLAGS = -s
 
-W_OPTS	= -Wall -Wno-write-strings -Wno-narrowing -Wno-unused-local-typedefs
+W_OPTS	= -Wno-write-strings -Wno-sign-compare
 
-F_OPTS =
-CC_OPTS	= -g $(F_OPTS) $(W_OPTS)
+F_OPTS = -fomit-frame-pointer -fno-builtin -fno-common
+
+CC_OPTS	= -O2 -mips32 $(F_OPTS) $(W_OPTS)
 
 CFLAGS += $(CC_OPTS)
 CFLAGS += -DDINGUX \
@@ -229,15 +228,13 @@ CFLAGS += -DDINGUX \
 	  -DHAVE_ASPRINTF \
 	  -DFRAMESKIP \
 	  -D_REENTRANT \
-	  -D_GNU_SOURCE=1 -D_REENTRANT
+	  -I$(INCLUDEDIR)/SDL -D_GNU_SOURCE=1 -D_REENTRANT
 CXXFLAGS += $(CFLAGS)
-LDFLAGS  += $(CC_OPTS) -lSDL -lz
-
+LDFLAGS  += $(CC_OPTS)
 ifdef STATIC
- LDFLAGS  += -static-libgcc -static-libstdc++
+LDFLAGS  += -static-libgcc -static-libstdc++
 endif
-#LIBS = -L$(LIBDIR) `sdl-config --libs` -lz -lm
-LIBS = -L$(LIBDIR) -lm -lrt -ldl -lpthread
+LIBS = -L$(LIBDIR) `sdl-config --libs` -lz -lm
 
 TARGET = fceux
 
