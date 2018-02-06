@@ -77,10 +77,10 @@ main(int argc, char *argv[])
 #ifndef NO_STDIO_REDIRECT
   /* Redirect standard output and standard error. */
   /* TODO: Error checking. */
-  freopen(STDOUT_FILE, "w", stdout);
-  freopen(STDERR_FILE, "w", stderr);
-  setvbuf(stdout, NULL, _IOLBF, BUFSIZ);  /* Line buffered */
-  setbuf(stderr, NULL);          /* No buffering */
+  //freopen(STDOUT_FILE, "w", stdout);
+  //freopen(STDERR_FILE, "w", stderr);
+  //setvbuf(stdout, NULL, _IOLBF, BUFSIZ);  /* Line buffered */
+  //setbuf(stderr, NULL);          /* No buffering */
 #endif /* NO_STDIO_REDIRECT */
 
   atexit(cleanup_output);

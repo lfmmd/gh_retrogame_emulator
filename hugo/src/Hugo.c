@@ -69,6 +69,7 @@ loc_put_image_fit()
 {
   hugo_save_blit_image();
 
+#if 1
   SDL_Rect srcRect;
   SDL_Rect dstRect;
 
@@ -78,11 +79,25 @@ loc_put_image_fit()
   srcRect.y = 0;
 
   dstRect.w = 320;
-  dstRect.h = 240;
+  dstRect.h = 480;
   dstRect.x = 0;
   dstRect.y = 0;
 
   SDL_SoftStretch( blit_surface, &srcRect, back_surface, &dstRect );
+#else
+	// will crash
+  // for retrogame device
+	int x, y;
+  uint32_t *src = blit_surface->pixels;
+  uint32_t *dst = back_surface->pixels;
+
+  for(y=0; y<240; y++){
+    for(x=0; x<160; x++){
+      *dst++ = *src++;
+    }
+    dst+= 160;
+  }
+#endif
 }
 
 static void
@@ -101,6 +116,8 @@ loc_put_image_stretch_fast()
     src += HUGO_MAX_WIDTH * ((screen_h - 240) / 2);
     screen_h = 240;
   }
+	
+	printf("%s, %d %d\n", __func__, screen_h, screen_w);
   while (screen_h-- > 0) {
     u32 w = 320 / 4;
     u32 v;
@@ -118,6 +135,7 @@ loc_put_image_stretch_fast()
       step -= 2;
       if (step <= 0) { src++; step += step_max; }
     }
+    tgt += 160; // fix for retrogame
     src = start_src + HUGO_MAX_WIDTH;
   }
 }
@@ -153,6 +171,7 @@ loc_put_image_fast()
         v |= osd_pal[ *src++ ] << 16;
         *tgt++ = v;
       }
+      tgt += 160; // fix for retrogame
       tgt += (320 - screen_w) / 2;
       src += (HUGO_MAX_WIDTH - screen_w);
     }
@@ -197,7 +216,6 @@ loc_put_image_fast_max()
   if (screen_w > 256) {
     loc_put_image_fast();
   } else {
-
     // 256x240
     u8* src  = osd_gfx_buffer;
     u16* tgt = back_surface->pixels;
@@ -214,7 +232,7 @@ loc_put_image_fast_max()
     }
     while (screen_h-- > 0) {
       int w = screen_w / 4;
-      u16 *tgt_next = tgt + 320;
+      u16 *tgt_next = tgt + 320 + 320; // fix for retrogame
       while (w-- > 0) {
         loc_blend_15( tgt, src );
         tgt += 5; src += 4;

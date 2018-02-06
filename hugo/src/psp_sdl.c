@@ -33,7 +33,6 @@
   int            psp_font_width  = 8; 
   int            psp_font_height = 8; 
 
-  SDL_Surface *ScreenSurface;
   SDL_Surface *back_surface;
   SDL_Surface *back2_surface;
 
@@ -119,11 +118,9 @@ void
 psp_sdl_black_screen()
 {
   SDL_FillRect(back_surface,NULL,SDL_MapRGB(back_surface->format,0x0,0x0,0x0));
-  SDL_SoftStretch(back_surface, NULL, ScreenSurface, NULL);
-  SDL_Flip(ScreenSurface);
+  SDL_Flip(back_surface);
   SDL_FillRect(back_surface,NULL,SDL_MapRGB(back_surface->format,0x0,0x0,0x0));
-  SDL_SoftStretch(back_surface, NULL, ScreenSurface, NULL);
-  SDL_Flip(ScreenSurface);
+  SDL_Flip(back_surface);
 }
 
 void
@@ -212,7 +209,6 @@ psp_sdl_back2_rectangle(int x, int y, int w, int h)
     psp_sdl_fill_rectangle(x, y, w, h, 0x0, 0);
     return;
   }
-
   ushort *vram  = (ushort *)psp_sdl_get_vram_addr(x, y);
 
   int xo, yo;
@@ -231,6 +227,7 @@ psp_sdl_put_char(int x, int y, int color, int bgcolor, uchar c, int drawfg, int 
   int b;
   int index;
 
+  y*= 2;
   ushort *vram = (ushort *)psp_sdl_get_vram_addr(x, y);
   index = ((ushort)c) * psp_font_height;
 
@@ -238,9 +235,9 @@ psp_sdl_put_char(int x, int y, int color, int bgcolor, uchar c, int drawfg, int 
     b = 1 << (psp_font_width - 1);
     for (cx=0; cx< psp_font_width; cx++) {
       if (psp_font[index] & b) {
-        if (drawfg) vram[cx + cy * PSP_LINE_SIZE] = color;
+        if (drawfg) vram[cx + cy * PSP_LINE_SIZE * 2] = color;
       } else {
-        if (drawbg) vram[cx + cy * PSP_LINE_SIZE] = bgcolor;
+        if (drawbg) vram[cx + cy * PSP_LINE_SIZE * 2] = bgcolor;
       }
       b = b >> 1;
     }
@@ -261,17 +258,17 @@ psp_sdl_back2_put_char(int x, int y, int color, uchar c)
     return;
   }
 
+  y*= 2;
   ushort *vram  = (ushort *)psp_sdl_get_vram_addr(x, y);
-
   index = ((ushort)c) * psp_font_height;
 
   for (cy=0; cy< psp_font_height; cy++) {
     bmask = 1 << (psp_font_width - 1);
     for (cx=0; cx< psp_font_width; cx++) {
       if (psp_font[index] & bmask) {
-        vram[cx + cy * PSP_LINE_SIZE] = color;
+        vram[cx + cy * PSP_LINE_SIZE * 2] = color;
       } else {
-        vram[cx + cy * PSP_LINE_SIZE] = psp_sdl_get_back2_color(x + cx, y + cy);
+        vram[cx + cy * PSP_LINE_SIZE * 2] = psp_sdl_get_back2_color(x + cx, y + cy);
       }
       bmask = bmask >> 1;
     }
@@ -361,11 +358,29 @@ void
 psp_sdl_blit_thumb(int dst_x, int dst_y, SDL_Surface* thumb_surface)
 {
   SDL_Rect dstRect;
+
+  dst_y*= 2;
   dstRect.x = dst_x;
   dstRect.y = dst_y;
   dstRect.w = thumb_surface->w;
   dstRect.h = thumb_surface->h;
   SDL_BlitSurface(thumb_surface, NULL, back_surface, &dstRect);
+}
+
+void
+psp_sdl_quick_copy(SDL_Surface *src, SDL_Surface *dst)
+{
+  int x, y;
+  uint32_t *s = src->pixels;
+  uint32_t *d = dst->pixels;
+
+  for(y=0; y<240; y++){
+    for(x=0; x<160; x++){
+      *d++ = *s++;
+    }
+    d+= 160;
+  }
+  //SDL_SoftStretch(src, NULL, dst, NULL);
 }
 
 void
@@ -395,7 +410,7 @@ psp_sdl_display_splash()
 
   int x = (320 - (strlen(HUGO_VERSION) * 8)) / 2;
   int y = 240 - 16;
-  int col = psp_sdl_rgb(0x0, 0x0, 0x0);
+  int col = psp_sdl_rgb(0xff, 0xff, 0x00);
 
   psp_sdl_blit_splash();
   psp_sdl_print(x, y, HUGO_VERSION, col);
@@ -404,7 +419,6 @@ psp_sdl_display_splash()
   psp_sdl_blit_splash();
   psp_sdl_print(x, y, HUGO_VERSION, col);
   psp_sdl_flip();
-
 
   while (index < 50) {
     gp2xCtrlPeekBufferPositive(&c, 1);
@@ -422,18 +436,7 @@ psp_sdl_unlock(void)
 void
 psp_sdl_flip(void)
 {
-  int x, y;
-  uint32_t *src = back_surface->pixels;
-  uint32_t *dst = ScreenSurface->pixels;
-
-  for(y=0; y<240; y++){
-    for(x=0; x<160; x++){
-      *dst++ = *src++;
-    }
-    dst+= 160;
-  }
-  //SDL_SoftStretch(back_surface, NULL, ScreenSurface, NULL);
-  SDL_Flip(ScreenSurface);
+  SDL_Flip(back_surface);
 }
 
 #define  systemRedShift      (back_surface->format->Rshift)
@@ -681,8 +684,7 @@ psp_sdl_init(void)
 
   psp_sdl_select_font_6x10();
 
-  ScreenSurface=SDL_SetVideoMode(320, 480, 16 , SDL_SWSURFACE);
-  back_surface = SDL_CreateRGBSurface(SDL_SWSURFACE, PSP_SDL_SCREEN_WIDTH,PSP_SDL_SCREEN_HEIGHT, 16, 0, 0, 0, 0);
+  back_surface=SDL_SetVideoMode(PSP_SDL_SCREEN_WIDTH, PSP_SDL_SCREEN_HEIGHT, 16 , SDL_SWSURFACE);
   if ( !back_surface) {
     return 0;
   }

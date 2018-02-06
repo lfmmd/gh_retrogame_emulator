@@ -23,7 +23,7 @@
 # define GP2X_CTRL_DOWNLEFT   0x80000
 
 
-static int    loc_Volume = 50;
+static int    loc_Volume = 100;
 
 static int    loc_LastEventMask    = 0;
 static int    loc_CurrEventMask    = 0;

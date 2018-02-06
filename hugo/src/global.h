@@ -36,6 +36,6 @@ typedef unsigned int   u32;
 #define HUGO_HEIGHT 212
 
 # define SNAP_WIDTH   128
-# define SNAP_HEIGHT  106
+# define SNAP_HEIGHT  (106*2)
 
 #endif
