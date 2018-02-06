@@ -310,7 +310,20 @@ int JY_LoadPicture(const char* str,int x,int y)
 //flag = 0 显示全部表面  =1 按照JY_SetClip设置的矩形显示，如果没有矩形，则不显示
 int JY_ShowSurface(int flag)
 {
+#if 0
+  int x, y;
+  uint32_t *s = g_Surface->pixels;
+  uint32_t *d = g_RealSurface->pixels;
+
+  for(y=0; y<240; y++){
+    for(x=0; x<160; x++){
+      *d++ = *s++;
+    }
+    d+= 160;
+  } 
+#else
 	SDL_SoftStretch(g_Surface, NULL, g_RealSurface, NULL);
+#endif
 	if(flag==1){
 		if(currentRect>0){
 			SDL_UpdateRects(g_RealSurface,currentRect,ClipRect);

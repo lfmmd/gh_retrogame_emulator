@@ -1,4 +1,4 @@
-DEBUG=1
+DEBUG=0
 
 ifeq ($(DEBUG),0)
   CROSS_COMPILE = mipsel-linux-

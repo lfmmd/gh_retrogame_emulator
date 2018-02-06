@@ -39,7 +39,7 @@ static SDL_Texture       *gpBackKeyMessage   = NULL;
 
 // The real screen surface
 static SDL_Surface       *gpScreenReal       = NULL;
-static SDL_Surface       *gpScreenFinal       = NULL;
+static SDL_Surface       *ScreenSurface       = NULL;
 
 volatile BOOL g_bRenderPaused = FALSE;
 
@@ -221,29 +221,29 @@ VIDEO_Init(
 
 #else
 
-  printf("w:%d, h:%d\n", wScreenWidth, wScreenHeight);
-  gpScreenFinal = SDL_SetVideoMode(wScreenWidth, wScreenHeight, 16, SDL_HWSURFACE | (fFullScreen ? SDL_FULLSCREEN : 0));
+  //printf("w:%d, h:%d\n", wScreenWidth, wScreenHeight);
+  ScreenSurface = SDL_SetVideoMode(wScreenWidth, wScreenHeight, 16, SDL_HWSURFACE | (fFullScreen ? SDL_FULLSCREEN : 0));
 
-   if (gpScreenFinal == NULL)
+   if (ScreenSurface == NULL)
    {
       //
       // Fall back to 640x480 software mode.
       //
-      gpScreenFinal = SDL_SetVideoMode(640, 480, 8,
+      ScreenSurface = SDL_SetVideoMode(640, 480, 8,
          SDL_SWSURFACE | (fFullScreen ? SDL_FULLSCREEN : 0));
    }
 
    //
    // Still fail?
    //
-   if (gpScreenFinal == NULL)
+   if (ScreenSurface == NULL)
    {
       return -1;
    }
    
-   gpScreenReal = SDL_CreateRGBSurface(gpScreenFinal->flags & ~SDL_HWSURFACE, 320, 400, 8,
-      gpScreenFinal->format->Rmask, gpScreenFinal->format->Gmask,
-      gpScreenFinal->format->Bmask, gpScreenFinal->format->Amask);
+   gpScreenReal = SDL_CreateRGBSurface(ScreenSurface->flags & ~SDL_HWSURFACE, 320, 400, 8,
+      ScreenSurface->format->Rmask, ScreenSurface->format->Gmask,
+      ScreenSurface->format->Bmask, ScreenSurface->format->Amask);
 
 
    //
@@ -446,10 +446,15 @@ VIDEO_UpdateScreen(
 #else
       SDL_UpdateRect(gpScreenReal, dstrect.x, dstrect.y, dstrect.w, dstrect.h);
 
-      SDL_Surface* p = SDL_ConvertSurface(gpScreenReal, gpScreenFinal->format, 0);
-      SDL_BlitSurface(p, NULL, gpScreenFinal, NULL);
-      //SDL_UpdateRect(gpScreenFinal, dstrect.x, dstrect.y, dstrect.w, dstrect.h);
-      SDL_Flip(gpScreenFinal);
+      SDL_Rect dst;
+      dst.x = 0;
+      dst.y = 40;
+      dst.w = 320;
+      dst.h = 480;
+      SDL_Surface* p = SDL_ConvertSurface(gpScreenReal, ScreenSurface->format, 0);
+      SDL_BlitSurface(p, NULL, ScreenSurface, &dst);
+      //SDL_UpdateRect(ScreenSurface, dstrect.x, dstrect.y, dstrect.w, dstrect.h);
+      SDL_Flip(ScreenSurface);
       SDL_FreeSurface(p);
 #endif
    }
@@ -518,10 +523,15 @@ VIDEO_UpdateScreen(
 #else
       SDL_UpdateRect(gpScreenReal, 0, 0, gpScreenReal->w, gpScreenReal->h);
       
-      SDL_Surface* p = SDL_ConvertSurface(gpScreenReal, gpScreenFinal->format, 0);
-      SDL_BlitSurface(p, NULL, gpScreenFinal, NULL);
-      //SDL_UpdateRect(gpScreenFinal, 0, 0, gpScreenReal->w, gpScreenReal->h);
-      SDL_Flip(gpScreenFinal);
+      SDL_Rect dst;
+      dst.x = 0;
+      dst.y = 40;
+      dst.w = 320;
+      dst.h = 480;
+      SDL_Surface* p = SDL_ConvertSurface(gpScreenReal, ScreenSurface->format, 0);
+      SDL_BlitSurface(p, NULL, ScreenSurface, &dst);
+      //SDL_UpdateRect(ScreenSurface, 0, 0, gpScreenReal->w, gpScreenReal->h);
+      SDL_Flip(ScreenSurface);
       SDL_FreeSurface(p);
 #endif
       g_wShakeTime--;
@@ -561,10 +571,15 @@ VIDEO_UpdateScreen(
 #else
       SDL_UpdateRect(gpScreenReal, 0, 0, gpScreenReal->w, gpScreenReal->h);
       
-      SDL_Surface* p = SDL_ConvertSurface(gpScreenReal, gpScreenFinal->format, 0);
-      SDL_BlitSurface(p, NULL, gpScreenFinal, NULL);
-      //SDL_UpdateRect(gpScreenFinal, 0, 0, gpScreenReal->w, gpScreenReal->h);
-      SDL_Flip(gpScreenFinal);
+      SDL_Rect dst;
+      dst.x = 0;
+      dst.y = 40;
+      dst.w = 320;
+      dst.h = 480;
+      SDL_Surface* p = SDL_ConvertSurface(gpScreenReal, ScreenSurface->format, 0);
+      SDL_BlitSurface(p, NULL, ScreenSurface, &dst);
+      //SDL_UpdateRect(ScreenSurface, 0, 0, gpScreenReal->w, gpScreenReal->h);
+      SDL_Flip(ScreenSurface);
       SDL_FreeSurface(p);
 #endif
    }
