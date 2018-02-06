@@ -1,5 +1,5 @@
-title=gnuboy
-icon=skins/Default/icons/gnuboy.png
+title=ohboy
+icon=skins/Default/icons/ohboy.png
 exec=/bin/bash
 clock=859190325
 selectorbrowser=true
