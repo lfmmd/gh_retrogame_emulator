@@ -166,14 +166,9 @@ void plat_video_flip(void)
 		gl_flip(shadow_fb, g_screen_ppitch, g_screen_height);
 	}
 	else {
-		//if (SDL_MUSTLOCK(plat_sdl_screen))
-			//SDL_UnlockSurface(plat_sdl_screen);
-		//SDL_Flip(plat_sdl_screen);
-		if (SDL_MUSTLOCK(ScreenSurface))
-			SDL_UnlockSurface(ScreenSurface);
-    SDL_SoftStretch(plat_sdl_screen, NULL, ScreenSurface, NULL);
-		SDL_Flip(ScreenSurface);
-
+		if (SDL_MUSTLOCK(plat_sdl_screen))
+			SDL_UnlockSurface(plat_sdl_screen);
+		SDL_Flip(plat_sdl_screen);
 		g_screen_ptr = plat_sdl_screen->pixels;
 		PicoDrawSetOutBuf(g_screen_ptr, g_screen_ppitch * 2);
 	}
@@ -195,12 +190,9 @@ void plat_video_menu_begin(void)
 		g_menuscreen_ptr = shadow_fb;
 	}
 	else {
-		//if (SDL_MUSTLOCK(plat_sdl_screen))
-			//SDL_LockSurface(plat_sdl_screen);
-		//g_menuscreen_ptr = plat_sdl_screen->pixels;
-		if (SDL_MUSTLOCK(ScreenSurface))
-			SDL_LockSurface(ScreenSurface);
-		g_menuscreen_ptr = ScreenSurface->pixels;
+		if (SDL_MUSTLOCK(plat_sdl_screen))
+			SDL_LockSurface(plat_sdl_screen);
+		g_menuscreen_ptr = plat_sdl_screen->pixels;
 	}
 }
 
@@ -221,13 +213,9 @@ void plat_video_menu_end(void)
 		gl_flip(g_menuscreen_ptr, g_menuscreen_pp, g_menuscreen_h);
 	}
 	else {
-		//if (SDL_MUSTLOCK(plat_sdl_screen))
-			//SDL_UnlockSurface(plat_sdl_screen);
-		//SDL_Flip(plat_sdl_screen);
-		if (SDL_MUSTLOCK(ScreenSurface))
-			SDL_UnlockSurface(ScreenSurface);
-    SDL_SoftStretch(plat_sdl_screen, NULL, ScreenSurface, NULL);
-		SDL_Flip(ScreenSurface);
+		if (SDL_MUSTLOCK(plat_sdl_screen))
+			SDL_UnlockSurface(plat_sdl_screen);
+		SDL_Flip(plat_sdl_screen);
 	}
 	g_menuscreen_ptr = NULL;
 

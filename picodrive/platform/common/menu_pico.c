@@ -1086,7 +1086,7 @@ static menu_entry e_menu_main[] =
 void menu_loop(void)
 {
 	static int sel = 0;
-
+	
 	me_enable(e_menu_main, MA_MAIN_RESUME_GAME, PicoGameLoaded);
 	me_enable(e_menu_main, MA_MAIN_SAVE_STATE,  PicoGameLoaded);
 	me_enable(e_menu_main, MA_MAIN_LOAD_STATE,  PicoGameLoaded);

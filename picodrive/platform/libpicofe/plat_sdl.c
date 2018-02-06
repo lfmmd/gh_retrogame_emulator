@@ -21,7 +21,6 @@
 // XXX: maybe determine this instead..
 #define WM_DECORATION_H 32
 
-SDL_Surface *ScreenSurface;
 SDL_Surface *plat_sdl_screen;
 SDL_Overlay *plat_sdl_overlay;
 int plat_sdl_gl_active;
@@ -90,9 +89,8 @@ int plat_sdl_change_video_mode(int w, int h, int force)
     // (seen on r-pi)
     SDL_PumpEvents();
 
-    //plat_sdl_screen = SDL_SetVideoMode(win_w, win_h, 0, flags);
-    ScreenSurface = SDL_SetVideoMode(320, 480, 0, flags);
-    plat_sdl_screen = SDL_CreateRGBSurface(SDL_SWSURFACE, win_w, win_h, 0, 0, 0, 0, 0);
+    printf("steward, %s, 1\n", __func__);
+    plat_sdl_screen = SDL_SetVideoMode(win_w, win_h, 0, flags);
     if (plat_sdl_screen == NULL) {
       fprintf(stderr, "SDL_SetVideoMode failed: %s\n", SDL_GetError());
       plat_target.vout_method = 0;
@@ -123,9 +121,8 @@ int plat_sdl_change_video_mode(int w, int h, int force)
   if (plat_target.vout_method == 0) {
     SDL_PumpEvents();
 
-    //plat_sdl_screen = SDL_SetVideoMode(w, h, 16, SDL_HWSURFACE | SDL_DOUBLEBUF);
-    ScreenSurface = SDL_SetVideoMode(320,480, 16, SDL_HWSURFACE | SDL_DOUBLEBUF);
-    plat_sdl_screen = SDL_CreateRGBSurface(SDL_SWSURFACE, w, h, 16, 0, 0, 0, 0);
+    printf("steward, %s, 2, w:%d h:%d\n", __func__, w, h);
+    plat_sdl_screen = SDL_SetVideoMode(w, h, 16, SDL_HWSURFACE | SDL_DOUBLEBUF);
     if (plat_sdl_screen == NULL) {
       fprintf(stderr, "SDL_SetVideoMode failed: %s\n", SDL_GetError());
       return -1;
@@ -146,7 +143,7 @@ void plat_sdl_event_handler(void *event_)
 
   switch (event->type) {
   case SDL_VIDEORESIZE:
-    //printf("resize %dx%d\n", event->resize.w, event->resize.h);
+    printf("resize %dx%d\n", event->resize.w, event->resize.h);
     if (plat_target.vout_method != 0
         && !plat_target.vout_fullscreen && !old_fullscreen)
     {
@@ -200,8 +197,9 @@ int plat_sdl_init(void)
     fs_h = info->current_h;
     printf("plat_sdl: using %dx%d as fullscreen resolution\n", fs_w, fs_h);
   }
+  printf("steward, %s, info->w:%d, info->h:%d\n", __func__, info->current_w, info->current_h);
 
-  g_menuscreen_w = 640;
+  g_menuscreen_w = 320;
   if (fs_w != 0 && g_menuscreen_w > fs_w)
     g_menuscreen_w = fs_w;
   g_menuscreen_h = 480;
@@ -215,9 +213,8 @@ int plat_sdl_init(void)
 
   ret = plat_sdl_change_video_mode(g_menuscreen_w, g_menuscreen_h, 1);
   if (ret != 0) {
-    //plat_sdl_screen = SDL_SetVideoMode(0, 0, 16, SDL_SWSURFACE);
-    ScreenSurface = SDL_SetVideoMode(0, 0, 16, SDL_SWSURFACE);
-    plat_sdl_screen = SDL_CreateRGBSurface(SDL_SWSURFACE, 0, 0, 16, 0, 0, 0, 0);
+    printf("steward, %s, 3\n", __func__);
+    plat_sdl_screen = SDL_SetVideoMode(0, 0, 16, SDL_SWSURFACE);
     if (plat_sdl_screen == NULL) {
       fprintf(stderr, "SDL_SetVideoMode failed: %s\n", SDL_GetError());
       goto fail;
@@ -233,9 +230,9 @@ int plat_sdl_init(void)
   g_menuscreen_h = window_h = plat_sdl_screen->h;
 
   // overlay/gl require native bpp in some cases..
-  //plat_sdl_screen = SDL_SetVideoMode(g_menuscreen_w, g_menuscreen_h, 0, plat_sdl_screen->flags);
-  ScreenSurface = SDL_SetVideoMode(320, 480, 0, plat_sdl_screen->flags);
-  plat_sdl_screen = SDL_CreateRGBSurface(SDL_SWSURFACE, g_menuscreen_w, g_menuscreen_h, 0, 0, 0, 0, 0);
+  printf("steward, %s, 4\n", __func__);
+  plat_sdl_screen = SDL_SetVideoMode(g_menuscreen_w, g_menuscreen_h,
+    0, plat_sdl_screen->flags);
   if (plat_sdl_screen == NULL) {
     fprintf(stderr, "SDL_SetVideoMode failed: %s\n", SDL_GetError());
     goto fail;
@@ -311,8 +308,10 @@ void plat_sdl_finish(void)
   }
   // restore back to initial resolution
   // resolves black screen issue on R-Pi
-  if (strcmp(vid_drv_name, "x11") != 0)
+  if (strcmp(vid_drv_name, "x11") != 0){
+    printf("steward, %s, 5\n", __func__);
     SDL_SetVideoMode(fs_w, fs_h, 16, SDL_SWSURFACE);
+  }
   SDL_Quit();
 }
 

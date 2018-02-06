@@ -115,6 +115,7 @@ static void text_out16_(int x, int y, const char *text, int color)
 				b = (c^0xf)*b/15 + c*tb/15;
 				*dst++ = ((r<<8)&0xf800) | ((g<<3)&0x07e0) | (b>>3);
 			}
+      dst+= 320; // fix for retrogame
 		}
 		dest += me_mfont_w;
 	}
@@ -209,6 +210,7 @@ static void menu_draw_selection(int x, int y, int w)
 	int i, h;
 	unsigned short *dst, *dest;
 
+  printf("steward, %s, %d %d %d\n", __func__, x, y, w);
 	text_out16_(x, y, (void *)1, (menu_sel_color < 0) ? menu_text_color : menu_sel_color);
 
 	if (menu_sel_color < 0) return; // no selection hilight
@@ -221,6 +223,7 @@ static void menu_draw_selection(int x, int y, int w)
 		for (i = w - (me_mfont_w * 2 - 2); i > 0; i--)
 			*dst++ = menu_sel_color;
 		dest += g_menuscreen_pp;
+    dest += 320; // fix for retrogame
 	}
 }
 
@@ -584,7 +587,7 @@ static void me_draw(const menu_entry *entries, int sel, void (*draw_more)(void))
 
 	/* draw */
 	menu_draw_begin(1, 0);
-	menu_draw_selection(x, y + vi_sel_ln * me_mfont_h, w);
+	menu_draw_selection(x, y + vi_sel_ln * me_mfont_h * 2, w); // fix for retrogame
 	x += me_mfont_w * 2;
 
 	for (ent = entries; ent->name; ent++)
@@ -641,7 +644,7 @@ static void me_draw(const menu_entry *entries, int sel, void (*draw_more)(void))
 			break;
 		}
 
-		y += me_mfont_h;
+		y += me_mfont_h * 2; // fix for retrogame
 	}
 
 	menu_separation();
@@ -724,6 +727,8 @@ static int me_loop_d(menu_entry *menu, int *menu_sel, void (*draw_prep)(void), v
 	while ((!menu[sel].enabled || !menu[sel].selectable) && sel < menu_sel_max)
 		sel++;
 
+  printf("steward, %s\n", __func__);
+
 	/* make sure action buttons are not pressed on entering menu */
 	me_draw(menu, sel, NULL);
 	while (in_menu_wait_any(NULL, 50) & (PBTN_MOK|PBTN_MBACK|PBTN_MENU));
@@ -746,6 +751,7 @@ static int me_loop_d(menu_entry *menu, int *menu_sel, void (*draw_prep)(void), v
 					sel = menu_sel_max;
 			}
 			while (!menu[sel].enabled || !menu[sel].selectable);
+      printf("steward, %s, up, %d\n", __func__, sel);
 		}
 		if (inp & PBTN_DOWN) {
 			do {
@@ -754,6 +760,7 @@ static int me_loop_d(menu_entry *menu, int *menu_sel, void (*draw_prep)(void), v
 					sel = 0;
 			}
 			while (!menu[sel].enabled || !menu[sel].selectable);
+      printf("steward, %s, down, %d\n", __func__, sel);
 		}
 
 		/* a bit hacky but oh well */

@@ -1,6 +1,5 @@
 #include <SDL.h>
 
-extern SDL_Surface *ScreenSurface;
 extern SDL_Surface *plat_sdl_screen;
 extern SDL_Overlay *plat_sdl_overlay;
 extern int plat_sdl_gl_active;

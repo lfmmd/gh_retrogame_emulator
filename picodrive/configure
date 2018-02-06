@@ -51,7 +51,7 @@ optimize_arm920="no"
 
 # hardcoded stuff
 CC=mipsel-linux-gcc
-CXX=mipsel-linux-g++
+CXX=mipsel-inux-g++
 AS=mipsel-linux-as
 STRIP=mipsel-linux-strip
 test -n "$SDL_CONFIG" || SDL_CONFIG="`$CC --print-sysroot 2> /dev/null || true`/usr/bin/sdl-config"
