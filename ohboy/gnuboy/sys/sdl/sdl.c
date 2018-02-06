@@ -14,26 +14,44 @@
 
 #include <SDL/SDL.h>
 
-#include "../../fb.h"
-#include "../../input.h"
-#include "../../rc.h"
+#include "SFont.h"
+#include "font8px.h"
+
+#include "gnuboy.h"
+#include "fb.h"
+#include "input.h"
+#include "rc.h"
 
 struct fb fb;
 
 static int use_yuv = -1;
 static int fullscreen = 1;
-static int use_altenter = -1;
-static int use_joy = -1, sdl_joy_num;
+static int use_altenter = 1;
+static int use_joy = 1, sdl_joy_num;
 static SDL_Joystick * sdl_joy = NULL;
 static const int joy_commit_range = 3276;
 static char Xstatus, Ystatus;
 
-static SDL_Surface *ScreenSurface;
 static SDL_Surface *screen;
 static SDL_Overlay *overlay;
 static SDL_Rect overlay_rect;
 
 static int vmode[3] = { 0, 0, 16 };
+
+/* fps */
+static int sdl_showfps = 0; 
+static int fps_current_count = 0; 
+static int fps_last_count = 0; 
+static int fps_last_time = 0; 
+static int fps_current_time = 0;
+static char fps_str[20] = {0};
+
+static SDL_Surface *font_bitmap_surface=NULL;
+static SFont_Font* Font=NULL;
+
+SDL_Rect myrect;
+/* fps */
+
 
 rcvar_t vid_exports[] =
 {
@@ -41,6 +59,8 @@ rcvar_t vid_exports[] =
 	RCV_BOOL("yuv", &use_yuv),
 	RCV_BOOL("fullscreen", &fullscreen),
 	RCV_BOOL("altenter", &use_altenter),
+    
+	RCV_INT("sdl_showfps", &sdl_showfps), /* SDL only, show frames per second, if >1 will show FPS in a box */
 	RCV_END
 };
 
@@ -113,12 +133,15 @@ static void overlay_init()
 
 	if (!overlay) return;
 
+#ifndef GNUBOY_HACK_ALWAYS_USE_YUV_IF_REQUESTED
+	/* check if there is hardware support, use regular RGB mode if there is no HW support */
 	if (!overlay->hw_overlay || overlay->planes > 1)
 	{
 		SDL_FreeYUVOverlay(overlay);
 		overlay = 0;
 		return;
 	}
+#endif /* GNUBOY_HACK_ALWAYS_USE_YUV_IF_REQUESTED */
 
 	SDL_LockYUVOverlay(overlay);
 	
@@ -161,24 +184,35 @@ void vid_init()
 	{
 		int scale = rc_getint("scale");
 		if (scale < 1) scale = 1;
-
-    scale = 2; // fix for retrogame
 		vmode[0] = 160 * scale;
 		vmode[1] = 144 * scale;
 	}
 	
-	flags = SDL_HWPALETTE | SDL_SWSURFACE;
+	flags = SDL_ANYFORMAT | SDL_HWPALETTE | SDL_HWSURFACE;
 
 	if (fullscreen)
 		flags |= SDL_FULLSCREEN;
 
-	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO))
+	if (SDL_Init(SDL_INIT_VIDEO))
 		die("SDL: Couldn't initialize SDL: %s\n", SDL_GetError());
+	atexit(SDL_Quit); /* gnuboy uses exit() alot, so need to clear SDL correctly */
 
-	if (!(ScreenSurface = SDL_SetVideoMode(320, 480, 16, flags)))
+	if (!(screen = SDL_SetVideoMode(vmode[0], vmode[1], vmode[2], flags)))
 		die("SDL: can't set video mode: %s\n", SDL_GetError());
+    
+    /* fps */
+    font_bitmap_surface = get_default_data_font();
+    Font = SFont_InitFont(font_bitmap_surface);
+    if(!Font)
+    {
+        die("An error occured while setting up font.");
+    }
+    myrect.x = 0;
+    myrect.y = 0;
+    myrect.w = 320;
+    myrect.h = SFont_TextHeight(Font);
+    /* fps */
 
-  screen = SDL_CreateRGBSurface(SDL_SWSURFACE, vmode[0], vmode[1], vmode[2], 0, 0, 0, 0);
 	SDL_ShowCursor(0);
 
 	joy_init();
@@ -417,54 +451,131 @@ void vid_begin()
 	fb.ptr = screen->pixels;
 }
 
-void
-quick_copy(SDL_Surface *src, SDL_Surface *dst)
-{
-#if 0
-  int x, y;
-  uint32_t *s = src->pixels;
-  uint32_t *d = dst->pixels;
-
-  for(y=0; y<240; y++){
-    for(x=0; x<160; x++){
-      *d++ = *s++;
-    }
-    d+= 160;
-  }
-#else
-  SDL_SoftStretch(src, NULL, dst, NULL);
-#endif
-}
-
 void vid_end()
 {
 	if (overlay)
 	{
 		SDL_UnlockYUVOverlay(overlay);
+        
+#ifdef SDL_YUV_SHOW_FPS_TO_STDOUT
+        /* Hack to dump FPS to stdout when YUV mode is enabled */
+        if (sdl_showfps)
+        {
+            fps_current_time = SDL_GetTicks();
+            fps_current_count++;
+            if ( fps_current_time - fps_last_time >= 1000 )
+            {
+                printf("%d FPS\n", fps_last_count);
+                /* reset fps count every second (not every frame) */
+                fps_last_count = fps_current_count;
+                fps_current_count = 0;
+                fps_last_time = fps_current_time;
+            }
+        }
+#endif /* SDL_YUV_SHOW_FPS_TO_STDOUT */
+
 		if (fb.enabled)
 			SDL_DisplayYUVOverlay(overlay, &overlay_rect);
 		return;
 	}
 	SDL_UnlockSurface(screen);
+    
+    if (sdl_showfps)
+    {
+        fps_current_time = SDL_GetTicks();
+        fps_current_count++;
+        snprintf(fps_str, 19, "%d FPS", fps_last_count);
+        if (sdl_showfps > 1 )
+        {
+            myrect.w = SFont_TextWidth(Font, fps_str);
+            SDL_FillRect(screen, &myrect, 0 );
+        }
+        SFont_Write(screen, Font, 0,0, fps_str);
+        if ( fps_current_time - fps_last_time >= 1000 )
+        {
+            /* reset fps count every second (not every frame) */
+            fps_last_count = fps_current_count;
+            fps_current_count = 0;
+            fps_last_time = fps_current_time;
+        }
+    }
+
 	if (fb.enabled){
     //SDL_Flip(screen);
-    quick_copy(screen, ScreenSurface);
+
+    // fix for retrogame
+		int x, y;
+		uint32_t *s = screen->pixels;
+		uint32_t *d = ScreenSurface->pixels;
+
+		for(y=0; y<240; y++){
+			for(x=0; x<160; x++){
+				*d++ = *s++;
+			}
+			d+= 160;
+		}
     SDL_Flip(ScreenSurface);
   }
 }
 
+#ifndef GNUBOY_NO_SCREENSHOT
+/*
+**  TakeScreenShot of SDL surface, only needs SDL lib
+**      surface is optional, if NULL is specified use the main video
+**      filename is optional, if NULL is specified use SCREENSHOT_DEFAULT_FILENAME
+**
+**  Saves BMP files (SDL has built in support for BMP).
+**  If no filename is provided a default name is used (which may
+**  overwrite existing files).
+*/
+#define SCREENSHOT_DEFAULT_FILENAME "screenshot_gnuboy.bmp"
+void TakeScreenShot(SDL_Surface *screen_to_save, char *filename)
+{
+    char *local_filename=NULL;
+    SDL_Surface *local_screen=NULL;
+    
+    local_screen = screen_to_save;
+    local_filename = filename;
+    
+    if (local_screen == NULL)
+    {
+        local_screen = SDL_GetVideoSurface();
+        
+        /*
+        or if there is global screen ref go grab it ...
+        extern SDL_Surface *screen;
+        
+        local_screen = screen;
+        */
+    }
+    if (local_filename == NULL)
+    {
+        local_filename = SCREENSHOT_DEFAULT_FILENAME;
+        /* TODO scan local dir and derive name? Use timestamp (note Dingoo has no clock). */
+    }
+    
+    SDL_SaveBMP(local_screen, local_filename);
+}
+
+int vid_screenshot(char *filename)
+{
+    TakeScreenShot(screen, filename);
+    return 0;
+}
+#endif /*GNUBOY_NO_SCREENSHOT */
 
 
 
+#ifndef GNUBOY_DISABLE_SDL_SOUND
 
-#include "../../pcm.h"
+#include "pcm.h"
 
 
 struct pcm pcm;
 
 
 static int sound = 1;
-static int samplerate = 16000;
+static int samplerate = 44100;
 static int stereo = 1;
 static volatile int audio_done;
 
@@ -477,20 +588,11 @@ rcvar_t pcm_exports[] =
 };
 
 
-static void audio_callback(void *blah, signed short *stream, int len)
+static void audio_callback(void *blah, byte *stream, int len)
 {
-	int teller = 0;
-	signed short w;
-	byte * bleh = (byte *) stream;
-	for (teller = 0; teller < pcm.len; teller++)
-	{
-		w = ((pcm.buf[teller] - 128) << 8);
-		*bleh++ = w & 0xFF ;
-		*bleh++ = w >> 8;
-	
-	}
-		
-	//memcpy(stream, pcm.buf, len);
+	(void) blah; /* avoid warning about unused parameter */
+
+	memcpy(stream, pcm.buf, len);
 	audio_done = 1;
 }
 
@@ -502,9 +604,9 @@ void pcm_init()
 
 	if (!sound) return;
 	
-	/* SDL_InitSubSystem(SDL_INIT_AUDIO); */
+	SDL_InitSubSystem(SDL_INIT_AUDIO);
 	as.freq = samplerate;
-	as.format = AUDIO_S16;
+	as.format = AUDIO_U8;
 	as.channels = 1 + stereo;
 	as.samples = samplerate / 60;
 	for (i = 1; i < as.samples; i<<=1);
@@ -516,7 +618,7 @@ void pcm_init()
 	
 	pcm.hz = as.freq;
 	pcm.stereo = as.channels - 1;
-	pcm.len = as.size/2;
+	pcm.len = as.size;
 	pcm.buf = malloc(pcm.len);
 	pcm.pos = 0;
 	memset(pcm.buf, 0, pcm.len);
@@ -539,9 +641,59 @@ void pcm_close()
 {
 	if (sound) SDL_CloseAudio();
 }
+#endif /* GNUBOY_DISABLE_SDL_SOUND */
 
 
+#ifdef GNUBOY_USE_SDL_TIMERS
+/*
+**  Return timer suitable for use with sys_elapsed()
+**  Timer is initialized with the current time.
+*/
+void *sys_timer()
+{
+	Uint32 *tv;
+	
+	tv = malloc(sizeof *tv);
+	*tv = SDL_GetTicks() * 1000;
+	return (void *) tv;
+}
 
+/*
+**  Return number of microseconds since input timer was last updated.
+**  Also update the input timer with the current time.
+*/
+int sys_elapsed(void *in_ptr)
+{
+	Uint32 *cl;
+	Uint32 now;
+	Uint32 usecs;
 
+	cl = (Uint32 *) in_ptr;
+	now = SDL_GetTicks() * 1000;
+	usecs = now - *cl;
+	*cl = now;
+	return (int) usecs;
+}
 
+void sys_sleep(int us)
+{
+	/*
+	**  "us" is microseconds, SDL timers are all milliseconds
+	**  1 second [s]  == 1000 millisecond [ms] == 1000000 microsecond [us]
+	**  1 millisecond [ms] == 1000 microsecond [us]
+	**  1000 microsecond [us] == 0.001 millisecond [ms]
+	*/
 
+	/* dbk: for some reason 2000 works..
+	   maybe its just compensation for the time it takes for SDL_Delay to
+	   execute, or maybe sys_timer is too slow */
+
+	/*
+	** if zero or negative,
+	** do NOT perform math for microsecond to millisecond conversion
+	*/
+	if (us > 0)
+		SDL_Delay(us/1000); /* NOTE signed input to an unsigned input function. */
+}
+
+#endif /* GNUBOY_USE_SDL_TIMERS */
