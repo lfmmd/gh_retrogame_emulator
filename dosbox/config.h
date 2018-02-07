@@ -109,7 +109,7 @@
 #define ENVIRON_LINKED 1
 
 /* Define to 1 to use ALSA for MIDI */
-#define HAVE_ALSA 1
+/* #undef HAVE_ALSA */
 
 /* Define to 1 if you have the <ddraw.h> header file. */
 /* #undef HAVE_DDRAW_H */
@@ -118,7 +118,7 @@
 #define HAVE_INTTYPES_H 1
 
 /* Define to 1 if you have the `asound' library (-lasound). */
-#define HAVE_LIBASOUND 1
+/* #undef HAVE_LIBASOUND */
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1

@@ -19,6 +19,7 @@ void GFX_Downscale_##SX##x##SY##_to_##DX##x##DY##_##BPP(SDL_Surface *src, SDL_Su
 			Src += 2;															\
 		}																		\
 		Src += SX;																\
+    Dest+= 320; \
 	}																			\
 }
 

@@ -334,7 +334,6 @@ void VKEYB_BlitVkeyboard(SDL_Surface *surface)
 	SDL_Rect dest;
 	dest.x = vkeyb.x;
 	dest.y = vkeyb.y;
-
 	SDL_BlitSurface(vkeyb.surface, 0, surface, &dest);
 }
 

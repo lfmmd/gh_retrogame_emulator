@@ -51,7 +51,6 @@
 #include "control.h"
 #include "sdl_downscaler.h"
 #include "sdl_vkeyboard.h"
-SDL_Surface *ScreenSurface;
 
 #define MAPPERFILE "mapper-" VERSION ".map"
 //#define DISABLE_JOYSTICK
@@ -579,15 +578,8 @@ dosurface:
 		if (flags & GFX_CAN_32) bpp = 32;
 		sdl.desktop.type = SCREEN_SURFACE_DINGUX;
 
-		ScreenSurface=SDL_SetVideoMode(320, 480, 16, 
+		sdl.surface=SDL_SetVideoMode(320, 480, 16, 
 									(flags & GFX_CAN_RANDOM) ? SDL_SWSURFACE : SDL_HWSURFACE);
-	
-    sdl.surface=SDL_CreateRGBSurface(SDL_SWSURFACE, // for mixing menu and game screen
-									sdl.desktop.full.width,
-									sdl.desktop.full.height,
-									sdl.desktop.bpp,
-									0,0,0,0);
-
 		sdl.blit.buffer=SDL_CreateRGBSurface(SDL_SWSURFACE, // for mixing menu and game screen
 									sdl.desktop.full.width,
 									sdl.desktop.full.height,
@@ -973,9 +965,7 @@ void GFX_EndUpdate( const Bit16u *changedLines ) {
 				SDL_UnlockSurface(sdl.surface);
 			}
 
-			//SDL_Flip(sdl.surface);
-      SDL_SoftStretch(sdl.surface, NULL, ScreenSurface, NULL);
-			SDL_Flip(ScreenSurface);
+			SDL_Flip(sdl.surface);
 		} else if (changedLines) {
 			Bitu y = 0, index = 0, rectCount = 0;
 			while (y < sdl.draw.height) {
@@ -1022,9 +1012,7 @@ void GFX_EndUpdate( const Bit16u *changedLines ) {
 			SDL_BlitSurface(sdl.blit.buffer, 0, sdl.surface, 0);
 			VKEYB_CleanVkeyboard(sdl.blit.buffer);
 		}
-		//SDL_Flip(sdl.surface);
-      SDL_SoftStretch(sdl.surface, NULL, ScreenSurface, NULL);
-			SDL_Flip(ScreenSurface);
+		SDL_Flip(sdl.surface);
 		break;
 #if (HAVE_DDRAW_H) && defined(WIN32)
 	case SCREEN_SURFACE_DDRAW:
@@ -1043,9 +1031,7 @@ void GFX_EndUpdate( const Bit16u *changedLines ) {
 		default:
 			LOG_MSG("DDRAW:Failed to blit, error %X",ret);
 		}
-		//SDL_Flip(sdl.surface);
-      SDL_SoftStretch(sdl.surface, NULL, ScreenSurface, NULL);
-			SDL_Flip(ScreenSurface);
+		SDL_Flip(sdl.surface);
 		break;
 #endif
 	case SCREEN_OVERLAY:
@@ -1450,17 +1436,13 @@ static void GUI_StartUp(Section * sec) {
 				SDL_FillRect(sdl.surface, NULL, SDL_MapRGB(sdl.surface->format, 0, 0, 0));
 				SDL_SetAlpha(splash_surf, SDL_SRCALPHA,255);
 				SDL_BlitSurface(splash_surf, NULL, sdl.surface, NULL);
-				//SDL_Flip(sdl.surface);
-      SDL_SoftStretch(sdl.surface, NULL, ScreenSurface, NULL);
-			SDL_Flip(ScreenSurface);
+				SDL_Flip(sdl.surface);
 			} else if (ct>=max_splash_loop-splash_fade) {
 				if (use_fadeout) {
 					SDL_FillRect(sdl.surface, NULL, SDL_MapRGB(sdl.surface->format, 0, 0, 0));
 					SDL_SetAlpha(splash_surf, SDL_SRCALPHA, (Bit8u)((max_splash_loop-1-ct)*255/(splash_fade-1)));
 					SDL_BlitSurface(splash_surf, NULL, sdl.surface, NULL);
-					//SDL_Flip(sdl.surface);
-      SDL_SoftStretch(sdl.surface, NULL, ScreenSurface, NULL);
-			SDL_Flip(ScreenSurface);
+					SDL_Flip(sdl.surface);
 				}
 			}
 
@@ -1468,9 +1450,7 @@ static void GUI_StartUp(Section * sec) {
 
 		if (use_fadeout) {
 			SDL_FillRect(sdl.surface, NULL, SDL_MapRGB(sdl.surface->format, 0, 0, 0));
-			//SDL_Flip(sdl.surface);
-      SDL_SoftStretch(sdl.surface, NULL, ScreenSurface, NULL);
-			SDL_Flip(ScreenSurface);
+			SDL_Flip(sdl.surface);
 		}
 		SDL_FreeSurface(splash_surf);
 		delete [] tmpbufp;
@@ -1478,12 +1458,12 @@ static void GUI_StartUp(Section * sec) {
 	}
 	} else { // sdl.desktop.want_type != SCREEN_SURFACE_DINGUX
 		// test which modes are available and fill sdl.desktop data
-		sdl.desktop.bpp = SDL_VideoModeOK(320,240,16,SDL_HWSURFACE); // let SDL choose bpp
+		sdl.desktop.bpp = SDL_VideoModeOK(320,480,16,SDL_HWSURFACE); // let SDL choose bpp
 		if(!sdl.desktop.full.fixed) { // i.e. fullresolution=original
 			sdl.desktop.fullscreen = true;
 			sdl.desktop.full.fixed = true;
 			sdl.desktop.full.width = 320;
-			sdl.desktop.full.height = 240;
+			sdl.desktop.full.height = 480;
 		}
 		#ifndef WIN32 // for testing on win
 		sdl.mouse.autoenable = false;
@@ -1841,9 +1821,7 @@ static void show_warning(char const * const message) {
 	}
    
 	SDL_BlitSurface(splash_surf, NULL, sdl.surface, NULL);
-	//SDL_Flip(sdl.surface);
-      SDL_SoftStretch(sdl.surface, NULL, ScreenSurface, NULL);
-			SDL_Flip(ScreenSurface);
+	SDL_Flip(sdl.surface);
 	SDL_Delay(12000);
 }
    
