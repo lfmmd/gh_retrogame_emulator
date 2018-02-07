@@ -34,7 +34,6 @@ int PhysicalBufferWidth = 0;
 unsigned short *BurnVideoBuffer = NULL; // source FBA video buffer
 unsigned short *VideoBuffer = NULL; // screen buffer
 
-SDL_Surface *ScreenSurface;
 SDL_Surface *screen;
 
 #define BW VideoBufferWidth
@@ -60,8 +59,8 @@ static void Blit_864x224_to_320x240()
 	// Taito 864x224
 	unsigned short * p = &VideoBuffer[2560];
 	unsigned short * q = BurnVideoBuffer;
-	
-	for (int i=0; i<224; i++)
+
+	for (int i=0; i<224; i++) {
 		for (int j=0; j<32; j++) {
 			p[0] = COLORMIX(q[0], q[1]); // 0, 1, 2
 			p[1] = COLORMIX(q[3], q[4]); // 3, 4, 5
@@ -76,6 +75,8 @@ static void Blit_864x224_to_320x240()
 			p += 10;
 			q += 27;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blit_640x240_to_320x240() 
@@ -84,12 +85,14 @@ static void Blit_640x240_to_320x240()
 	unsigned short * p = &VideoBuffer[0];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<240; i++)
+	for (int i=0; i<240; i++) {
 		for (int j=0; j<320; j++) {
 			p[0] = COLORMIX(q[0], q[1]);
 			p += 1;
 			q += 2;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blit_640x224_to_320x240() 
@@ -98,12 +101,14 @@ static void Blit_640x224_to_320x240()
 	unsigned short * p = &VideoBuffer[2560];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<224; i++)
+	for (int i=0; i<224; i++) {
 		for (int j=0; j<320; j++) {
 			p[0] = COLORMIX(q[0], q[1]);
 			p += 1;
 			q += 2;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blit_512x256_to_320x240() 
@@ -123,6 +128,7 @@ static void Blit_512x256_to_320x240()
 			q += 8;
 		}
 		if(i % 16 == 0) q += 512;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -143,6 +149,7 @@ static void Blitf_512x256_to_320x240()
 			q -= 8;
 		}
 		if(i % 16 == 0) q -= 512;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -181,6 +188,7 @@ static void Blitr_512x256_to_320x240()
 			q1 += BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -219,6 +227,7 @@ static void Blitrf_512x256_to_320x240()
 			q1 -= BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -238,6 +247,7 @@ static void Blit_512x224_to_320x240()
 			p += 5;
 			q += 8;
 		}
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -257,6 +267,7 @@ static void Blitf_512x224_to_320x240()
 			p += 5;
 			q -= 8;
 		}
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -296,6 +307,7 @@ static void Blitr_512x224_to_320x240()
 			q1 += BW;
 		}
 		p += 138;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -335,6 +347,7 @@ static void Blitrf_512x224_to_320x240()
 			q1 -= BW;
 		}
 		p += 138;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -344,7 +357,7 @@ static void Blit_448x224_to_320x240()
 	unsigned short * p = &VideoBuffer[2560];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<224; i++)
+	for (int i=0; i<224; i++) {
 		for (int j=0; j<64; j++) {
 			p[0] = q[0];
 			p[1] = COLORMIX(q[1], q[2]);
@@ -354,6 +367,8 @@ static void Blit_448x224_to_320x240()
 			p += 5;
 			q += 7;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blitr_448x224_to_320x240()
@@ -391,6 +406,7 @@ static void Blitr_448x224_to_320x240()
 			q1 += BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -400,7 +416,7 @@ static void Blit_384x256_to_320x240()
 	unsigned short * p = &VideoBuffer[0];
 	unsigned short * q = BurnVideoBuffer + 384*8;
 	
-	for (int i=0; i<240; i++)
+	for (int i=0; i<240; i++) {
 		for (int j=0; j<64; j++) {
 			p[0] = q[0];
 			p[1] = q[1];
@@ -410,6 +426,8 @@ static void Blit_384x256_to_320x240()
 			p += 5;
 			q += 6;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blitr_384x256_to_320x240()
@@ -447,6 +465,7 @@ static void Blitr_384x256_to_320x240()
 			q1 += BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -456,7 +475,7 @@ static void Blit_384x240_to_320x240()
 	unsigned short * p = &VideoBuffer[0];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<240; i++)
+	for (int i=0; i<240; i++) {
 		for (int j=0; j<64; j++) {
 			p[0] = q[0];
 			p[1] = q[1];
@@ -466,6 +485,8 @@ static void Blit_384x240_to_320x240()
 			p += 5;
 			q += 6;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blitf_384x240_to_320x240() 
@@ -474,7 +495,7 @@ static void Blitf_384x240_to_320x240()
 	unsigned short * p = &VideoBuffer[0];
 	unsigned short * q = BurnVideoBuffer + 384 * 240 - 1 - 6;
 	
-	for (int i=0; i<240; i++)
+	for (int i=0; i<240; i++) {
 		for (int j=0; j<64; j++) {
 			p[0] = q[5];
 			p[1] = q[4];
@@ -484,6 +505,8 @@ static void Blitf_384x240_to_320x240()
 			p += 5;
 			q -= 6;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blitr_384x240_to_320x240()
@@ -521,6 +544,7 @@ static void Blitr_384x240_to_320x240()
 			q1 += BW;
 		}
 		p += 140;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -560,6 +584,7 @@ static void Blitrf_384x240_to_320x240()
 			q1 -= BW;
 		}
 		p += 140;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -569,7 +594,7 @@ static void Blit_384x224_to_320x240()
 	unsigned short * p = &VideoBuffer[2560];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<224; i++)
+	for (int i=0; i<224; i++) {
 		for (int j=0; j<64; j++) {
 			p[0] = q[0];
 			p[1] = q[1];
@@ -579,6 +604,8 @@ static void Blit_384x224_to_320x240()
 			p += 5;
 			q += 6;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blitf_384x224_to_320x240() 
@@ -587,7 +614,7 @@ static void Blitf_384x224_to_320x240()
 	unsigned short * p = &VideoBuffer[2560];
 	unsigned short * q = BurnVideoBuffer + 384 * 224 - 1 - 6;
 	
-	for (int i=0; i<224; i++)
+	for (int i=0; i<224; i++) {
 		for (int j=0; j<64; j++) {
 			p[0] = q[5];
 			p[1] = q[4];
@@ -597,6 +624,8 @@ static void Blitf_384x224_to_320x240()
 			p += 5;
 			q -= 6;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blitr_384x224_to_320x240()
@@ -634,6 +663,7 @@ static void Blitr_384x224_to_320x240()
 			q1 += BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -672,6 +702,7 @@ static void Blitrf_384x224_to_320x240()
 			q1 -= BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -695,6 +726,7 @@ static void Blit_380x224_to_320x240()
 		p[1] = q[1];
 		p += 5;
 		q += 2;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -720,6 +752,7 @@ static void Blit_376x240_to_320x240()
 		p[3] = q[3];
 		p += 10;
 		q += 4;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -729,7 +762,7 @@ static void Blit_368x224_to_320x240()
 	unsigned short * p = &VideoBuffer[2560];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<224; i++)
+	for (int i=0; i<224; i++) {
 		for (int j=0; j<16; j++) {
 			p[0] = q[0];
 			p[1] = q[1];
@@ -754,6 +787,8 @@ static void Blit_368x224_to_320x240()
 			p += 20;
 			q += 23;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blit_352x240_to_320x240() 
@@ -762,7 +797,7 @@ static void Blit_352x240_to_320x240()
 	unsigned short * p = &VideoBuffer[0];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<240; i++)
+	for (int i=0; i<240; i++) {
 		for (int j=0; j<32; j++) {
 			p[0] = q[0];
 			p[1] = q[1];
@@ -777,6 +812,8 @@ static void Blit_352x240_to_320x240()
 			p += 10;
 			q += 11;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blitr_352x240_to_320x240()
@@ -812,6 +849,7 @@ static void Blitr_352x240_to_320x240()
 			q1 += BW;
 		}
 		p += 140;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -821,7 +859,7 @@ static void Blit_336x240_to_320x240()
 	unsigned short * p = &VideoBuffer[0];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<240; i++)
+	for (int i=0; i<240; i++) {
 		for (int j=0; j<16; j++) {
 			p[0] = q[0];
 			p[1] = q[1];
@@ -846,14 +884,27 @@ static void Blit_336x240_to_320x240()
 			p += 20;
 			q += 21;
 		}
+    p+= 320; // fix for rs-97
+  }
 }
 
 static void Blit_320x240_to_320x240() 
 {
 	// Cave & Toaplan 320x240
-	unsigned short * p = &VideoBuffer[0];
-	unsigned short * q = &BurnVideoBuffer[0];
-	memcpy( p, q, 320 * 240 * 2 );
+	//unsigned short * p = &VideoBuffer[0];
+	//unsigned short * q = &BurnVideoBuffer[0];
+	//memcpy( p, q, 320 * 240 * 2 );
+
+  int x, y;
+  uint16_t *s = &BurnVideoBuffer[0];
+  uint16_t *d = &VideoBuffer[0];
+
+  for(y=0; y<240; y++){
+    for(x=0; x<320; x++){
+      *d++ = *s++;
+    }
+    d+= 320;
+  }
 }
 
 static void Blitr_320x240_to_320x240()
@@ -889,6 +940,7 @@ static void Blitr_320x240_to_320x240()
 			q1 += BW;
 		}
 		p += 140;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -925,6 +977,7 @@ static void Blitrf_320x240_to_320x240()
 			q1 -= BW;
 		}
 		p += 140;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -962,6 +1015,7 @@ static void Blitr_320x224_to_320x240()
 			q1 += BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -998,6 +1052,7 @@ static void Blitrf_320x224_to_320x240()
 			q1 -= BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1008,6 +1063,7 @@ static void Blitr_304x224_to_320x240()
 	unsigned short * q = BurnVideoBuffer;
 	unsigned short * q1 = NULL;
 	int mod = 0;
+
 
 	q += BW;
 	p += 64;
@@ -1036,6 +1092,7 @@ static void Blitr_304x224_to_320x240()
 			q1 += BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1074,6 +1131,7 @@ static void Blitrf_304x224_to_320x240()
 			q1 -= BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1110,6 +1168,7 @@ static void Blitr_288x224_to_320x240()
 			q1 += BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1146,6 +1205,7 @@ static void Blitrf_288x224_to_320x240()
 			q1 -= BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1183,6 +1243,7 @@ static void Blitr_280x240_to_320x240()
 			q1 += BW;
 		}
 		p += 140;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1220,6 +1281,7 @@ static void Blitr_280x224_to_320x240()
 			q1 += BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1256,6 +1318,7 @@ static void Blitrf_280x224_to_320x240()
 			q1 -= BW;
 		}
 		p += 128;
+    p+= 320; // fix for rs-97
 	}
 }
 static void Blitr_272x236_to_320x240()
@@ -1294,6 +1357,7 @@ static void Blitr_272x236_to_320x240()
 			q1 += BW;
 		}
 		p += 112;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1307,6 +1371,7 @@ static void Blit_256x256_to_320x240()
 		p += 320;
 		q += 256;
 		if(i % 16 == 0) q += 256;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1321,6 +1386,7 @@ static void Blitf_256x256_to_320x240()
 		}
 		p += 64;
 		if(i % 16 == 0) q -= 256;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1357,6 +1423,7 @@ static void Blitr_256x256_to_320x240()
 			q1 += BW;
 		}
 		p += 80;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1393,6 +1460,7 @@ static void Blitrf_256x256_to_320x240()
 			q1 -= BW;
 		}
 		p += 80;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1429,6 +1497,7 @@ static void Blitr_256x248_to_320x240()
 			q1 += BW;
 		}
 		p += 88;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1465,6 +1534,7 @@ static void Blitr_256x240_to_320x240()
 			q1 += BW;
 		}
 		p += 95;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1501,6 +1571,7 @@ static void Blitrf_256x240_to_320x240()
 			q1 -= BW;
 		}
 		p += 95;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1537,6 +1608,7 @@ static void Blitr_256x234_to_320x240()
 			q1 += BW;
 		}
 		p += 99;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1573,6 +1645,7 @@ static void Blitr_256x224_to_320x240()
 			q1 += BW;
 		}
 		p += 110;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1609,6 +1682,7 @@ static void Blitrf_256x224_to_320x240()
 			q1 -= BW;
 		}
 		p += 110;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1637,6 +1711,7 @@ static void Blitr_248x240_to_320x240()
 			q1 += BW;
 		}
 		p += 80;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1650,6 +1725,7 @@ static void Blit_224x256_to_320x240()
 		p += 320;
 		q += 224;
 		if(i % 16 == 0) q += 224;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1663,6 +1739,7 @@ static void Blit_256x256_to_400x240()
 		p += 400;
 		q += 256;
 		if(i % 16 == 0) q += 256; 
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1676,6 +1753,7 @@ static void Blit_224x256_to_400x240()
 		p += 400;
 		q += 224;
 		if(i % 16 == 0) q += 224;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1685,7 +1763,7 @@ static void Blit_448x224_to_400x240()
 	unsigned short * p = &VideoBuffer[8*400+4];
 	unsigned short * q = BurnVideoBuffer;
 	
-	for (int i=0; i<224; i++, p += 8)
+	for (int i=0; i<224; i++, p += 8) {
 		for (int j=0; j<56; j++) {
 			p[0] = q[0];
 			p[1] = q[1];
@@ -1697,6 +1775,8 @@ static void Blit_448x224_to_400x240()
 			p += 7;
 			q += 8;
 		}
+    p+= 320; // fix for rs-97
+	}
 }
 
 static unsigned int p_offset = 0, q_offset = 0;
@@ -1709,6 +1789,7 @@ static void Blit()
 		for(int x = VideoBufferWidth; x--;)
 			*p++ = *q++;
 		p += screen->w - VideoBufferWidth;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1720,6 +1801,7 @@ static void Blitf()
 		for(int x = VideoBufferWidth; x--;)
 			*p++ = *q--;
 		p += screen->w - VideoBufferWidth;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1741,6 +1823,7 @@ static void Blitr()
 			q1 += BW;
 		}
 		p += r_offset;
+    p+= 320; // fix for rs-97
 	}
 }
 
@@ -1760,6 +1843,7 @@ static void Blitrf()
 			q1 -= BW;
 		}
 		p += r_offset;
+    p+= 320; // fix for rs-97
 	}
 }
 typedef struct
@@ -1832,8 +1916,7 @@ int VideoInit()
 		SDL_InitSubSystem(SDL_INIT_VIDEO);
 	}
 
-	ScreenSurface = SDL_SetVideoMode(320, 480, 16, flags);
-	screen = SDL_CreateRGBSurface(SDL_SWSURFACE, 320, 240, 16, 0, 0, 0, 0);
+	screen = SDL_SetVideoMode(320, 480, 16, flags);
 	/*{
 		int i = 0; // 0 - 320x240, 1 - 400x240, 2 - 480x272
 		int surfacewidth, surfaceheight;
@@ -1885,29 +1968,37 @@ int VideoInit()
 	bool bVertical = options.rotate && (BurnDrvGetFlags() & BDF_ORIENTATION_VERTICAL);
 
 	// if source buffer < screen buffer then set general blitting routine with centering if needed
-	if(!bVertical && VideoBufferWidth <= screen->w && VideoBufferHeight <= screen->h) {
-		if(BurnDrvGetFlags() & BDF_ORIENTATION_FLIPPED)
+	if(!bVertical && VideoBufferWidth <= screen->w && VideoBufferHeight <= 240/*screen->h*/) {
+		if(BurnDrvGetFlags() & BDF_ORIENTATION_FLIPPED){
 			BurnerVideoTrans = Blitf;
-		else
+    }
+		else{
 			BurnerVideoTrans = Blit;
-	} else if(bVertical && VideoBufferWidth <= screen->h && VideoBufferHeight <= screen->w) {
-		if(BurnDrvGetFlags() & BDF_ORIENTATION_FLIPPED)
+    }
+	} else if(bVertical && VideoBufferWidth <= 240/*screen->h*/ && VideoBufferHeight <= screen->w) {
+		if(BurnDrvGetFlags() & BDF_ORIENTATION_FLIPPED){
 			BurnerVideoTrans = Blitrf;
-		else
+    }
+		else{
 			BurnerVideoTrans = Blitr;
+    }
 	} else {
 		// if source buffer is bigger than screen buffer then find an appropriate downscaler
 		for(int i = 0; blit_table[i].dst_w != 0; i++) {
-			if(blit_table[i].dst_w == screen->w && blit_table[i].dst_h == screen->h &&
+			if(blit_table[i].dst_w == screen->w && blit_table[i].dst_h == 240/*screen->h*/ &&
 			   blit_table[i].src_w == VideoBufferWidth && blit_table[i].src_h == VideoBufferHeight) {
-				if (bVertical && (BurnDrvGetFlags() & BDF_ORIENTATION_FLIPPED))
+				if (bVertical && (BurnDrvGetFlags() & BDF_ORIENTATION_FLIPPED)){
 					BurnerVideoTrans = blit_table[i].blitrf;
-				else if (BurnDrvGetFlags() & BDF_ORIENTATION_FLIPPED)
+        }
+				else if (BurnDrvGetFlags() & BDF_ORIENTATION_FLIPPED){
 					BurnerVideoTrans = blit_table[i].blitf;
-				else if (bVertical)
+        }
+				else if (bVertical){
 					BurnerVideoTrans = blit_table[i].blitr;
-				else
+        }
+				else{
 					BurnerVideoTrans = blit_table[i].blit;
+        }
 				break;
 			}
 		}
@@ -1915,11 +2006,11 @@ int VideoInit()
 
 	if (BurnerVideoTrans == Blit || BurnerVideoTrans == Blitf || BurnerVideoTrans == Blitr || BurnerVideoTrans == Blitrf) {
 		if (bVertical) {
-			p_offset = ((screen->h - VideoBufferWidth)/2)*screen->w;
+			p_offset = ((240/*screen->h*/ - VideoBufferWidth)/2)*screen->w;
 			r_offset = screen->w - VideoBufferHeight;
 		}
 		else {
-			p_offset = (screen->w - VideoBufferWidth)/2 + (screen->h - VideoBufferHeight)/2*screen->w;
+			p_offset = (screen->w - VideoBufferWidth)/2 + (240/*screen->h*/ - VideoBufferHeight)/2*screen->w;
 			q_offset = VideoBufferWidth*VideoBufferHeight-1;
 		}
 	}
@@ -1938,17 +2029,15 @@ void VideoExit()
 void VideoClear()
 {
 	SDL_FillRect(screen,NULL,SDL_MapRGBA(screen->format, 0, 0, 0, 255));
-  SDL_SoftStretch(screen, NULL, ScreenSurface, NULL);
-	SDL_Flip(ScreenSurface);
+  SDL_SoftStretch(screen, NULL, screen, NULL);
+	SDL_Flip(screen);
 	SDL_FillRect(screen,NULL,SDL_MapRGBA(screen->format, 0, 0, 0, 255));
-  SDL_SoftStretch(screen, NULL, ScreenSurface, NULL);
-	SDL_Flip(ScreenSurface);
+  SDL_SoftStretch(screen, NULL, screen, NULL);
+	SDL_Flip(screen);
 	SDL_FillRect(screen,NULL,SDL_MapRGBA(screen->format, 0, 0, 0, 255));
 }
 
 void VideoFlip()
 {
-	//SDL_Flip(screen);
-  SDL_SoftStretch(screen, NULL, ScreenSurface, NULL);
-	SDL_Flip(ScreenSurface);
+	SDL_Flip(screen);
 }

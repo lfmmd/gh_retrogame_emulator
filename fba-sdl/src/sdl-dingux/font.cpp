@@ -124,6 +124,7 @@ void DisplayChar (uint16 *Screen, uint8 c, uint16 resW)
 				if (p == '.')
 					*s = 0x0000;//BLACK;
 		}
+    s+= 320; // fix for rs-97
 	}
 }
 

@@ -174,6 +174,7 @@ void DrawChar(SDL_Surface *s, int x, int y, unsigned char a, int fg_color, int b
 			if((gui_font[a*8 + (8-h)] >> w) & 1) color = fg_color; // test bits 876543210
 			*dst++ = color;
 		}
+    dst+= 320; // fix for rs-97
 	}
 	if(SDL_MUSTLOCK(s)) SDL_UnlockSurface(s);
 }

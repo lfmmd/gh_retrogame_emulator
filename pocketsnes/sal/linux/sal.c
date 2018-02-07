@@ -251,12 +251,12 @@ u32 sal_VideoGetWidth()
 
 u32 sal_VideoGetHeight()
 {
-	return mScreen->h;
+	return 240;//mScreen->h; fix for rs-97
 }
 
 u32 sal_VideoGetPitch()
 {
-	return mScreen->pitch;
+	return mScreen->pitch * 2; // fix for rs-97
 }
 
 void sal_VideoEnterGame(u32 fullscreenOption, u32 pal, u32 refreshRate)
@@ -315,11 +315,11 @@ void sal_VideoBitmapDim(u16* img, u32 pixelCount)
 
 void sal_VideoFlip(s32 vsync)
 {
-	if (SDL_MUSTLOCK(ScreenSurface)) {
-		SDL_UnlockSurface(ScreenSurface); 
+	if (SDL_MUSTLOCK(mScreen)) {
+		SDL_UnlockSurface(mScreen); 
 		SDL_Flip(mScreen);
 	} else
-		SDL_Flip(ScreenSurface);
+		SDL_Flip(mScreen);
 }
 
 void *sal_VideoGetBuffer()
