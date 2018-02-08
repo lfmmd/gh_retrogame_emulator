@@ -151,7 +151,7 @@ void LinkApp::setClock(int mhz) {
 #endif
 	stringstream ss;
 	sclock = "";
-	ss << iclock << "Mhz";
+	ss << /*iclock*/528 << "Mhz"; // fixed cpu for current retrogame
 	ss >> sclock;
 
 	edited = true;

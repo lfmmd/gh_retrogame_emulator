@@ -1,6 +1,7 @@
 title=picodrive
+description=PicoDrive emulator ported from GCW0
 icon=skins/Default/icons/picodrive.png
-exec=/bin/bash
-clock=859190325
-selectorbrowser=true
-wrapper=true
+exec=/mnt/game/picodrive/PicoDrive
+volume=1
+selectorbrowser=false
+selectordir=/mnt/

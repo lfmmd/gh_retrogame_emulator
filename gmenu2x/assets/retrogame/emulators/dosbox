@@ -1,6 +1,7 @@
 title=dosbox
+description=DOSBox emulator ported from GCW0
 icon=skins/Default/icons/dosbox.png
-exec=/bin/bash
-clock=859190325
+exec=/mnt/game/dosbox/dosbox
+volume=1
 selectorbrowser=true
-wrapper=true
+selectordir=/mnt/

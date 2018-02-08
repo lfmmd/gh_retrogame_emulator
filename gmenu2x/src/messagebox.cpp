@@ -129,7 +129,9 @@ int MessageBox::exec() {
 		for (uint i=0; i<buttons.size(); i++)
 			if (buttons[i]!="" && gmenu2x->input[i]) result = i;
 
-		usleep(LOOP_DELAY);
+		//usleep(LOOP_DELAY);
+	  gmenu2x->s->flip();
+    usleep(1000000);
 	}
 
 	return result;

@@ -1,6 +1,0 @@
-title=pcsx4all
-icon=skins/Default/icons/pcsx4all.png
-exec=/bin/bash
-clock=859190325
-selectorbrowser=true
-wrapper=true

@@ -691,7 +691,7 @@ hugo_default_settings()
   HUGO.hugo_snd_enable        = 1;
   HUGO.hugo_snd_volume        = 100;
   HUGO.hugo_snd_freq          = 3; /* stereo 44k */
-  HUGO.hugo_render_mode       = HUGO_RENDER_FAST_MAX;
+  HUGO.hugo_render_mode       = HUGO_RENDER_FAST;
   HUGO.hugo_vsync             = 0;
   HUGO.danzeff_trans          = 1;
   HUGO.hugo_overclock         = 16;
@@ -1181,7 +1181,7 @@ void
 psp_global_initialize()
 {
   memset(&HUGO, 0, sizeof(Hugo_t));
-  strcpy(HUGO.hugo_home_dir,".");
+  strcpy(HUGO.hugo_home_dir,"/mnt/game/hugo");
   hugo_default_settings();
   psp_joy_default_settings();
   psp_kbd_default_settings();

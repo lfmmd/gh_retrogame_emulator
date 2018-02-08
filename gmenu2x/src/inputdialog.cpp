@@ -86,8 +86,8 @@ InputDialog::InputDialog(GMenu2X *gmenu2x, InputManager &inputMgr_,
 
 	ButtonAction actBackspace = MakeDelegate(this, &InputDialog::backspace);
 
-	btnBackspaceX = new IconButton(gmenu2x, "skin:imgs/buttons/x.png");
-	btnBackspaceX->setAction(actBackspace);
+	//btnBackspaceX = new IconButton(gmenu2x, "skin:imgs/buttons/x.png");
+	//btnBackspaceX->setAction(actBackspace);
 
 	btnBackspaceL = new IconButton(gmenu2x, "skin:imgs/buttons/l.png", gmenu2x->tr["Backspace"]);
 	btnBackspaceL->setAction(actBackspace);
@@ -98,7 +98,7 @@ InputDialog::InputDialog(GMenu2X *gmenu2x, InputManager &inputMgr_,
 	btnConfirm = new IconButton(gmenu2x, "skin:imgs/buttons/a.png", gmenu2x->tr["Confirm"]);
 	btnConfirm->setAction(MakeDelegate(this, &InputDialog::confirm));
 
-	btnChangeKeys = new IconButton(gmenu2x, "skin:imgs/buttons/x.png", gmenu2x->tr["Change keys"]);
+	btnChangeKeys = new IconButton(gmenu2x, "skin:imgs/buttons/y.png", gmenu2x->tr["Change keys"]);
 	btnChangeKeys->setAction(MakeDelegate(this, &InputDialog::changeKeys));
 }
 

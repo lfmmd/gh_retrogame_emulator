@@ -194,7 +194,7 @@ CC = mipsel-linux-gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPP = mipsel-linux-gcc -E
-CPPFLAGS =  -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
+CPPFLAGS =  -I/usr/include/SDL -I/home/steward/Downloads/buildroot-2017.02.9/output/host/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/include/SDL/ -D_GNU_SOURCE=1 -D_REENTRANT
 CXX = mipsel-linux-g++
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2 

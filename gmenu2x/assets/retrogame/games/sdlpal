@@ -1,6 +1,7 @@
 title=仙劍
+description=仙劍奇俠傳
 icon=skins/Default/icons/sdlpal.png
-exec=/bin/bash
-clock=859190325
-selectorbrowser=true
-wrapper=true
+exec=/mnt/game/sdlpal/sdlpal.dge
+volume=1
+selectorbrowser=false
+selectordir=/mnt/

@@ -1,6 +1,7 @@
 title=pocketsnes
+description=PocketSNES emulator ported from GCW0
 icon=skins/Default/icons/pocketsnes.png
-exec=/bin/bash
-clock=859190325
+exec=/mnt/game/pocketsnes/PocketSNES
+volume=1
 selectorbrowser=true
-wrapper=true
+selectordir=/mnt/

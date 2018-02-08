@@ -208,6 +208,10 @@ public:
 	void main();
 	void options();
 	void settingsOpen2x();
+	void poweroff();
+	void toggleSpeaker();
+	void formatSd();
+	void reboot();
 	void skinMenu();
 	void activateSdUsb();
 	void activateNandUsb();

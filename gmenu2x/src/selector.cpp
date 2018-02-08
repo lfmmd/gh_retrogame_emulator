@@ -63,11 +63,11 @@ int Selector::exec(int startSelection) {
 
 	if (link->getSelectorBrowser()) {
 		gmenu2x->drawButton(&bg, "start", gmenu2x->tr["Exit"],
-		gmenu2x->drawButton(&bg, "b", gmenu2x->tr["Select a file"],
-		gmenu2x->drawButton(&bg, "x", gmenu2x->tr["Up one folder"], 5)));
+		gmenu2x->drawButton(&bg, "a", gmenu2x->tr["Select a file"],
+		gmenu2x->drawButton(&bg, "b", gmenu2x->tr["Up one folder"], 5)));
 	} else {
-		gmenu2x->drawButton(&bg, "x", gmenu2x->tr["Exit"],
-		gmenu2x->drawButton(&bg, "b", gmenu2x->tr["Select a file"], 5));
+		gmenu2x->drawButton(&bg, "b", gmenu2x->tr["Exit"],
+		gmenu2x->drawButton(&bg, "a", gmenu2x->tr["Select a file"], 5));
 	}
 
 	Uint32 selTick = SDL_GetTicks(), curTick;

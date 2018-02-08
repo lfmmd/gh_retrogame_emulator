@@ -221,7 +221,7 @@ GMenu2X::GMenu2X() {
 #ifdef TARGET_GP2X
 	f200 = fileExists("/dev/touchscreen/wm97xx");
 #elif defined(TARGET_RETROGAME)
-  fwType = "RetroGame";
+  fwType = "retrogame";
 #else
 	f200 = true;
 #endif
@@ -465,7 +465,12 @@ void GMenu2X::initMenu() {
 #endif
 
 #if defined(TARGET_RETROGAME)
+			//menu->addActionLink(i,"Speaker",MakeDelegate(this,&GMenu2X::toggleSpeaker),tr["Activate/deactivate Speaker"],"skin:icons/speaker.png");
+			menu->addActionLink(i,"TV",MakeDelegate(this,&GMenu2X::toggleTvOut),tr["Activate/deactivate tv-out"],"skin:icons/tv.png");
 			menu->addActionLink(i,"USB",MakeDelegate(this,&GMenu2X::activateSdUsb),tr["Activate Usb on SD"],"skin:icons/usb.png");
+			menu->addActionLink(i,"Format",MakeDelegate(this,&GMenu2X::formatSd),tr["Format internal SD (only roms partition)"],"skin:icons/format.png");
+			menu->addActionLink(i,"Reboot",MakeDelegate(this,&GMenu2X::poweroff),tr["Reboot device"],"skin:icons/reboot.png");
+			menu->addActionLink(i,"Poweroff",MakeDelegate(this,&GMenu2X::poweroff),tr["Poweroff device"],"skin:icons/exit.png");
 #endif
 			if (fileExists(path+"log.txt"))
 				menu->addActionLink(i,tr["Log Viewer"],MakeDelegate(this,&GMenu2X::viewLog),tr["Displays last launched program's output"],"skin:icons/ebook.png");
@@ -979,6 +984,9 @@ void GMenu2X::main() {
 		else if ( input[SETTINGS]  ) options();
 		else if ( input[MENU] ) contextMenu();
 		// VOLUME SCALE MODIFIER
+		else if ( fwType=="retrogame" && input[CANCEL] ) {
+			setVolume(confInt["globalVolume"]);
+		}
 		else if ( fwType=="open2x" && input[CANCEL] ) {
 			volumeMode = constrain(volumeMode-1, -VOLUME_MODE_MUTE-1, VOLUME_MODE_NORMAL);
 			if(volumeMode < VOLUME_MODE_MUTE)
@@ -1014,7 +1022,8 @@ void GMenu2X::main() {
 				if ( input.isActive(VOLUP) && input.isActive(VOLDOWN) ) menu->selLinkApp()->setClock(DEFAULT_CPU_CLK);
 			}
 		}
-	  else if ( input[MODIFIER] ) {
+	  
+		if ( input[MODIFIER] ) {
 		  if ( input.isActive(BACKLIGHT)) {
         int vol = getVolume();
 
@@ -1038,9 +1047,9 @@ void GMenu2X::main() {
       fgets(buf, sizeof(buf), f);
       fclose(f);
 
-      val = atoi(buf) + 10;
+      val = atoi(buf) + 20;
       if(val > 100){
-        val = 10;
+        val = 0;
       }
       sprintf(buf, "echo %d > /proc/jz/lcd_backlight", val);
       system(buf);
@@ -1115,12 +1124,12 @@ void GMenu2X::options() {
 	sd.addSetting(new MenuSettingInt(this,tr["Clock for GMenu2X"],tr["Set the cpu working frequency when running GMenu2X"],&confInt["menuClock"],50,900,10));
 	sd.addSetting(new MenuSettingInt(this,tr["Maximum overclock"],tr["Set the maximum overclock for launching links"],&confInt["maxClock"],50,900,10));
 #endif
-	sd.addSetting(new MenuSettingInt(this,tr["Global Volume"],tr["Set the default volume for the gp2x soundcard"],&confInt["globalVolume"],0,100));
+	sd.addSetting(new MenuSettingInt(this,tr["Global Volume"],tr["Set the default volume for the gp2x soundcard"],&confInt["globalVolume"],0,1));
 	sd.addSetting(new MenuSettingBool(this,tr["Output logs"],tr["Logs the output of the links. Use the Log Viewer to read them."],&confInt["outputLogs"]));
 	//G
-	sd.addSetting(new MenuSettingInt(this,tr["Gamma"],tr["Set gp2x gamma value (default: 10)"],&confInt["gamma"],1,100));
+	//sd.addSetting(new MenuSettingInt(this,tr["Gamma"],tr["Set gp2x gamma value (default: 10)"],&confInt["gamma"],1,100));
 	sd.addSetting(new MenuSettingMultiString(this,tr["Tv-Out encoding"],tr["Encoding of the tv-out signal"],&confStr["tvoutEncoding"],&encodings));
-	sd.addSetting(new MenuSettingBool(this,tr["Show root"],tr["Show root folder in the file selection dialogs"],&showRootFolder));
+	//sd.addSetting(new MenuSettingBool(this,tr["Show root"],tr["Show root folder in the file selection dialogs"],&showRootFolder));
 
 	if (sd.exec() && sd.edited()) {
 		//G
@@ -1190,6 +1199,32 @@ void GMenu2X::skinMenu() {
 	}
 }
 
+void GMenu2X::formatSd() {
+#ifdef TARGET_RETROGAME
+	MessageBox mb(this, tr["Do you want to format SDCard ?"], "icons/format.png");
+  mb.setButton(CONFIRM, tr["Yes"]);
+  mb.setButton(CANCEL,  tr["No"]);
+  if (mb.exec() == CONFIRM) {
+  	system("umount /mnt/int_sd");
+  	system("mkfs.vfat /dev/mmcblk0p4");
+  	system("fatlabel /dev/mmcblk0p4 roms");
+  	system("mount /dev/mmcblk0p4 /mnt/int_sd -t vfat -o rw,utf8");
+  	MessageBox mb(this,tr["Complete !"]);
+  	mb.exec();
+	}
+#endif
+}
+
+void GMenu2X::toggleSpeaker() {
+#ifdef TARGET_RETROGAME
+#endif
+}
+
+void GMenu2X::poweroff() {
+#ifdef TARGET_RETROGAME
+  system("poweroff");
+#endif
+}
 
 void GMenu2X::toggleTvOut() {
 #ifdef TARGET_GP2X
@@ -1271,16 +1306,24 @@ void GMenu2X::setSkin(const string &skin, bool setWallpaper) {
 }
 
 void GMenu2X::activateSdUsb() {
-	if (usbnet) {
-		MessageBox mb(this,tr["Operation not permitted."]+"\n"+tr["You should disable Usb Networking to do this."]);
-		mb.exec();
-	} else {
-		system("scripts/usbon.sh sd");
+	//if (usbnet) {
+		//MessageBox mb(this,tr["Operation not permitted."]+"\n"+tr["You should disable Usb Networking to do this."]);
+		//mb.exec();
+	//} else {
+		system("umount /mnt/game");
+		system("umount /mnt/int_sd");
+		system("echo /dev/mmcblk0p3 > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun0/file");
+		system("echo /dev/mmcblk0p4 > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun1/file");
+
 		MessageBox mb(this,tr["USB Enabled (SD)"],"icons/usb.png");
 		mb.setButton(CONFIRM, tr["Turn off"]);
 		mb.exec();
-		system("scripts/usboff.sh sd");
-	}
+
+		system("echo \"\" > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun0/file");
+		system("echo \"\" > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun1/file");
+		system("mount /dev/mmcblk0p3 /mnt/game -t vfat -o rw,utf8");
+		system("mount /dev/mmcblk0p4 /mnt/int_sd -t vfat -o rw,utf8");
+	//}
 }
 
 void GMenu2X::activateNandUsb() {
@@ -1492,18 +1535,18 @@ void GMenu2X::editLink() {
 	stringstream ss;
 	ss << DEFAULT_CPU_CLK;
 	ss >> strClock;
-	const string wd = menu->selLinkApp()->getRealWorkdir();
+	const string wd = "/"; //menu->selLinkApp()->getRealWorkdir();
 
 	SettingsDialog sd(this, input, ts, diagTitle, diagIcon);
 	sd.addSetting(new MenuSettingString(      this, tr["Title"],                tr["Link title"], &linkTitle, diagTitle, diagIcon ));
 	sd.addSetting(new MenuSettingString(      this, tr["Description"],          tr["Link description"], &linkDescription, diagTitle, diagIcon ));
 	sd.addSetting(new MenuSettingMultiString( this, tr["Section"],              tr["The section this link belongs to"], &newSection, &menu->getSections() ));
 	sd.addSetting(new MenuSettingImage(       this, tr["Icon"],                 tr.translate("Select an icon for the link: $1", linkTitle.c_str(), NULL), &linkIcon, ".png,.bmp,.jpg,.jpeg", wd ));
-	sd.addSetting(new MenuSettingFile(        this, tr["Manual"],               tr["Select a graphic/textual manual or a readme"], &linkManual, ".man.png,.txt", wd ));
+	//sd.addSetting(new MenuSettingFile(        this, tr["Manual"],               tr["Select a graphic/textual manual or a readme"], &linkManual, ".man.png,.txt", wd ));
 
-	sd.addSetting(new MenuSettingInt(         this, tr.translate("Clock (default: $1)",strClock.c_str(), NULL), tr["Cpu clock frequency to set when launching this link"], &linkClock, 50, confInt["maxClock"] ));
-	sd.addSetting(new MenuSettingBool(        this, tr["Tweak RAM Timings"],    tr["This usually speeds up the application at the cost of stability"], &linkUseRamTimings ));
-	sd.addSetting(new MenuSettingInt(         this, tr["Volume (default: -1)"], tr["Volume to set for this link"], &linkVolume, -1, 100 ));
+	//sd.addSetting(new MenuSettingInt(         this, tr.translate("Clock (default: $1)",strClock.c_str(), NULL), tr["Cpu clock frequency to set when launching this link"], &linkClock, 50, confInt["maxClock"] ));
+	//sd.addSetting(new MenuSettingBool(        this, tr["Tweak RAM Timings"],    tr["This usually speeds up the application at the cost of stability"], &linkUseRamTimings ));
+	sd.addSetting(new MenuSettingInt(         this, tr["Volume"],               tr["Volume to set for this link"], &linkVolume, 0, 1 ));
 	sd.addSetting(new MenuSettingString(      this, tr["Parameters"],           tr["Parameters to pass to the application"], &linkParams, diagTitle, diagIcon ));
 
 	sd.addSetting(new MenuSettingDir(         this, tr["Selector Directory"],   tr["Directory to scan for the selector"], &linkSelDir, wd ));
@@ -1520,9 +1563,9 @@ void GMenu2X::editLink() {
 #	endif
 
 	//G
-	sd.addSetting(new MenuSettingInt(         this, tr["Gamma (default: 0)"],   tr["Gamma value to set when launching this link"], &linkGamma, 0, 100 ));
+	//sd.addSetting(new MenuSettingInt(         this, tr["Gamma (default: 0)"],   tr["Gamma value to set when launching this link"], &linkGamma, 0, 100 ));
 	sd.addSetting(new MenuSettingBool(        this, tr["Wrapper"],              tr["Explicitly relaunch GMenu2X after this link's execution ends"], &menu->selLinkApp()->needsWrapperRef() ));
-	sd.addSetting(new MenuSettingBool(        this, tr["Don't Leave"],          tr["Don't quit GMenu2X when launching this link"], &menu->selLinkApp()->runsInBackgroundRef() ));
+	//sd.addSetting(new MenuSettingBool(        this, tr["Don't Leave"],          tr["Don't quit GMenu2X when launching this link"], &menu->selLinkApp()->runsInBackgroundRef() ));
 
 	if (sd.exec() && sd.edited()) {
 		ledOn();
@@ -1920,6 +1963,8 @@ void GMenu2X::setGamma(int gamma) {
 int GMenu2X::getVolume() {
 	int vol = -1;
 	unsigned long soundDev = open("/dev/mixer", O_RDONLY);
+
+	printf("steward, %s\n", __func__);
 	if (soundDev) {
 #if defined(TARGET_RETROGAME)
     ioctl(soundDev, SOUND_MIXER_READ_VOLUME, &vol);
@@ -1938,6 +1983,9 @@ int GMenu2X::getVolume() {
 void GMenu2X::setVolume(int vol) {
 	vol = constrain(vol,0,100);
 	unsigned long soundDev = open("/dev/mixer", O_RDWR);
+
+	vol = vol ? 100 : 0;
+	printf("steward, %s, %d\n", __func__, vol);
 	if (soundDev) {
 		vol = (vol << 8) | vol;
 #if defined(TARGET_RETROGAME)
@@ -1946,6 +1994,13 @@ void GMenu2X::setVolume(int vol) {
 		ioctl(soundDev, SOUND_MIXER_WRITE_PCM, &vol);
 #endif
 		close(soundDev);
+
+		if (vol) {
+    	volumeMode = VOLUME_MODE_NORMAL;
+    }
+    else{
+    	volumeMode = VOLUME_MODE_MUTE;
+    }
 	}
 }
 
@@ -1987,11 +2042,11 @@ string GMenu2X::getDiskFree() {
 	string df = "";
 	struct statvfs b;
 
-	int ret = statvfs("/", &b);
+	int ret = statvfs("/mnt/int_sd", &b);
 	if (ret==0) {
-		unsigned long long free = (unsigned long long)(((unsigned long long)b.f_bfree * b.f_bsize) / 1048576.0);
-		unsigned long long total = (unsigned long long)(((unsigned long long)b.f_blocks * b.f_frsize) / 1048576.0);
-		ss << free << "/" << total << "MB";
+		unsigned long long free = (unsigned long long)(((unsigned long long)b.f_bfree * b.f_bsize) / 1024 / 1024 / 1024);
+		unsigned long long total = (unsigned long long)(((unsigned long long)b.f_blocks * b.f_frsize) / 1024 / 1024 / 1024);
+		ss << free << "/" << total << "GB";
 		ss >> df;
 	} else WARNING("statvfs failed with error '%s'.", strerror(errno));
 	return df;

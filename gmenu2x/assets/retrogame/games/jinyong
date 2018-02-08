@@ -1,6 +1,7 @@
 title=金庸
+description=金庸群俠傳
 icon=skins/Default/icons/jinyong.png
-exec=/bin/bash
-clock=859190325
-selectorbrowser=true
-wrapper=true
+exec=/mnt/game/jinyong/jysdllua.dge
+volume=1
+selectorbrowser=false
+selectordir=/mnt/
