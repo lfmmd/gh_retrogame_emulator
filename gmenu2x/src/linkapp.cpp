@@ -92,6 +92,8 @@ LinkApp::LinkApp(GMenu2X *gmenu2x_, InputManager &inputMgr_,
 			setSelectorDir( value );
 		} else if (name == "selectorbrowser" && value=="true") {
 			selectorbrowser = true;
+		} else if (name == "selectorbrowser" && value=="false") {
+			selectorbrowser = false;
 		} else if (name == "useramtimings" && value=="true") {
 			useRamTimings = true;
 		} else if (name == "useginge" && value=="true") {

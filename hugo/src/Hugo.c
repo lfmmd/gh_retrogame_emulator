@@ -730,6 +730,7 @@ loc_hugo_save_settings(char *chFileName)
 
   } else {
     error = 1;
+    printf("Failed to open: %s\n", chFileName);
   }
 
   return error;

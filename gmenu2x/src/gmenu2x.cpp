@@ -398,7 +398,7 @@ void GMenu2X::initBG() {
 	Surface sd("imgs/sd.png", confStr["skin"]);
 	Surface cpu("imgs/cpu.png", confStr["skin"]);
 	Surface volume("imgs/volume.png", confStr["skin"]);
-	string df = getDiskFree();
+	string df = "??/??MB"; //getDiskFree();
 
 	sd.blit( sc["bgmain"], 3, bottomBarIconY );
 	sc["bgmain"]->write( font, df, 22, bottomBarTextY, HAlignLeft, VAlignMiddle );
@@ -469,7 +469,7 @@ void GMenu2X::initMenu() {
 			menu->addActionLink(i,"TV",MakeDelegate(this,&GMenu2X::toggleTvOut),tr["Activate/deactivate tv-out"],"skin:icons/tv.png");
 			menu->addActionLink(i,"USB",MakeDelegate(this,&GMenu2X::activateSdUsb),tr["Activate Usb on SD"],"skin:icons/usb.png");
 			menu->addActionLink(i,"Format",MakeDelegate(this,&GMenu2X::formatSd),tr["Format internal SD (only roms partition)"],"skin:icons/format.png");
-			menu->addActionLink(i,"Reboot",MakeDelegate(this,&GMenu2X::poweroff),tr["Reboot device"],"skin:icons/reboot.png");
+			menu->addActionLink(i,"Reboot",MakeDelegate(this,&GMenu2X::reboot),tr["Reboot device"],"skin:icons/reboot.png");
 			menu->addActionLink(i,"Poweroff",MakeDelegate(this,&GMenu2X::poweroff),tr["Poweroff device"],"skin:icons/exit.png");
 #endif
 			if (fileExists(path+"log.txt"))
@@ -1220,6 +1220,12 @@ void GMenu2X::toggleSpeaker() {
 #endif
 }
 
+void GMenu2X::reboot() {
+#ifdef TARGET_RETROGAME
+  system("reboot");
+#endif
+}
+
 void GMenu2X::poweroff() {
 #ifdef TARGET_RETROGAME
   system("poweroff");
@@ -1964,7 +1970,6 @@ int GMenu2X::getVolume() {
 	int vol = -1;
 	unsigned long soundDev = open("/dev/mixer", O_RDONLY);
 
-	printf("steward, %s\n", __func__);
 	if (soundDev) {
 #if defined(TARGET_RETROGAME)
     ioctl(soundDev, SOUND_MIXER_READ_VOLUME, &vol);
@@ -1985,7 +1990,6 @@ void GMenu2X::setVolume(int vol) {
 	unsigned long soundDev = open("/dev/mixer", O_RDWR);
 
 	vol = vol ? 100 : 0;
-	printf("steward, %s, %d\n", __func__, vol);
 	if (soundDev) {
 		vol = (vol << 8) | vol;
 #if defined(TARGET_RETROGAME)
@@ -2044,9 +2048,9 @@ string GMenu2X::getDiskFree() {
 
 	int ret = statvfs("/mnt/int_sd", &b);
 	if (ret==0) {
-		unsigned long long free = (unsigned long long)(((unsigned long long)b.f_bfree * b.f_bsize) / 1024 / 1024 / 1024);
-		unsigned long long total = (unsigned long long)(((unsigned long long)b.f_blocks * b.f_frsize) / 1024 / 1024 / 1024);
-		ss << free << "/" << total << "GB";
+		unsigned long long free = (unsigned long long)(((unsigned long long)b.f_bfree * b.f_bsize) >> 20);
+		unsigned long long total = (unsigned long long)(((unsigned long long)b.f_blocks * b.f_frsize) >> 20);
+		ss << free << "/" << total << "MB";
 		ss >> df;
 	} else WARNING("statvfs failed with error '%s'.", strerror(errno));
 	return df;

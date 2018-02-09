@@ -149,7 +149,7 @@ FILE *MY_fopen(const char *path, const char *mode);
 #define PAL_PREFIX            "./"
 #endif
 #ifndef PAL_SAVE_PREFIX
-#define PAL_SAVE_PREFIX       "/media/data/local/home/.sdlpal/"
+#define PAL_SAVE_PREFIX       "/mnt/game/sdlpal/.sdlpal/"
 #endif
 
 #endif

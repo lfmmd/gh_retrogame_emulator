@@ -141,9 +141,9 @@ bool InputDialog::exec() {
 		gmenu2x->drawButton(gmenu2x->s, "x", gmenu2x->tr["Change keys"],
 		gmenu2x->drawButton(gmenu2x->s, "a", gmenu2x->tr["Confirm"],
 		gmenu2x->drawButton(gmenu2x->s, "r", gmenu2x->tr["Space"],
-		gmenu2x->drawButton(btnBackspaceL, 
-    gmenu2x->drawButton(btnBackspaceX)-6))));
-
+		//gmenu2x->drawButton(btnBackspaceL, 
+      //gmenu2x->drawButton(btnBackspaceX)-6))));
+		gmenu2x->drawButton(btnBackspaceL))));
 		box.w = gmenu2x->font->getTextWidth(input)+18;
 		box.x = 160-box.w/2;
 		gmenu2x->s->box(box.x, box.y, box.w, box.h,

@@ -190,6 +190,7 @@ PAL_SaveSlotMenu(
       if (fp == NULL)
       {
          wSavedTimes = 0;
+         printf("failed to open: %s\n", va("%s%d%s", PAL_SAVE_PREFIX, i, ".rpg"));
       }
       else
       {
@@ -596,6 +597,9 @@ PAL_SystemMenu(
                {
                   iSavedTimes = wSavedTimes;
                }
+            }
+            else{
+              printf("failed to open: %s\n", va("%s%d%s", PAL_SAVE_PREFIX, i, ".rpg"));
             }
          }
          PAL_SaveGame(va("%s%d%s", PAL_SAVE_PREFIX, iSlot, ".rpg"), iSavedTimes + 1);

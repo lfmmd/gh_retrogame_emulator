@@ -1,0 +1,8 @@
+v20180213:
+1. Fix: Reboot option does not reboot device only shuts it down
+2. Fix: Please add libconfuse (its available in buildroot) to the root fs to allow dmenu to be ported
+3. Fix: App crash when edit/modify linkapp's paramaters in GMenu2X
+4. Fix: SDLPAL cannot save file
+
+v20180208:
+1. First release
