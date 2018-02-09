@@ -1205,7 +1205,7 @@ void GMenu2X::formatSd() {
   mb.setButton(CONFIRM, tr["Yes"]);
   mb.setButton(CANCEL,  tr["No"]);
   if (mb.exec() == CONFIRM) {
-  	system("umount /mnt/int_sd");
+  	system("umount -f /mnt/int_sd");
   	system("mkfs.vfat /dev/mmcblk0p4");
   	system("fatlabel /dev/mmcblk0p4 roms");
   	system("mount /dev/mmcblk0p4 /mnt/int_sd -t vfat -o rw,utf8");
@@ -1316,8 +1316,8 @@ void GMenu2X::activateSdUsb() {
 		//MessageBox mb(this,tr["Operation not permitted."]+"\n"+tr["You should disable Usb Networking to do this."]);
 		//mb.exec();
 	//} else {
-		system("umount /mnt/game");
-		system("umount /mnt/int_sd");
+		system("umount -f /mnt/game");
+		system("umount -f /mnt/int_sd");
 		system("echo /dev/mmcblk0p3 > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun0/file");
 		system("echo /dev/mmcblk0p4 > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun1/file");
 
