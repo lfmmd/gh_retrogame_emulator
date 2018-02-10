@@ -1,5 +1,5 @@
 TARGET=retrogame
-DEBUG=1
+DEBUG=0
 
 ifeq ($(DEBUG),0)
   CROSS_COMPILE=mipsel-linux-
@@ -15,7 +15,7 @@ SDL_LIBS    := $(shell $(SYSROOT)/usr/bin/sdl-config --libs)
 
 CFLAGS = -DTARGET_RETROGAME -DTARGET=$(TARGET) -DLOG_LEVEL=3 -Wall -Wundef -Wno-deprecated -Wno-unknown-pragmas -Wno-format -g3 $(SDL_CFLAGS) -I/home/steward/Github/gh_retrogame_toolchain/mipsel-linux-gcc/usr/mipsel-buildroot-linux-uclibc/sysroot/usr/include/SDL/
 CXXFLAGS = $(CFLAGS)
-LDFLAGS = $(SDL_LIBS) -lfreetype -lSDL_image -lSDL_ttf -lSDL_gfx -lSDL
+LDFLAGS = $(SDL_LIBS) -lfreetype -lSDL_image -lSDL_ttf -lSDL_gfx -lSDL -lpthread
 
 OBJDIR = objs/$(TARGET)
 DISTDIR = dist/$(TARGET)/gmenu2x

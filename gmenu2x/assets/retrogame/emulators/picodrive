@@ -1,7 +1,8 @@
 title=picodrive
 description=PicoDrive emulator ported from GCW0
 icon=skins/Default/icons/picodrive.png
-exec=/mnt/game/picodrive/PicoDrive
+exec=/mnt/int_sd/picodrive/PicoDrive
 volume=1
 selectorbrowser=false
 selectordir=/mnt/
+wrapper=true

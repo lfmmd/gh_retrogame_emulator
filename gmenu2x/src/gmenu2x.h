@@ -93,6 +93,8 @@ class Menu;
 
 class GMenu2X {
 private:
+  int getBacklight();
+
 	string path; //!< Contains the working directory of GMenu2X
 	/*!
 	Retrieves the free disk space on the sd
@@ -210,6 +212,7 @@ public:
 	void settingsOpen2x();
 	void poweroff();
 	void toggleSpeaker();
+	void umountSd();
 	void formatSd();
 	void reboot();
 	void skinMenu();
@@ -258,6 +261,7 @@ public:
 
 	void drawTopBar(Surface *s=NULL);
 	void drawBottomBar(Surface *s=NULL);
+	void redrawBottomBar();
 
 	Menu* menu;
 };

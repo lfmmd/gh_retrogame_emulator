@@ -377,7 +377,26 @@ void GMenu2X::quit() {
 #endif
 }
 
+void GMenu2X::redrawBottomBar() {
+	Surface *bgmain = new Surface(bg);
+	sc.add(bgmain,"bgmain");
+
+	Surface sd("imgs/sd.png", confStr["skin"]);
+	Surface cpu("imgs/cpu.png", confStr["skin"]);
+	Surface volume("imgs/volume.png", confStr["skin"]);
+	string df = getDiskFree();
+
+  sd.blit( sc["bgmain"], 3, bottomBarIconY );
+	sc["bgmain"]->write( font, df, 22, bottomBarTextY, HAlignLeft, VAlignMiddle );
+	volumeX = 27+font->getTextWidth(df);
+	volume.blit( sc["bgmain"], volumeX, bottomBarIconY );
+	volumeX += 19;
+	cpuX = volumeX+font->getTextWidth("100")+5;
+	cpu.blit( sc["bgmain"], cpuX, bottomBarIconY );
+}
+
 void GMenu2X::initBG() {
+  static int skipUpdateDisk=1;
 	sc.del("bgmain");
 
 	if (bg != NULL) delete bg;
@@ -398,9 +417,15 @@ void GMenu2X::initBG() {
 	Surface sd("imgs/sd.png", confStr["skin"]);
 	Surface cpu("imgs/cpu.png", confStr["skin"]);
 	Surface volume("imgs/volume.png", confStr["skin"]);
-	string df = "??/??MB"; //getDiskFree();
+	string df = ""; //getDiskFree();
+  if (skipUpdateDisk) {
+    skipUpdateDisk = 0;
+  }
+  else {
+    df = getDiskFree();
+  }
 
-	sd.blit( sc["bgmain"], 3, bottomBarIconY );
+  sd.blit( sc["bgmain"], 3, bottomBarIconY );
 	sc["bgmain"]->write( font, df, 22, bottomBarTextY, HAlignLeft, VAlignMiddle );
 	volumeX = 27+font->getTextWidth(df);
 	volume.blit( sc["bgmain"], volumeX, bottomBarIconY );
@@ -467,10 +492,11 @@ void GMenu2X::initMenu() {
 #if defined(TARGET_RETROGAME)
 			//menu->addActionLink(i,"Speaker",MakeDelegate(this,&GMenu2X::toggleSpeaker),tr["Activate/deactivate Speaker"],"skin:icons/speaker.png");
 			menu->addActionLink(i,"TV",MakeDelegate(this,&GMenu2X::toggleTvOut),tr["Activate/deactivate tv-out"],"skin:icons/tv.png");
-			menu->addActionLink(i,"USB",MakeDelegate(this,&GMenu2X::activateSdUsb),tr["Activate Usb on SD"],"skin:icons/usb.png");
-			menu->addActionLink(i,"Format",MakeDelegate(this,&GMenu2X::formatSd),tr["Format internal SD (only roms partition)"],"skin:icons/format.png");
-			menu->addActionLink(i,"Reboot",MakeDelegate(this,&GMenu2X::reboot),tr["Reboot device"],"skin:icons/reboot.png");
-			menu->addActionLink(i,"Poweroff",MakeDelegate(this,&GMenu2X::poweroff),tr["Poweroff device"],"skin:icons/exit.png");
+			//menu->addActionLink(i,"USB",MakeDelegate(this,&GMenu2X::activateSdUsb),tr["Activate Usb on SD"],"skin:icons/usb.png");
+			menu->addActionLink(i,"Format",MakeDelegate(this,&GMenu2X::formatSd),tr["Format internal SD"],"skin:icons/format.png");
+			menu->addActionLink(i,"Umount",MakeDelegate(this,&GMenu2X::umountSd),tr["Umount external SD"],"skin:icons/eject.png");
+			//menu->addActionLink(i,"Reboot",MakeDelegate(this,&GMenu2X::reboot),tr["Reboot device"],"skin:icons/reboot.png");
+			menu->addActionLink(i,"Poweroff",MakeDelegate(this,&GMenu2X::poweroff),tr["Poweroff/Reboot device"],"skin:icons/exit.png");
 #endif
 			if (fileExists(path+"log.txt"))
 				menu->addActionLink(i,tr["Log Viewer"],MakeDelegate(this,&GMenu2X::viewLog),tr["Displays last launched program's output"],"skin:icons/ebook.png");
@@ -818,12 +844,115 @@ void GMenu2X::ledOff() {
 #endif
 }
 
+int exitMainThread=0;
+enum mmc_status{
+  MMC_REMOVE, MMC_INSERT, MMC_ERROR
+};
+
+mmc_status getMMCStatus(void) {
+  char buf[32]={0};
+
+  FILE *f = fopen("/proc/jz/mmc", "r");
+  fgets(buf, sizeof(buf), f);
+  fclose(f);
+
+  if (memcmp(buf, "REMOVE", 6) == 0) {
+    return MMC_REMOVE;
+  }
+  else if (memcmp(buf, "INSERT", 6) == 0) {
+    return MMC_INSERT;
+  }
+  return MMC_ERROR;
+}
+
+enum udc_status{
+  UDC_REMOVE, UDC_CONNECT, UDC_ERROR
+};
+
+udc_status getUDCStatus(void) {
+  char buf[32]={0};
+
+  FILE *f = fopen("/proc/jz/udc", "r");
+  fgets(buf, sizeof(buf), f);
+  fclose(f);
+
+  if (memcmp(buf, "REMOVE", 6) == 0) {
+    return UDC_REMOVE;
+  }
+  else if (memcmp(buf, "CONNECT", 6) == 0) {
+    return UDC_CONNECT;
+  }
+  return UDC_ERROR;
+}
+
+void* mainThread(void* param) {
+  GMenu2X *menu = (GMenu2X*)param;
+  int alreadyUpdateDiskFree = 0;
+  mmc_status curMMCStatus = MMC_REMOVE;
+  mmc_status preMMCStatus = MMC_REMOVE;
+  udc_status curUDCStatus = UDC_REMOVE;
+  udc_status preUDCStatus = UDC_REMOVE;
+
+	while(exitMainThread == 0) {
+    if(alreadyUpdateDiskFree == 0) {
+      menu->redrawBottomBar();
+      alreadyUpdateDiskFree = 1;
+    }
+
+    curMMCStatus = getMMCStatus();
+    if (preMMCStatus != curMMCStatus) {
+      if (curMMCStatus == MMC_REMOVE) {
+        system("/usr/bin/umount_ext_sd.sh");
+        printf("%s, umount external sd\n", __func__);
+      }
+      else if(curMMCStatus == MMC_INSERT) {
+        system("/usr/bin/mount_ext_sd.sh");
+        printf("%s, mount external sd\n", __func__);
+      }
+      else {
+        printf("%s, unexpected mmc status !\n", __func__);
+      }
+      preMMCStatus = curMMCStatus;
+    }
+
+    curUDCStatus = getUDCStatus();
+    if (preUDCStatus != curUDCStatus) {
+      if (curUDCStatus == UDC_REMOVE) {
+        system("/usr/bin/usb_disconn_int_sd.sh");
+        printf("%s, disconnect usb for internal sd\n", __func__);
+        if (curMMCStatus == MMC_INSERT) {
+          system("/usr/bin/usb_disconn_ext_sd.sh");
+          printf("%s, disconnect usb for external sd\n", __func__);
+        }
+      }
+      else if(curUDCStatus == UDC_CONNECT) {
+        system("/usr/bin/usb_conn_int_sd.sh");
+        printf("%s, connect usb for internal sd\n", __func__);
+        if (curMMCStatus == MMC_INSERT) {
+          system("/usr/bin/usb_conn_ext_sd.sh");
+          printf("%s, connect usb for external sd\n", __func__);
+        }
+      }
+      else {
+        printf("%s, unexpected usb status !\n", __func__);
+      }
+      preUDCStatus = curUDCStatus;
+    }
+    sleep(1);
+	}
+  return NULL;
+}
+
 void GMenu2X::main() {
+	int ret;
+	pthread_t thread_id;
 	uint linksPerPage = linkColumns*linkRows;
 	int linkSpacingX = (resX-10 - linkColumns*skinConfInt["linkWidth"])/linkColumns;
 	int linkSpacingY = (resY-35 - skinConfInt["topBarHeight"] - linkRows*skinConfInt["linkHeight"])/linkRows;
 	uint sectionLinkPadding = max(skinConfInt["topBarHeight"] - 32 - font->getHeight(), 0) / 3;
 
+	int backlightLevel=getBacklight();
+  bool inputAction;
 	bool quit = false;
 	int x,y, offset = menu->sectionLinks()->size()>linksPerPage ? 2 : 6, helpBoxHeight = fwType=="open2x" ? 154 : 139;
 	uint i;
@@ -836,6 +965,12 @@ void GMenu2X::main() {
 	btnContextMenu = new IconButton(this,"skin:imgs/menu.png");
 	btnContextMenu->setPosition(resX-38, bottomBarIconY);
 	btnContextMenu->setAction(MakeDelegate(this, &GMenu2X::contextMenu));
+
+	exitMainThread = 0;
+	ret = pthread_create(&thread_id, NULL, mainThread, this);
+	if(ret) {
+		printf("%s, failed to create main thread\n", __func__);
+	}
 
 	while (!quit) {
 		tickNow = SDL_GetTicks();
@@ -895,6 +1030,7 @@ void GMenu2X::main() {
       case VOLUME_MODE_MUTE:   sc.skinRes("imgs/mute.png")->blit(s,resX-56,bottomBarIconY); break;
       default: sc.skinRes("imgs/volume.png")->blit(s,resX-56,bottomBarIconY); break;
     }
+
 #else
 		if (fwType=="open2x") {
 			switch(volumeMode) {
@@ -979,51 +1115,71 @@ void GMenu2X::main() {
 			}
 		}
 
-		input.update();
-		if ( input[CONFIRM] && menu->selLink()!=NULL ) menu->selLink()->run();
-		else if ( input[SETTINGS]  ) options();
-		else if ( input[MENU] ) contextMenu();
-		// VOLUME SCALE MODIFIER
-		else if ( fwType=="retrogame" && input[CANCEL] ) {
-			setVolume(confInt["globalVolume"]);
-		}
-		else if ( fwType=="open2x" && input[CANCEL] ) {
-			volumeMode = constrain(volumeMode-1, -VOLUME_MODE_MUTE-1, VOLUME_MODE_NORMAL);
-			if(volumeMode < VOLUME_MODE_MUTE)
-				volumeMode = VOLUME_MODE_NORMAL;
-			switch(volumeMode) {
-				case VOLUME_MODE_MUTE:   setVolumeScaler(VOLUME_SCALER_MUTE); break;
-				case VOLUME_MODE_PHONES: setVolumeScaler(volumeScalerPhones); break;
-				case VOLUME_MODE_NORMAL: setVolumeScaler(volumeScalerNormal); break;
+		inputAction = input.update(0);
+    if (inputAction == 0) {
+      usleep(50000);
+      continue;
+    }
+		if(backlightLevel) {
+			if ( input[CONFIRM] && menu->selLink()!=NULL ) menu->selLink()->run();
+			else if ( input[SETTINGS]  ) options();
+			else if ( input[MENU] ) contextMenu();
+			// VOLUME SCALE MODIFIER
+			else if ( fwType=="retrogame" && input[CANCEL] ) {
+				setVolume(confInt["globalVolume"]);
 			}
-			setVolume(confInt["globalVolume"]);
-		}
-		// LINK NAVIGATION
-		else if ( input[LEFT ]  ) menu->linkLeft();
-		else if ( input[RIGHT]  ) menu->linkRight();
-		else if ( input[UP   ]  ) menu->linkUp();
-		else if ( input[DOWN ]  ) menu->linkDown();
-		// SELLINKAPP SELECTED
-		else if (menu->selLinkApp()!=NULL) {
-			if ( input[MANUAL] ) menu->selLinkApp()->showManual();
-			else if ( input.isActive(MODIFIER) ) {
-				// VOLUME
-				if ( input[VOLDOWN] && !input.isActive(VOLUP) )
-					menu->selLinkApp()->setVolume( constrain(menu->selLinkApp()->volume()-1,0,100) );
-				if ( input[VOLUP] && !input.isActive(VOLDOWN) )
-					menu->selLinkApp()->setVolume( constrain(menu->selLinkApp()->volume()+1,0,100) );
-				if ( input.isActive(VOLUP) && input.isActive(VOLDOWN) ) menu->selLinkApp()->setVolume(-1);
+			else if ( fwType=="open2x" && input[CANCEL] ) {
+				volumeMode = constrain(volumeMode-1, -VOLUME_MODE_MUTE-1, VOLUME_MODE_NORMAL);
+				if(volumeMode < VOLUME_MODE_MUTE)
+					volumeMode = VOLUME_MODE_NORMAL;
+				switch(volumeMode) {
+					case VOLUME_MODE_MUTE:   setVolumeScaler(VOLUME_SCALER_MUTE); break;
+					case VOLUME_MODE_PHONES: setVolumeScaler(volumeScalerPhones); break;
+					case VOLUME_MODE_NORMAL: setVolumeScaler(volumeScalerNormal); break;
+				}
+				setVolume(confInt["globalVolume"]);
+			}
+			// LINK NAVIGATION
+			else if ( input[LEFT ]  ) menu->linkLeft();
+			else if ( input[RIGHT]  ) menu->linkRight();
+			else if ( input[UP   ]  ) menu->linkUp();
+			else if ( input[DOWN ]  ) menu->linkDown();
+			// SELLINKAPP SELECTED
+			else if (menu->selLinkApp()!=NULL) {
+				if ( input[MANUAL] ) menu->selLinkApp()->showManual();
+				else if ( input.isActive(MODIFIER) ) {
+					// VOLUME
+					if ( input[VOLDOWN] && !input.isActive(VOLUP) )
+						menu->selLinkApp()->setVolume( constrain(menu->selLinkApp()->volume()-1,0,100) );
+					if ( input[VOLUP] && !input.isActive(VOLDOWN) )
+						menu->selLinkApp()->setVolume( constrain(menu->selLinkApp()->volume()+1,0,100) );
+					if ( input.isActive(VOLUP) && input.isActive(VOLDOWN) ) menu->selLinkApp()->setVolume(-1);
+				} else {
+					// CLOCK
+					if ( input[VOLDOWN] && !input.isActive(VOLUP) )
+						menu->selLinkApp()->setClock( constrain(menu->selLinkApp()->clock()-10,50,confInt["maxClock"]) );
+					if ( input[VOLUP] && !input.isActive(VOLDOWN) )
+						menu->selLinkApp()->setClock( constrain(menu->selLinkApp()->clock()+10,50,confInt["maxClock"]) );
+					if ( input.isActive(VOLUP) && input.isActive(VOLDOWN) ) menu->selLinkApp()->setClock(DEFAULT_CPU_CLK);
+				}
+			}
+			
+			if ( input.isActive(MODIFIER) ) {
+				if (input.isActive(SECTION_PREV) && input.isActive(SECTION_NEXT))
+					saveScreenshot();
 			} else {
-				// CLOCK
-				if ( input[VOLDOWN] && !input.isActive(VOLUP) )
-					menu->selLinkApp()->setClock( constrain(menu->selLinkApp()->clock()-10,50,confInt["maxClock"]) );
-				if ( input[VOLUP] && !input.isActive(VOLDOWN) )
-					menu->selLinkApp()->setClock( constrain(menu->selLinkApp()->clock()+10,50,confInt["maxClock"]) );
-				if ( input.isActive(VOLUP) && input.isActive(VOLDOWN) ) menu->selLinkApp()->setClock(DEFAULT_CPU_CLK);
+				// SECTIONS
+				if ( input[SECTION_PREV] ) {
+					menu->decSectionIndex();
+					offset = menu->sectionLinks()->size()>linksPerPage ? 2 : 6;
+				} else if ( input[SECTION_NEXT] ) {
+					menu->incSectionIndex();
+					offset = menu->sectionLinks()->size()>linksPerPage ? 2 : 6;
+				}
 			}
 		}
-	  
-		if ( input[MODIFIER] ) {
+
+		/*if ( input[MODIFIER] ) {
 		  if ( input.isActive(BACKLIGHT)) {
         int vol = getVolume();
 
@@ -1037,39 +1193,21 @@ void GMenu2X::main() {
         }
         setVolume(vol);
       }
-    }
-		else if ( input[BACKLIGHT]) {
-      int val;
+    }*/
+		if ( input[BACKLIGHT]) {
       char buf[64];
-
-      printf("backlight\n");
-      FILE *f = fopen("/proc/jz/lcd_backlight", "r");
-      fgets(buf, sizeof(buf), f);
-      fclose(f);
-
-      val = atoi(buf) + 20;
+      int val = getBacklight() + 20;
       if(val > 100){
         val = 0;
       }
+			backlightLevel = val;
       sprintf(buf, "echo %d > /proc/jz/lcd_backlight", val);
       system(buf);
     }
-
-		if ( input.isActive(MODIFIER) ) {
-			if (input.isActive(SECTION_PREV) && input.isActive(SECTION_NEXT))
-				saveScreenshot();
-		} else {
-			// SECTIONS
-			if ( input[SECTION_PREV] ) {
-				menu->decSectionIndex();
-				offset = menu->sectionLinks()->size()>linksPerPage ? 2 : 6;
-			} else if ( input[SECTION_NEXT] ) {
-				menu->incSectionIndex();
-				offset = menu->sectionLinks()->size()>linksPerPage ? 2 : 6;
-			}
-		}
 	}
-
+	
+	exitMainThread = 1;
+	pthread_join(thread_id, NULL);
 	delete btnContextMenu;
 	btnContextMenu = NULL;
 }
@@ -1199,16 +1337,26 @@ void GMenu2X::skinMenu() {
 	}
 }
 
-void GMenu2X::formatSd() {
+void GMenu2X::umountSd() {
 #ifdef TARGET_RETROGAME
-	MessageBox mb(this, tr["Do you want to format SDCard ?"], "icons/format.png");
+	MessageBox mb(this, tr["Do you want to umount external sdcard ?"], "icons/eject.png");
   mb.setButton(CONFIRM, tr["Yes"]);
   mb.setButton(CANCEL,  tr["No"]);
   if (mb.exec() == CONFIRM) {
-  	system("umount -f /mnt/int_sd");
-  	system("mkfs.vfat /dev/mmcblk0p4");
-  	system("fatlabel /dev/mmcblk0p4 roms");
-  	system("mount /dev/mmcblk0p4 /mnt/int_sd -t vfat -o rw,utf8");
+    system("/usr/bin/umount_ext_sd.sh");
+  	MessageBox mb(this,tr["Complete !"]);
+  	mb.exec();
+	}
+#endif
+}
+
+void GMenu2X::formatSd() {
+#ifdef TARGET_RETROGAME
+	MessageBox mb(this, tr["Do you want to format internal sdcard ?"], "icons/format.png");
+  mb.setButton(CONFIRM, tr["Yes"]);
+  mb.setButton(CANCEL,  tr["No"]);
+  if (mb.exec() == CONFIRM) {
+  	system("/usr/bin/format_int_sd.sh");
   	MessageBox mb(this,tr["Complete !"]);
   	mb.exec();
 	}
@@ -1228,7 +1376,15 @@ void GMenu2X::reboot() {
 
 void GMenu2X::poweroff() {
 #ifdef TARGET_RETROGAME
-  system("poweroff");
+  MessageBox mb(this, tr["Poweroff or reboot device ?"], "icons/exit.png");
+  mb.setButton(CONFIRM, tr["Poweroff"]);
+  mb.setButton(CANCEL,  tr["Reboot"]);
+  if (mb.exec() == CONFIRM) {
+  	system("poweroff");
+  }
+	else {
+  	system("reboot");
+	}
 #endif
 }
 
@@ -1316,19 +1472,15 @@ void GMenu2X::activateSdUsb() {
 		//MessageBox mb(this,tr["Operation not permitted."]+"\n"+tr["You should disable Usb Networking to do this."]);
 		//mb.exec();
 	//} else {
-		system("umount -f /mnt/game");
 		system("umount -f /mnt/int_sd");
 		system("echo /dev/mmcblk0p3 > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun0/file");
-		system("echo /dev/mmcblk0p4 > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun1/file");
 
 		MessageBox mb(this,tr["USB Enabled (SD)"],"icons/usb.png");
 		mb.setButton(CONFIRM, tr["Turn off"]);
 		mb.exec();
 
 		system("echo \"\" > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun0/file");
-		system("echo \"\" > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun1/file");
-		system("mount /dev/mmcblk0p3 /mnt/game -t vfat -o rw,utf8");
-		system("mount /dev/mmcblk0p4 /mnt/int_sd -t vfat -o rw,utf8");
+		system("mount /dev/mmcblk0p3 /mnt/int_sd -t vfat -o rw,utf8");
 	//}
 }
 
@@ -2041,6 +2193,16 @@ const string &GMenu2X::getExePath() {
 	return path;
 }
 
+
+int GMenu2X::getBacklight() {
+	char buf[32];
+
+	FILE *f = fopen("/proc/jz/lcd_backlight", "r");
+	fgets(buf, sizeof(buf), f);
+	fclose(f);
+	return atoi(buf);
+}
+
 string GMenu2X::getDiskFree() {
 	stringstream ss;
 	string df = "";
@@ -2048,9 +2210,9 @@ string GMenu2X::getDiskFree() {
 
 	int ret = statvfs("/mnt/int_sd", &b);
 	if (ret==0) {
-		unsigned long long free = (unsigned long long)(((unsigned long long)b.f_bfree * b.f_bsize) >> 20);
-		unsigned long long total = (unsigned long long)(((unsigned long long)b.f_blocks * b.f_frsize) >> 20);
-		ss << free << "/" << total << "MB";
+		unsigned long long free = (unsigned long long)(((unsigned long long)b.f_bfree * b.f_bsize) >> 30);
+		unsigned long long total = (unsigned long long)(((unsigned long long)b.f_blocks * b.f_frsize) >> 30);
+		ss << free << "/" << total << "GB";
 		ss >> df;
 	} else WARNING("statvfs failed with error '%s'.", strerror(errno));
 	return df;
@@ -2124,3 +2286,4 @@ void GMenu2X::drawBottomBar(Surface *s) {
 	else
 		s->box(0, resY-20, resX, 20, skinConfColors[COLOR_BOTTOM_BAR_BG]);
 }
+

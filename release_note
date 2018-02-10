@@ -1,8 +1,14 @@
 v20180213:
-1. Fix: Reboot option does not reboot device only shuts it down
-2. Fix: Please add libconfuse (its available in buildroot) to the root fs to allow dmenu to be ported
-3. Fix: App crash when edit/modify linkapp's paramaters in GMenu2X
-4. Fix: SDLPAL cannot save file
+ New: Mount external sdcard to "/mnt/ext_sd" when inserted
+ New: Add new function for "umount external sdcard" in "settings" section
+ New: Lock key when backlight level is equal to 0
+ Added: Please add libconfuse (its available in buildroot) to the root fs to allow dmenu to be ported
+ Fixed: Reboot option does not reboot device only shuts it down
+ Fixed: App crash when edit/modify linkapp's paramaters in GMenu2X
+ Fixed: when trying to save settings after reboot losses settings won't stick.
+ Fixed: SDLPAL cannot save file
+ Changed: Merge poweroff and reboot into same icon but choice by user
+ Changed: Remove USB icon and function because it is automatical now
 
 v20180208:
-1. First release
+ New: Beta release
