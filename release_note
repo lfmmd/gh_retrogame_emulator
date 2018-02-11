@@ -1,14 +1,30 @@
 v20180213:
- New: Mount external sdcard to "/mnt/ext_sd" when inserted
- New: Add new function for "umount external sdcard" in "settings" section
- New: Lock key when backlight level is equal to 0
- Added: Please add libconfuse (its available in buildroot) to the root fs to allow dmenu to be ported
+ New: Aotumatically mount/umount external sdcard on/from "/mnt/ext_sd" when inserted/removed
+ New: Add new icon/function for "umount external sdcard" in "settings" section
+ New: Lock all of key when backlight level is equal to 0
+ New: Power key treat as the function of speaker on/off
+ New: Please add libconfuse (its available in buildroot) to the root fs to allow dmenu to be ported
+ New: Please add an opendingux splash screen when you switch on the handheld
+ New: Add sdcard icon when insert external sdcard
+ New: Add more Chinese language
+ Fixed: Device takes longer to boot up than normal once games are copied over to roms folder
  Fixed: Reboot option does not reboot device only shuts it down
  Fixed: App crash when edit/modify linkapp's paramaters in GMenu2X
  Fixed: when trying to save settings after reboot losses settings won't stick.
- Fixed: SDLPAL cannot save file
+ Fixed: (SDLPAL game) cannot save status
+ Fixed: (Hugo emulator) when trying to save settings after reboot losses settings won't stick.
+ Fixed: Set volume when user press B button
+ Fixed: Selecting a wallpaper does not stick it resets after a reboot.
+ Fixed: When editing selector directory to start where your roms are does not save on a reboot
+ Fixed: Charging icon not working and does not display battery percentage (no way of telling how much battery left)
+ Fixed: I have to reboot hold button b and then activate the usb option in gmenu2x for it to work.
+ Fixed: gmenu2x菜单设置无法记录，重启失效, RESET功能无效，无法显示电池状态
+ Fixed: Failed to save lanaguage setting in gmenu2x.conf
  Changed: Merge poweroff and reboot into same icon but choice by user
- Changed: Remove USB icon and function because it is automatical now
+ Changed: Remove USB icon/function because it is automatical now
+ Changed: Remove DiskFree icon
+ Changed: Remove format icon/function
+ Changed: Updated readme content
 
 v20180208:
  New: Beta release

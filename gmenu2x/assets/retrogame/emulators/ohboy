@@ -1,7 +1,7 @@
 title=ohboy
 description=Ohboy emulator ported from GCW0
 icon=skins/Default/icons/ohboy.png
-exec=/mnt/int_sd/ohboy/ohboy
+exec=/mnt/game/ohboy/ohboy
 volume=1
 selectorbrowser=true
 selectordir=/mnt/

@@ -76,6 +76,7 @@ void MessageBox::setButton(int action, const string &btn) {
 
 int MessageBox::exec() {
 	int result = -1;
+  int inputAction = 0;
 
 	Surface bg(gmenu2x->s);
 	//Darken background
@@ -125,13 +126,16 @@ int MessageBox::exec() {
 			}
 		}
 
-		gmenu2x->input.update();
-		for (uint i=0; i<buttons.size(); i++)
-			if (buttons[i]!="" && gmenu2x->input[i]) result = i;
+		inputAction = gmenu2x->input.update(0);
+    if (inputAction) {
+		  for (uint i=0; i<buttons.size(); i++) {
+			  if (buttons[i]!="" && gmenu2x->input[i]) result = i;
+      }
+    }
 
 		//usleep(LOOP_DELAY);
 	  gmenu2x->s->flip();
-    usleep(1000000);
+    usleep(50000);
 	}
 
 	return result;

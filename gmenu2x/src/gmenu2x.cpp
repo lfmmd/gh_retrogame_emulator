@@ -377,26 +377,7 @@ void GMenu2X::quit() {
 #endif
 }
 
-void GMenu2X::redrawBottomBar() {
-	Surface *bgmain = new Surface(bg);
-	sc.add(bgmain,"bgmain");
-
-	Surface sd("imgs/sd.png", confStr["skin"]);
-	Surface cpu("imgs/cpu.png", confStr["skin"]);
-	Surface volume("imgs/volume.png", confStr["skin"]);
-	string df = getDiskFree();
-
-  sd.blit( sc["bgmain"], 3, bottomBarIconY );
-	sc["bgmain"]->write( font, df, 22, bottomBarTextY, HAlignLeft, VAlignMiddle );
-	volumeX = 27+font->getTextWidth(df);
-	volume.blit( sc["bgmain"], volumeX, bottomBarIconY );
-	volumeX += 19;
-	cpuX = volumeX+font->getTextWidth("100")+5;
-	cpu.blit( sc["bgmain"], cpuX, bottomBarIconY );
-}
-
 void GMenu2X::initBG() {
-  static int skipUpdateDisk=1;
 	sc.del("bgmain");
 
 	if (bg != NULL) delete bg;
@@ -414,23 +395,18 @@ void GMenu2X::initBG() {
 	Surface *bgmain = new Surface(bg);
 	sc.add(bgmain,"bgmain");
 
-	Surface sd("imgs/sd.png", confStr["skin"]);
+	//Surface sd("imgs/sd.png", confStr["skin"]);
 	Surface cpu("imgs/cpu.png", confStr["skin"]);
 	Surface volume("imgs/volume.png", confStr["skin"]);
-	string df = ""; //getDiskFree();
-  if (skipUpdateDisk) {
-    skipUpdateDisk = 0;
-  }
-  else {
-    df = getDiskFree();
-  }
+	//string df = getDiskFree();
 
-  sd.blit( sc["bgmain"], 3, bottomBarIconY );
-	sc["bgmain"]->write( font, df, 22, bottomBarTextY, HAlignLeft, VAlignMiddle );
-	volumeX = 27+font->getTextWidth(df);
+  //sd.blit( sc["bgmain"], 3, bottomBarIconY );
+	//sc["bgmain"]->write( font, df, 22, bottomBarTextY, HAlignLeft, VAlignMiddle );
+	//volumeX = 27+font->getTextWidth(df);
+	volumeX = 3;
 	volume.blit( sc["bgmain"], volumeX, bottomBarIconY );
 	volumeX += 19;
-	cpuX = volumeX+font->getTextWidth("100")+5;
+	cpuX = volumeX+font->getTextWidth("1")+5;
 	cpu.blit( sc["bgmain"], cpuX, bottomBarIconY );
 	cpuX += 19;
 	manualX = cpuX+font->getTextWidth("300Mhz")+5;
@@ -471,7 +447,7 @@ void GMenu2X::initMenu() {
 	for (uint i=0; i<menu->getSections().size(); i++) {
 		//Add virtual links in the applications section
 		if (menu->getSections()[i]=="applications") {
-			menu->addActionLink(i,"Explorer",MakeDelegate(this,&GMenu2X::explorer),tr["Launch an application"],"skin:icons/explorer.png");
+			menu->addActionLink(i,tr.translate("Explorer").c_str(),MakeDelegate(this,&GMenu2X::explorer),tr.translate("Launch an application").c_str(),"skin:icons/explorer.png");
 		}
 
 		//Add virtual links in the setting section
@@ -491,12 +467,12 @@ void GMenu2X::initMenu() {
 
 #if defined(TARGET_RETROGAME)
 			//menu->addActionLink(i,"Speaker",MakeDelegate(this,&GMenu2X::toggleSpeaker),tr["Activate/deactivate Speaker"],"skin:icons/speaker.png");
-			menu->addActionLink(i,"TV",MakeDelegate(this,&GMenu2X::toggleTvOut),tr["Activate/deactivate tv-out"],"skin:icons/tv.png");
+			menu->addActionLink(i,tr["TV"],MakeDelegate(this,&GMenu2X::toggleTvOut),tr["Activate/deactivate tv-out"],"skin:icons/tv.png");
 			//menu->addActionLink(i,"USB",MakeDelegate(this,&GMenu2X::activateSdUsb),tr["Activate Usb on SD"],"skin:icons/usb.png");
-			menu->addActionLink(i,"Format",MakeDelegate(this,&GMenu2X::formatSd),tr["Format internal SD"],"skin:icons/format.png");
-			menu->addActionLink(i,"Umount",MakeDelegate(this,&GMenu2X::umountSd),tr["Umount external SD"],"skin:icons/eject.png");
+			//menu->addActionLink(i,"Format",MakeDelegate(this,&GMenu2X::formatSd),tr["Format internal SD"],"skin:icons/format.png");
+			menu->addActionLink(i,tr["Umount"],MakeDelegate(this,&GMenu2X::umountSd),tr["Umount external SD"],"skin:icons/eject.png");
 			//menu->addActionLink(i,"Reboot",MakeDelegate(this,&GMenu2X::reboot),tr["Reboot device"],"skin:icons/reboot.png");
-			menu->addActionLink(i,"Poweroff",MakeDelegate(this,&GMenu2X::poweroff),tr["Poweroff/Reboot device"],"skin:icons/exit.png");
+			menu->addActionLink(i,tr["Poweroff"],MakeDelegate(this,&GMenu2X::poweroff),tr["Poweroff/Reboot device"],"skin:icons/exit.png");
 #endif
 			if (fileExists(path+"log.txt"))
 				menu->addActionLink(i,tr["Log Viewer"],MakeDelegate(this,&GMenu2X::viewLog),tr["Displays last launched program's output"],"skin:icons/ebook.png");
@@ -657,13 +633,14 @@ void GMenu2X::writeConfig() {
 	ofstream inf(conffile.c_str());
 	if (inf.is_open()) {
 		ConfStrHash::iterator endS = confStr.end();
-		for(ConfStrHash::iterator curr = confStr.begin(); curr != endS; curr++)
+		for(ConfStrHash::iterator curr = confStr.begin(); curr != endS; curr++) {
 			inf << curr->first << "=\"" << curr->second << "\"" << endl;
+    }
 
 		ConfIntHash::iterator endI = confInt.end();
-		for(ConfIntHash::iterator curr = confInt.begin(); curr != endI; curr++)
+		for(ConfIntHash::iterator curr = confInt.begin(); curr != endI; curr++) {
 			inf << curr->first << "=" << curr->second << endl;
-
+    }
 		inf.close();
 		sync();
 	}
@@ -849,18 +826,32 @@ enum mmc_status{
   MMC_REMOVE, MMC_INSERT, MMC_ERROR
 };
 
+long getBatteryStatus(void) {
+  char buf[32]={0};
+
+  FILE *f = fopen("/proc/jz/battery", "r");
+  if (f) {
+    fgets(buf, sizeof(buf), f);
+    fclose(f);
+    return atol(buf);
+  }
+  return -1;
+}
+
 mmc_status getMMCStatus(void) {
   char buf[32]={0};
 
   FILE *f = fopen("/proc/jz/mmc", "r");
-  fgets(buf, sizeof(buf), f);
-  fclose(f);
+  if (f) {
+    fgets(buf, sizeof(buf), f);
+    fclose(f);
 
-  if (memcmp(buf, "REMOVE", 6) == 0) {
-    return MMC_REMOVE;
-  }
-  else if (memcmp(buf, "INSERT", 6) == 0) {
-    return MMC_INSERT;
+    if (memcmp(buf, "REMOVE", 6) == 0) {
+      return MMC_REMOVE;
+    }
+    else if (memcmp(buf, "INSERT", 6) == 0) {
+      return MMC_INSERT;
+    }
   }
   return MMC_ERROR;
 }
@@ -872,72 +863,37 @@ enum udc_status{
 udc_status getUDCStatus(void) {
   char buf[32]={0};
 
+#if 1
   FILE *f = fopen("/proc/jz/udc", "r");
+  if (f) {
+    fgets(buf, sizeof(buf), f);
+    fclose(f);
+
+    if (memcmp(buf, "REMOVE", 6) == 0) {
+      return UDC_REMOVE;
+    }
+    else if (memcmp(buf, "CONNECT", 6) == 0) {
+      return UDC_CONNECT;
+    }
+  }
+#else
+  FILE *f = fopen("/sys/devices/platform/musb_hdrc.0/uh_cable", "r");
   fgets(buf, sizeof(buf), f);
   fclose(f);
 
-  if (memcmp(buf, "REMOVE", 6) == 0) {
+  if (memcmp(buf, "offline", 7) == 0) {
     return UDC_REMOVE;
   }
-  else if (memcmp(buf, "CONNECT", 6) == 0) {
+  else if (memcmp(buf, "usb", 3) == 0) {
     return UDC_CONNECT;
   }
+#endif
   return UDC_ERROR;
 }
 
 void* mainThread(void* param) {
   GMenu2X *menu = (GMenu2X*)param;
-  int alreadyUpdateDiskFree = 0;
-  mmc_status curMMCStatus = MMC_REMOVE;
-  mmc_status preMMCStatus = MMC_REMOVE;
-  udc_status curUDCStatus = UDC_REMOVE;
-  udc_status preUDCStatus = UDC_REMOVE;
-
 	while(exitMainThread == 0) {
-    if(alreadyUpdateDiskFree == 0) {
-      menu->redrawBottomBar();
-      alreadyUpdateDiskFree = 1;
-    }
-
-    curMMCStatus = getMMCStatus();
-    if (preMMCStatus != curMMCStatus) {
-      if (curMMCStatus == MMC_REMOVE) {
-        system("/usr/bin/umount_ext_sd.sh");
-        printf("%s, umount external sd\n", __func__);
-      }
-      else if(curMMCStatus == MMC_INSERT) {
-        system("/usr/bin/mount_ext_sd.sh");
-        printf("%s, mount external sd\n", __func__);
-      }
-      else {
-        printf("%s, unexpected mmc status !\n", __func__);
-      }
-      preMMCStatus = curMMCStatus;
-    }
-
-    curUDCStatus = getUDCStatus();
-    if (preUDCStatus != curUDCStatus) {
-      if (curUDCStatus == UDC_REMOVE) {
-        system("/usr/bin/usb_disconn_int_sd.sh");
-        printf("%s, disconnect usb for internal sd\n", __func__);
-        if (curMMCStatus == MMC_INSERT) {
-          system("/usr/bin/usb_disconn_ext_sd.sh");
-          printf("%s, disconnect usb for external sd\n", __func__);
-        }
-      }
-      else if(curUDCStatus == UDC_CONNECT) {
-        system("/usr/bin/usb_conn_int_sd.sh");
-        printf("%s, connect usb for internal sd\n", __func__);
-        if (curMMCStatus == MMC_INSERT) {
-          system("/usr/bin/usb_conn_ext_sd.sh");
-          printf("%s, connect usb for external sd\n", __func__);
-        }
-      }
-      else {
-        printf("%s, unexpected usb status !\n", __func__);
-      }
-      preUDCStatus = curUDCStatus;
-    }
     sleep(1);
 	}
   return NULL;
@@ -951,12 +907,19 @@ void GMenu2X::main() {
 	int linkSpacingY = (resY-35 - skinConfInt["topBarHeight"] - linkRows*skinConfInt["linkHeight"])/linkRows;
 	uint sectionLinkPadding = max(skinConfInt["topBarHeight"] - 32 - font->getHeight(), 0) / 3;
 
+  mmc_status curMMCStatus = MMC_REMOVE;
+  mmc_status preMMCStatus = MMC_REMOVE;
+  udc_status curUDCStatus = UDC_REMOVE;
+  udc_status preUDCStatus = UDC_REMOVE;
+  int needUSBUmount=0;
 	int backlightLevel=getBacklight();
   bool inputAction;
 	bool quit = false;
 	int x,y, offset = menu->sectionLinks()->size()>linksPerPage ? 2 : 6, helpBoxHeight = fwType=="open2x" ? 154 : 139;
 	uint i;
-	long tickBattery = -60000, tickNow;
+	long tickBattery = -3000, tickNow;
+	long tickMMC = -1000;
+	long tickUSB = -1000;
 	string batteryIcon = "imgs/battery/0.png";
 	stringstream ss;
 	uint sectionsCoordX = 24;
@@ -971,6 +934,11 @@ void GMenu2X::main() {
 	if(ret) {
 		printf("%s, failed to create main thread\n", __func__);
 	}
+
+  SDL_Surface* png = IMG_Load("skins/Default/wallpapers/od.jpg");
+  SDL_BlitSurface(png, NULL, s->raw, NULL);
+  s->flip();
+  usleep(1500000);
 
 	while (!quit) {
 		tickNow = SDL_GetTicks();
@@ -1027,8 +995,8 @@ void GMenu2X::main() {
 
 #if defined(TARGET_RETROGAME)
     switch(volumeMode) {
-      case VOLUME_MODE_MUTE:   sc.skinRes("imgs/mute.png")->blit(s,resX-56,bottomBarIconY); break;
-      default: sc.skinRes("imgs/volume.png")->blit(s,resX-56,bottomBarIconY); break;
+      case VOLUME_MODE_MUTE:   sc.skinRes("imgs/mute.png")->blit(s,resX-38,bottomBarIconY); break;
+      default: sc.skinRes("imgs/volume.png")->blit(s,resX-38,bottomBarIconY); break;
     }
 
 #else
@@ -1055,11 +1023,10 @@ void GMenu2X::main() {
 		if (f200) {
 			btnContextMenu->paint();
 		}
-		//check battery status every 60 seconds
-		if (tickNow-tickBattery >= 60000) {
+		if ((tickNow-tickBattery) >= 3000) {
 			tickBattery = tickNow;
 			unsigned short battlevel = getBatteryLevel();
-			if (battlevel>5) {
+			if (battlevel > 5) {
 				batteryIcon = "imgs/battery/ac.png";
 			} else {
 				ss.clear();
@@ -1070,19 +1037,78 @@ void GMenu2X::main() {
 		}
 		sc.skinRes(batteryIcon)->blit( s, resX-19, bottomBarIconY );
 
+    if ((tickNow - tickMMC) >= 1000) {
+      tickMMC = tickNow;
+      curMMCStatus = getMMCStatus();
+      if (preMMCStatus != curMMCStatus) {
+        if (curMMCStatus == MMC_REMOVE) {
+          system("/usr/bin/umount_ext_sd.sh");
+          printf("%s, umount external sd from /mnt/ext_sd\n", __func__);
+        }
+        else if(curMMCStatus == MMC_INSERT) {
+          system("/usr/bin/mount_ext_sd.sh");
+          printf("%s, mount external sd on /mnt/ext_sd\n", __func__);
+        }
+        else {
+          printf("%s, unexpected mmc status !\n", __func__);
+        }
+        preMMCStatus = curMMCStatus;
+      }
+    }
+
+    if (preMMCStatus == MMC_INSERT) {
+      sc.skinRes("imgs/sd1.png")->blit(s, resX-56, bottomBarIconY);
+    }
+
+    if ((tickNow - tickUSB) >= 1000) {
+      tickUSB = tickNow;
+      curUDCStatus = getUDCStatus();
+      if (preUDCStatus != curUDCStatus) {
+        if (curUDCStatus == UDC_REMOVE) {
+          if (needUSBUmount) {
+            system("/usr/bin/usb_disconn_int_sd.sh");
+            printf("%s, disconnect usbdisk for internal sd\n", __func__);
+            if (curMMCStatus == MMC_INSERT) {
+              system("/usr/bin/usb_disconn_ext_sd.sh");
+              printf("%s, disconnect usbdisk for external sd\n", __func__);
+            }
+            needUSBUmount = 0;
+          }
+        }
+        else if(curUDCStatus == UDC_CONNECT) {
+          MessageBox mb(this, tr["Which action do you want ?"], "icons/usb.png");
+          mb.setButton(CONFIRM, tr["USBDISK"]);
+          mb.setButton(CANCEL,  tr["Chrage only"]);
+          if (mb.exec() == CONFIRM) {
+            needUSBUmount = 1;
+            system("/usr/bin/usb_conn_int_sd.sh");
+            printf("%s, connect usbdisk for internal sd\n", __func__);
+            if (curMMCStatus == MMC_INSERT) {
+              system("/usr/bin/usb_conn_ext_sd.sh");
+              printf("%s, connect usbdisk for external sd\n", __func__);
+            }
+          }
+        }
+        else {
+          printf("%s, unexpected usb status !\n", __func__);
+        }
+        preUDCStatus = curUDCStatus;
+      }
+    }
+
 		//On Screen Help
 		if (input.isActive(MODIFIER)) {
-			s->box(10,50,300,143, skinConfColors[COLOR_MESSAGE_BOX_BG]);
-			s->rectangle( 12,52,296,helpBoxHeight, skinConfColors[COLOR_MESSAGE_BOX_BORDER] );
+			s->box(10,50,300,162, skinConfColors[COLOR_MESSAGE_BOX_BG]);
+			s->rectangle( 12,52,296,158, skinConfColors[COLOR_MESSAGE_BOX_BORDER] );
 			s->write( font, tr["CONTROLS"], 20, 60 );
-			s->write( font, tr["B, Stick press: Launch link / Confirm action"], 20, 80 );
-			s->write( font, tr["L, R: Change section"], 20, 95 );
-			s->write( font, tr["Y: Show manual/readme"], 20, 110 );
-			s->write( font, tr["VOLUP, VOLDOWN: Change cpu clock"], 20, 125 );
-			s->write( font, tr["A+VOLUP, A+VOLDOWN: Change volume"], 20, 140 );
-			s->write( font, tr["SELECT: Show contextual menu"], 20, 155 );
-			s->write( font, tr["START: Show options menu"], 20, 170 );
-			if (fwType=="open2x") s->write( font, tr["X: Toggle speaker mode"], 20, 185 );
+			s->write( font, tr["A, Confirm action"], 20, 80 );
+			s->write( font, tr["B, Cancel action"], 20, 95 );
+			s->write( font, tr["X: Show manual"], 20, 110 );
+			s->write( font, tr["L, R: Change section"], 20, 125 );
+			s->write( font, tr["Select: Show contextual menu"], 20, 140 );
+			s->write( font, tr["Start: Show options menu"], 20, 155 );
+			s->write( font, tr["Backlight: Adjust backlight level"], 20, 170 );
+			s->write( font, tr["Power: Toggle speaker on/off"], 20, 185 );
 		}
 
 		s->flip();
@@ -1125,9 +1151,6 @@ void GMenu2X::main() {
 			else if ( input[SETTINGS]  ) options();
 			else if ( input[MENU] ) contextMenu();
 			// VOLUME SCALE MODIFIER
-			else if ( fwType=="retrogame" && input[CANCEL] ) {
-				setVolume(confInt["globalVolume"]);
-			}
 			else if ( fwType=="open2x" && input[CANCEL] ) {
 				volumeMode = constrain(volumeMode-1, -VOLUME_MODE_MUTE-1, VOLUME_MODE_NORMAL);
 				if(volumeMode < VOLUME_MODE_MUTE)
@@ -1177,10 +1200,8 @@ void GMenu2X::main() {
 					offset = menu->sectionLinks()->size()>linksPerPage ? 2 : 6;
 				}
 			}
-		}
 
-		/*if ( input[MODIFIER] ) {
-		  if ( input.isActive(BACKLIGHT)) {
+		  if ( input.isActive(SPEAKER)) {
         int vol = getVolume();
 
         if (vol) {
@@ -1191,9 +1212,10 @@ void GMenu2X::main() {
           vol = 100;
           volumeMode = VOLUME_MODE_NORMAL;
         }
+        confInt["globalVolume"] = vol;
         setVolume(vol);
       }
-    }*/
+    }
 		if ( input[BACKLIGHT]) {
       char buf[64];
       int val = getBacklight() + 20;
@@ -1213,7 +1235,7 @@ void GMenu2X::main() {
 }
 
 void GMenu2X::explorer() {
-	FileDialog fd(this,tr["Select an application"],".gpu,.gpe,.sh,");
+	FileDialog fd(this,tr["Select an application"],".gpu,.gpe,.sh,", "", tr["File Dialog"]);
 	if (fd.exec()) {
 		if (confInt["saveSelection"] && (confInt["section"]!=menu->selSectionIndex() || confInt["link"]!=menu->selLinkIndex()))
 			writeConfig();
@@ -1280,6 +1302,10 @@ void GMenu2X::options() {
 			unlink("/mnt/root");
 		else if (!fileExists("/mnt/root") && showRootFolder)
 			symlink("/","/mnt/root");
+
+    if (confStr["lang"] != lang) {
+      confStr["lang"] = lang;
+    }
 		writeConfig();
 	}
 }
@@ -1356,6 +1382,10 @@ void GMenu2X::formatSd() {
   mb.setButton(CONFIRM, tr["Yes"]);
   mb.setButton(CANCEL,  tr["No"]);
   if (mb.exec() == CONFIRM) {
+	  s->box(10, 80, 300, 52, skinConfColors[COLOR_MESSAGE_BOX_BG]);
+		s->rectangle( 12, 82, 296, 48, skinConfColors[COLOR_MESSAGE_BOX_BORDER] );
+		s->write( font, tr["Formatting internal sdcard ..."], 55, 90 );
+    s->flip();
   	system("/usr/bin/format_int_sd.sh");
   	MessageBox mb(this,tr["Complete !"]);
   	mb.exec();
@@ -1468,20 +1498,15 @@ void GMenu2X::setSkin(const string &skin, bool setWallpaper) {
 }
 
 void GMenu2X::activateSdUsb() {
-	//if (usbnet) {
-		//MessageBox mb(this,tr["Operation not permitted."]+"\n"+tr["You should disable Usb Networking to do this."]);
-		//mb.exec();
-	//} else {
-		system("umount -f /mnt/int_sd");
-		system("echo /dev/mmcblk0p3 > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun0/file");
-
+	if (usbnet) {
+		MessageBox mb(this,tr["Operation not permitted."]+"\n"+tr["You should disable Usb Networking to do this."]);
+		mb.exec();
+	} else {
 		MessageBox mb(this,tr["USB Enabled (SD)"],"icons/usb.png");
 		mb.setButton(CONFIRM, tr["Turn off"]);
 		mb.exec();
-
-		system("echo \"\" > /sys/devices/platform/musb_hdrc.0/gadget/gadget-lun0/file");
-		system("mount /dev/mmcblk0p3 /mnt/int_sd -t vfat -o rw,utf8");
-	//}
+		system("scripts/usbon.sh nand");
+	}
 }
 
 void GMenu2X::activateNandUsb() {
@@ -1651,7 +1676,7 @@ void GMenu2X::saveScreenshot() {
 }
 
 void GMenu2X::addLink() {
-	FileDialog fd(this,tr["Select an application"]);
+	FileDialog fd(this,tr["Select an application"],"","",tr["File Dialog"]);
 	if (fd.exec()) {
 		ledOn();
 		menu->addLink(fd.getPath(), fd.getFile());
@@ -1975,7 +2000,38 @@ void GMenu2X::scanPath(string path, vector<string> *files) {
 }
 
 unsigned short GMenu2X::getBatteryLevel() {
-	if (batteryHandle<=0) return 6; //AC Power
+	//if (batteryHandle<=0) return 6; //AC Power
+  long val = getBatteryStatus();
+  if ((val > 10000) || (val < 0)) {
+    return 6;
+  }
+
+  int level = 0;
+  int needWriteConfig=0;
+  long max = confInt["maxBattery"];
+  long min = confInt["minBattery"];
+
+  if (val > max) {
+    needWriteConfig = 1;
+    max = confInt["maxBattery"] = val;
+  }
+  if (min > val) {
+    needWriteConfig = 1;
+    min = confInt["minBattery"] = val;
+  }
+  if (needWriteConfig) {
+    writeConfig();
+  }
+
+  if (max == min) {
+    return 0;
+  }
+
+  level = val / ((max - min) / 5);
+  if (level > 5) {
+    level = 5;
+  }
+  return level;
 
 #if defined(TARGET_GP2X)
 	if (f200) {
@@ -2022,8 +2078,6 @@ unsigned short GMenu2X::getBatteryLevel() {
 		}
 	}
 #endif
-
-	return 6; //AC Power
 }
 
 void GMenu2X::setInputSpeed() {
@@ -2043,6 +2097,7 @@ void GMenu2X::setInputSpeed() {
 	input.setInterval(300, PAGEUP);
 	input.setInterval(300, PAGEDOWN);
 	input.setInterval(1000, BACKLIGHT);
+	input.setInterval(1000, SPEAKER);
 }
 
 void GMenu2X::applyRamTimings() {
@@ -2198,23 +2253,48 @@ int GMenu2X::getBacklight() {
 	char buf[32];
 
 	FILE *f = fopen("/proc/jz/lcd_backlight", "r");
-	fgets(buf, sizeof(buf), f);
-	fclose(f);
-	return atoi(buf);
+  if (f) {
+	  fgets(buf, sizeof(buf), f);
+	  fclose(f);
+	  return atoi(buf);
+  }
+  return -1;
 }
 
 string GMenu2X::getDiskFree() {
 	stringstream ss;
 	string df = "";
-	struct statvfs b;
+  int r1, r2;
+	struct statvfs b1;
+	struct statvfs b2;
+  unsigned long long f1, f2;
+  unsigned long long t1, t2;
 
-	int ret = statvfs("/mnt/int_sd", &b);
-	if (ret==0) {
-		unsigned long long free = (unsigned long long)(((unsigned long long)b.f_bfree * b.f_bsize) >> 30);
-		unsigned long long total = (unsigned long long)(((unsigned long long)b.f_blocks * b.f_frsize) >> 30);
-		ss << free << "/" << total << "GB";
-		ss >> df;
-	} else WARNING("statvfs failed with error '%s'.", strerror(errno));
+	r1 = statvfs("/mnt/int_sd", &b1);
+	if (r1 == 0) {
+		f1 = (unsigned long long)(((unsigned long long)b1.f_bfree * b1.f_bsize) >> 30);
+		t1 = (unsigned long long)(((unsigned long long)b1.f_blocks * b1.f_frsize) >> 30);
+	} 
+  else {
+    WARNING("statvfs failed with error '%s'.", strerror(errno));
+  }
+	
+  r2 = statvfs("/mnt/ext_sd", &b2);
+	if (r2 == 0) {
+		f2 = (unsigned long long)(((unsigned long long)b2.f_bfree * b2.f_bsize) >> 30);
+		t2 = (unsigned long long)(((unsigned long long)b2.f_blocks * b2.f_frsize) >> 30);
+	} 
+  else {
+    WARNING("statvfs failed with error '%s'.", strerror(errno));
+  }
+
+  if (r2 == 0) {
+    ss << f1 << "/" << t1 << "GB," << f2 << "/" << t2 << "GB";
+  }
+  else {
+    ss << f1 << "/" << t1 << "GB";
+  }
+	ss >> df;
 	return df;
 }
 

@@ -3,5 +3,4 @@ description=Hugo emulator ported from PSP
 icon=skins/Default/icons/hugo.png
 exec=/mnt/game/hugo/hugo
 volume=1
-selectorbrowser=false
-selectordir=/mnt/
+wrapper=true

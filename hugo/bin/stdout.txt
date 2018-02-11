@@ -1,0 +1,12 @@
+debug
+debug
+debug
+debug
+debug
+debug
+debug
+debug
+debug
+debug
+--[ INITIALISATION ]--------------------------------
+Cd_emulation is 0

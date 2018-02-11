@@ -1,7 +1,7 @@
 title=regba
 description=ReGBA emulator ported from GCW0
 icon=skins/Default/icons/regba.png
-exec=/mnt/int_sd/regba/regba
+exec=/mnt/game/regba/regba
 volume=1
 selectorbrowser=true
 selectordir=/mnt/

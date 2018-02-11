@@ -1,0 +1,4 @@
+fluidsynth: warning: Failed to pin the sample data to RAM; swapping is possible.
+fluidsynth: error: Unable to open file "/usr/share/sounds/sf2/FluidR3_GM.sf2"
+fluidsynth: error: Couldn't load soundfont file
+fluidsynth: error: Failed to load SoundFont "/usr/share/sounds/sf2/FluidR3_GM.sf2"
