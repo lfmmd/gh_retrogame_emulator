@@ -397,16 +397,16 @@ void GMenu2X::initBG() {
 
 	//Surface sd("imgs/sd.png", confStr["skin"]);
 	Surface cpu("imgs/cpu.png", confStr["skin"]);
-	Surface volume("imgs/volume.png", confStr["skin"]);
+	//Surface volume("imgs/volume.png", confStr["skin"]);
 	//string df = getDiskFree();
 
   //sd.blit( sc["bgmain"], 3, bottomBarIconY );
 	//sc["bgmain"]->write( font, df, 22, bottomBarTextY, HAlignLeft, VAlignMiddle );
 	//volumeX = 27+font->getTextWidth(df);
-	volumeX = 3;
-	volume.blit( sc["bgmain"], volumeX, bottomBarIconY );
-	volumeX += 19;
-	cpuX = volumeX+font->getTextWidth("1")+5;
+	//volume.blit( sc["bgmain"], volumeX, bottomBarIconY );
+	//volumeX += 19;
+	//cpuX = volumeX+font->getTextWidth("1")+5;
+  cpuX+= 3;
 	cpu.blit( sc["bgmain"], cpuX, bottomBarIconY );
 	cpuX += 19;
 	manualX = cpuX+font->getTextWidth("300Mhz")+5;
@@ -1015,7 +1015,7 @@ void GMenu2X::main() {
 			s->write ( font, menu->selLink()->getDescription(), halfX, resY-19, HAlignCenter, VAlignBottom );
 			if (menu->selLinkApp()!=NULL) {
 				s->write ( font, menu->selLinkApp()->clockStr(confInt["maxClock"]), cpuX, bottomBarTextY, HAlignLeft, VAlignMiddle );
-				s->write ( font, menu->selLinkApp()->volumeStr(), volumeX, bottomBarTextY, HAlignLeft, VAlignMiddle );
+				//s->write ( font, menu->selLinkApp()->volumeStr(), volumeX, bottomBarTextY, HAlignLeft, VAlignMiddle );
 				//Manual indicator
 				if (!menu->selLinkApp()->getManual().empty())
 					sc.skinRes("imgs/manual.png")->blit(s,manualX,bottomBarIconY);
