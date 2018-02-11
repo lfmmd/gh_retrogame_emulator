@@ -269,10 +269,12 @@ void LinkApp::drawRun() {
 }
 
 void LinkApp::run() {
-	if (selectordir!="")
+	if (selectordir!="") {
 		selector();
-	else
+  }
+	else {
 		launch();
+  }
 }
 
 void LinkApp::showManual() {
@@ -358,7 +360,7 @@ void LinkApp::launch(const string &selectedFile, const string &selectedDir) {
 	//delay for testing
 	SDL_Delay(1000);
 #endif
-
+  
 	//Set correct working directory
 	string wd = getRealWorkdir();
 	if (!wd.empty())
@@ -391,10 +393,10 @@ void LinkApp::launch(const string &selectedFile, const string &selectedDir) {
 		}
 	}
 
-	if (useRamTimings)
-		gmenu2x->applyRamTimings();
-	if (volume()>=0)
-		gmenu2x->setVolume(volume());
+	//if (useRamTimings)
+		//gmenu2x->applyRamTimings();
+	//if (volume()>=0)
+		//gmenu2x->setVolume(volume());
 
 	INFO("Executing '%s' (%s %s)", title.c_str(), exec.c_str(), params.c_str());
 

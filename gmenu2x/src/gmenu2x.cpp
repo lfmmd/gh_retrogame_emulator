@@ -899,6 +899,12 @@ void* mainThread(void* param) {
   return NULL;
 }
 
+void setBacklight(int val) {
+  char buf[64];
+  sprintf(buf, "echo %d > /proc/jz/lcd_backlight", val);
+  system(buf);
+}
+
 void GMenu2X::main() {
 	int ret;
 	pthread_t thread_id;
@@ -912,7 +918,7 @@ void GMenu2X::main() {
   udc_status curUDCStatus = UDC_REMOVE;
   udc_status preUDCStatus = UDC_REMOVE;
   int needUSBUmount=0;
-	int backlightLevel=getBacklight();
+	int backlightLevel=confInt["backlight"];
   bool inputAction;
 	bool quit = false;
 	int x,y, offset = menu->sectionLinks()->size()>linksPerPage ? 2 : 6, helpBoxHeight = fwType=="open2x" ? 154 : 139;
@@ -925,6 +931,7 @@ void GMenu2X::main() {
 	uint sectionsCoordX = 24;
 	SDL_Rect re = {0,0,0,0};
 
+  setBacklight(backlightLevel);
 	btnContextMenu = new IconButton(this,"skin:imgs/menu.png");
 	btnContextMenu->setPosition(resX-38, bottomBarIconY);
 	btnContextMenu->setAction(MakeDelegate(this, &GMenu2X::contextMenu));
@@ -934,11 +941,6 @@ void GMenu2X::main() {
 	if(ret) {
 		printf("%s, failed to create main thread\n", __func__);
 	}
-
-  SDL_Surface* png = IMG_Load("skins/Default/wallpapers/od.jpg");
-  SDL_BlitSurface(png, NULL, s->raw, NULL);
-  s->flip();
-  usleep(1500000);
 
 	while (!quit) {
 		tickNow = SDL_GetTicks();
@@ -1147,7 +1149,10 @@ void GMenu2X::main() {
       continue;
     }
 		if(backlightLevel) {
-			if ( input[CONFIRM] && menu->selLink()!=NULL ) menu->selLink()->run();
+			if ( input[CONFIRM] && menu->selLink()!=NULL ) {
+        setVolume(confInt["globalVolume"]);
+        menu->selLink()->run();
+      }
 			else if ( input[SETTINGS]  ) options();
 			else if ( input[MENU] ) contextMenu();
 			// VOLUME SCALE MODIFIER
@@ -1214,6 +1219,7 @@ void GMenu2X::main() {
         }
         confInt["globalVolume"] = vol;
         setVolume(vol);
+        writeConfig();
       }
     }
 		if ( input[BACKLIGHT]) {
@@ -1223,8 +1229,10 @@ void GMenu2X::main() {
         val = 0;
       }
 			backlightLevel = val;
+      confInt["backlight"] = val;
       sprintf(buf, "echo %d > /proc/jz/lcd_backlight", val);
       system(buf);
+      writeConfig();
     }
 	}
 	
@@ -1729,7 +1737,7 @@ void GMenu2X::editLink() {
 
 	//sd.addSetting(new MenuSettingInt(         this, tr.translate("Clock (default: $1)",strClock.c_str(), NULL), tr["Cpu clock frequency to set when launching this link"], &linkClock, 50, confInt["maxClock"] ));
 	//sd.addSetting(new MenuSettingBool(        this, tr["Tweak RAM Timings"],    tr["This usually speeds up the application at the cost of stability"], &linkUseRamTimings ));
-	sd.addSetting(new MenuSettingInt(         this, tr["Volume"],               tr["Volume to set for this link"], &linkVolume, 0, 1 ));
+	//sd.addSetting(new MenuSettingInt(         this, tr["Volume"],               tr["Volume to set for this link"], &linkVolume, 0, 1 ));
 	sd.addSetting(new MenuSettingString(      this, tr["Parameters"],           tr["Parameters to pass to the application"], &linkParams, diagTitle, diagIcon ));
 
 	sd.addSetting(new MenuSettingDir(         this, tr["Selector Directory"],   tr["Directory to scan for the selector"], &linkSelDir, wd ));

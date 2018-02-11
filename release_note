@@ -7,13 +7,16 @@ v20180213:
  New: Please add an opendingux splash screen when you switch on the handheld
  New: Add sdcard icon when insert external sdcard
  New: Add more Chinese language
+ New: Added new wallpapers: od.png, w1.png, w2.png
+ New: Request to add this amazing wallpaper
+ New: When using file selector to select games no fast scroll with trigger buttons or left and right on dpad
  Fixed: Device takes longer to boot up than normal once games are copied over to roms folder
  Fixed: Reboot option does not reboot device only shuts it down
  Fixed: App crash when edit/modify linkapp's paramaters in GMenu2X
  Fixed: when trying to save settings after reboot losses settings won't stick.
  Fixed: (SDLPAL game) cannot save status
  Fixed: (Hugo emulator) when trying to save settings after reboot losses settings won't stick.
- Fixed: Set volume when user press B button
+ Fixed: Set volume when user press B button in gmenu2x
  Fixed: Selecting a wallpaper does not stick it resets after a reboot.
  Fixed: When editing selector directory to start where your roms are does not save on a reboot
  Fixed: Charging icon not working and does not display battery percentage (no way of telling how much battery left)
@@ -24,6 +27,7 @@ v20180213:
  Changed: Remove USB icon/function because it is automatical now
  Changed: Remove DiskFree icon
  Changed: Remove format icon/function
+ Changed: Remove setting of link volume
  Changed: Updated readme content
 
 v20180208:

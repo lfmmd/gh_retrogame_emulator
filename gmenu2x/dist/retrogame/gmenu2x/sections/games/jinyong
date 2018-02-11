@@ -1,0 +1,6 @@
+title=金庸
+description=金庸群俠傳
+icon=skins/Default/icons/jinyong.png
+exec=/mnt/game/jinyong/jysdllua.dge
+volume=1
+wrapper=true

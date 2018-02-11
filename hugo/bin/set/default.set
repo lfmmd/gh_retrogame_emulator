@@ -1,1 +1,11 @@
-
+psp_cpu_clock=400
+danzeff_trans=1
+psp_skip_max_frame=0
+hugo_view_fps=0
+hugo_snd_enable=0
+hugo_snd_freq=3
+hugo_overclock=16
+hugo_snd_volume=100
+hugo_render_mode=1
+hugo_vsync=0
+hugo_speed_limiter=60
