@@ -7,9 +7,10 @@ v20180213:
  New: Please add an opendingux splash screen when you switch on the handheld
  New: Add sdcard icon when insert external sdcard
  New: Add more Chinese language
- New: Added new wallpapers: od.png, w1.png, w2.png
+ New: Add new wallpapers: od.png, w1.png, w2.png
  New: Request to add this amazing wallpaper
  New: When using file selector to select games no fast scroll with trigger buttons or left and right on dpad
+ New: Add Commander app ported from A320 
  Fixed: Device takes longer to boot up than normal once games are copied over to roms folder
  Fixed: Reboot option does not reboot device only shuts it down
  Fixed: App crash when edit/modify linkapp's paramaters in GMenu2X

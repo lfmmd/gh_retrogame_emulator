@@ -62,6 +62,7 @@ endif
 	cp -RH assets/$(TARGET)/icons/* $(DISTDIR)/skins/Default/icons/
 	cp -RH assets/$(TARGET)/emulators/* $(DISTDIR)/sections/emulators/
 	cp -RH assets/$(TARGET)/games/* $(DISTDIR)/sections/games/
+	cp -RH assets/$(TARGET)/applications/* $(DISTDIR)/sections/applications/
 
 -include $(patsubst src/%.cpp, $(OBJDIR)/src/%.d, $(SOURCES))
 
