@@ -1,0 +1,8 @@
+title=pocketsnes
+description=PocketSNES emulator ported from GCW0
+icon=skins/Default/icons/pocketsnes.png
+exec=/mnt/game/pocketsnes/PocketSNES
+volume=1
+selectorbrowser=true
+selectordir=/mnt/
+wrapper=true

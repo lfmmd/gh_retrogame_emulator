@@ -1,0 +1,8 @@
+title=fceux
+description=Fceux emulator ported from GCW0
+icon=skins/Default/icons/fceux.png
+exec=/mnt/game/fceux/fceux
+volume=1
+selectorbrowser=true
+selectordir=/mnt/
+wrapper=true
