@@ -1,5 +1,5 @@
-title=仙劍
-description=仙劍奇俠傳(夢幻版)
+title=PAL
+description=PAL(MHV) game
 icon=skins/Default/icons/sdlpal-mhv.png
 exec=/mnt/game/sdlpal_mhv/sdlpal.dge
 volume=1

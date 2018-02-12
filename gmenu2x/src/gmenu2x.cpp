@@ -1012,7 +1012,8 @@ void GMenu2X::main() {
 #endif
 
 		if (menu->selLink()!=NULL) {
-			s->write ( font, menu->selLink()->getDescription(), halfX, resY-19, HAlignCenter, VAlignBottom );
+			//s->write ( font, menu->selLink()->getDescription(), halfX, resY-19, HAlignCenter, VAlignBottom );
+			s->write ( font, tr.translate(menu->selLink()->getDescription()), halfX, resY-19, HAlignCenter, VAlignBottom );
 			if (menu->selLinkApp()!=NULL) {
 				s->write ( font, menu->selLinkApp()->clockStr(confInt["maxClock"]), cpuX, bottomBarTextY, HAlignLeft, VAlignMiddle );
 				//s->write ( font, menu->selLinkApp()->volumeStr(), volumeX, bottomBarTextY, HAlignLeft, VAlignMiddle );

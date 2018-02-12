@@ -1,6 +1,0 @@
-title=仙劍
-description=仙劍奇俠傳
-icon=skins/Default/icons/sdlpal.png
-exec=/mnt/game/sdlpal/sdlpal.dge
-volume=1
-wrapper=true
