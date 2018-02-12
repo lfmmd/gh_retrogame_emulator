@@ -1,0 +1,23 @@
+../linux-mips-/./obj/jit_cpu.o: \
+ /home/steward/Downloads/cvm/cdc/src/mips/javavm/runtime/jit/jit_cpu.S \
+ ../../src/mips/javavm/include/asmmacros_cpu.h \
+ ../../src/linux-mips/javavm/include/asmmacros_arch.h \
+ ../../src/mips/javavm/include/jit/jitasmmacros_cpu.h \
+ ../../src/mips/javavm/include/jit/jitasmconstants_cpu.h \
+ ../../src/share/javavm/include/porting/jit/jit.h \
+ ../../src/share/javavm/include/porting/defs.h \
+ ../../src/linux/javavm/include/defs_md.h \
+ ../../src/linux-mips/javavm/include/defs_arch.h \
+ ../../src/linux-mips/javavm/include/jit/jit_arch.h \
+ ../../src/mips/javavm/include/jit/jit_cpu.h \
+ ../../src/mips/javavm/include/jit/ccm_cpu.h \
+ ../../src/portlibs/jit/risc/include/export/jit_risc.h \
+ ../../src/share/javavm/include/sync.h \
+ ../../src/share/javavm/include/defs.h \
+ ../../src/share/javavm/include/porting/sync.h \
+ ../../src/share/javavm/include/porting/vm-defs.h \
+ ../../src/linux/javavm/include/sync_md.h \
+ ../../src/linux-mips/javavm/include/sync_arch.h \
+ ../../src/share/javavm/include/jit/jitasmconstants.h \
+ ../../src/portlibs/jit/risc/include/porting/jitrisc.h \
+ ../../src/mips/javavm/include/jit/jitrisc_cpu.h

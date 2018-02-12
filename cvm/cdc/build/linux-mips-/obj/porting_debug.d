@@ -1,0 +1,23 @@
+../linux-mips-/./obj/porting_debug.o: \
+ /home/steward/Downloads/cvm/cdc/src/share/javavm/runtime/porting_debug.c \
+ ../../src/share/javavm/include/clib.h \
+ ../../src/share/javavm/include/porting/defs.h \
+ ../../src/linux/javavm/include/defs_md.h \
+ ../../src/portlibs/gcc_32_bit/defs.h \
+ ../../src/linux-mips/javavm/include/defs_arch.h \
+ ../../src/share/javavm/include/porting/ansi/stddef.h \
+ ../../src/share/javavm/include/porting/ansi/stdarg.h \
+ ../../src/linux/javavm/include/stdarg_md.h \
+ ../../src/share/javavm/include/porting/ansi/stdio.h \
+ ../../src/share/javavm/include/porting/ansi/string.h \
+ ../../src/share/javavm/include/porting/ansi/stdlib.h \
+ ../../src/linux/javavm/include/stdlib_md.h \
+ ../../src/share/javavm/include/porting/ansi/limits.h \
+ ../../src/share/javavm/include/porting/ansi/time.h \
+ ../../src/share/javavm/include/porting/ansi/ctype.h \
+ ../../src/share/javavm/include/porting/ansi/errno.h \
+ ../../src/linux/javavm/include/errno_md.h \
+ ../../src/share/javavm/include/assert.h \
+ ../../src/share/javavm/include/porting/ansi/assert.h \
+ ../../src/share/javavm/include/porting/system.h \
+ ../../src/share/javavm/include/porting_debug.h

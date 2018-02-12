@@ -1,0 +1,22 @@
+../linux-mips-/./obj/float_fdlibm.o: \
+ /home/steward/Downloads/cvm/cdc/src/share/javavm/runtime/float_fdlibm.c \
+ ../../src/share/javavm/include/defs.h \
+ ../../src/share/javavm/include/porting/defs.h \
+ ../../src/linux/javavm/include/defs_md.h \
+ ../../src/portlibs/gcc_32_bit/defs.h \
+ ../../src/linux-mips/javavm/include/defs_arch.h \
+ ../../src/share/javavm/include/porting/ansi/stddef.h \
+ ../../src/share/javavm/include/porting/vm-defs.h \
+ ../../src/share/javavm/include/assert.h \
+ ../../src/share/javavm/include/porting/ansi/assert.h \
+ ../../src/share/javavm/include/porting/system.h \
+ ../../src/share/native/java/lang/fdlibm/include/fdlibm.h \
+ ../../src/share/javavm/include/porting/doubleword.h \
+ ../../src/linux/javavm/include/doubleword_md.h \
+ ../../src/linux-mips/javavm/include/doubleword_arch.h \
+ ../../src/portlibs/ansi_c/doubleword.h \
+ ../../src/portlibs/gcc_32_bit/doubleword.h \
+ ../../src/share/javavm/include/porting/endianness.h \
+ ../../src/linux/javavm/include/endianness_md.h \
+ ../../src/linux-mips/javavm/include/endianness_arch.h \
+ ../../src/share/native/java/lang/fdlibm/include/jfdlibm.h

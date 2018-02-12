@@ -1,0 +1,5 @@
+title=MIDPath
+description=MIDPath
+icon=/media/data/local/home/midpath/icon-32.png
+exec=/media/data/local/home/midpath/bin/suite-manager.sh
+consoleapp=false

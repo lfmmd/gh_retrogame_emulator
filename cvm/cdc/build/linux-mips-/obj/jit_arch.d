@@ -1,0 +1,25 @@
+../linux-mips-/./obj/jit_arch.o: \
+ /home/steward/Downloads/cvm/cdc/src/linux-mips/javavm/runtime/jit/jit_arch.c \
+ ../../src/share/javavm/include/porting/jit/jit.h \
+ ../../src/share/javavm/include/porting/defs.h \
+ ../../src/linux/javavm/include/defs_md.h \
+ ../../src/portlibs/gcc_32_bit/defs.h \
+ ../../src/linux-mips/javavm/include/defs_arch.h \
+ ../../src/share/javavm/include/defs.h \
+ ../../src/share/javavm/include/porting/ansi/stddef.h \
+ ../../src/share/javavm/include/porting/vm-defs.h \
+ ../../src/share/javavm/include/jit/jit_defs.h \
+ ../../src/share/javavm/include/porting/jit/ccm.h \
+ ../../src/linux-mips/javavm/include/jit/jit_arch.h \
+ ../../src/mips/javavm/include/jit/jit_cpu.h \
+ ../../src/mips/javavm/include/jit/jitasmconstants_cpu.h \
+ ../../src/mips/javavm/include/jit/ccm_cpu.h \
+ ../../src/portlibs/jit/risc/include/export/jit_risc.h \
+ ../../src/share/javavm/include/sync.h \
+ ../../src/share/javavm/include/porting/sync.h \
+ ../../src/linux/javavm/include/sync_md.h \
+ ../../src/linux-mips/javavm/include/sync_arch.h \
+ ../../src/portlibs/posix/sync.h \
+ ../../src/mips/javavm/include/jit/jitriscemitterdefs_cpu.h \
+ ../../src/mips/javavm/include/jit/jitrisc_cpu.h \
+ ../../src/portlibs/posix/posix_jit_profil.h
