@@ -1,0 +1,6 @@
+title=PAL
+description=PAL game
+icon=skins/Default/icons/sdlpal.png
+exec=/mnt/game/sdlpal/sdlpal.dge
+volume=1
+wrapper=true

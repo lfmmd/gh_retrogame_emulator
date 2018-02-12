@@ -13,6 +13,7 @@ v20180213:
  New: Add Commander app ported from A320 
  New: Add Rockbot game ported from Github
  New: Add MIDPath emulator ported from A320
+ New: Add MAME4ALL emulator ported from GCW0
  Fixed: Device takes longer to boot up than normal once games are copied over to roms folder
  Fixed: Reboot option does not reboot device only shuts it down
  Fixed: App crash when edit/modify linkapp's paramaters in GMenu2X

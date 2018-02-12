@@ -1,0 +1,6 @@
+title=PAL
+description=PAL(MHV) game
+icon=skins/Default/icons/sdlpal_mhv.png
+exec=/mnt/game/sdlpal_mhv/sdlpal.dge
+volume=1
+wrapper=true

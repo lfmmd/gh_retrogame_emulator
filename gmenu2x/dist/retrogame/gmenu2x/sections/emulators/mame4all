@@ -1,0 +1,8 @@
+title=mame4all
+description=MAME emulator ported from GCW0
+icon=skins/Default/icons/mame.png
+exec=/mnt/game/mame4all/mame
+volume=1
+selectorbrowser=true
+selectordir=/mnt/
+wrapper=true

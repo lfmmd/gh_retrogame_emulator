@@ -28,6 +28,7 @@ SDL_Event			event;
 unsigned char 			*keystates;
 
 SDL_Surface 			*video;
+SDL_Surface 			*ScreenSurface;
 //SDL_Surface 			*layer;
 unsigned char			*od_screen8;
 unsigned short			*od_screen16;
@@ -57,7 +58,18 @@ signed int axis_x=0, axis_y=0;
 void odx_video_flip(void)
 {
 	//SDL_BlitSurface(layer,0,video,0);
-	SDL_Flip(video);
+	//SDL_Flip(video);
+  int x, y;
+  uint32_t *s = video->pixels;
+  uint32_t *d = ScreenSurface->pixels;
+
+  for(y=0; y<240; y++){
+    for(x=0; x<160; x++){
+      *d++ = *s++;
+    }
+    d+= 160;
+  }
+	SDL_Flip(ScreenSurface);
 	od_screen16=(unsigned short *) video->pixels;
 	od_screen8=(unsigned char *) od_screen16;
 }
@@ -65,7 +77,18 @@ void odx_video_flip(void)
 void odx_video_flip_single(void)
 {
 	//SDL_BlitSurface(layer,0,video,0);
-	SDL_Flip(video);
+	//SDL_Flip(video);
+  int x, y;
+  uint32_t *s = video->pixels;
+  uint32_t *d = ScreenSurface->pixels;
+
+  for(y=0; y<240; y++){
+    for(x=0; x<160; x++){
+      *d++ = *s++;
+    }
+    d+= 160;
+  }
+	SDL_Flip(ScreenSurface);
 	od_screen16=(unsigned short *) video->pixels;
 	od_screen8=(unsigned char *) od_screen16;
 }
@@ -263,7 +286,9 @@ void odx_init(int ticks_per_second, int bpp, int rate, int bits, int stereo, int
 
 	/* General video & audio stuff */
 	SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO);
-	video = SDL_SetVideoMode(320, 240, 16, SDL_DOUBLEBUF | SDL_HWSURFACE );
+	//video = SDL_SetVideoMode(320, 240, 16, SDL_DOUBLEBUF | SDL_HWSURFACE );
+	ScreenSurface = SDL_SetVideoMode(320, 480, 16, SDL_DOUBLEBUF | SDL_HWSURFACE );
+  video = SDL_CreateRGBSurface(SDL_SWSURFACE, 320, 240, 16, 0, 0, 0, 0);
 	if(video == NULL) {
 		fprintf(stderr, "Couldn't set video mode: %s\n", SDL_GetError());
 		exit(1);
