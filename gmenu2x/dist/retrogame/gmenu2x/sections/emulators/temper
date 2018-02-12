@@ -1,0 +1,8 @@
+title=temper
+description=Temper emulator ported from GCW0
+icon=skins/Default/icons/temper.png
+exec=/mnt/game/temper/temper
+volume=1
+selectorbrowser=true
+selectordir=/mnt/
+wrapper=true

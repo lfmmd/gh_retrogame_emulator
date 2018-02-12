@@ -14,6 +14,7 @@ v20180213:
  New: Add Rockbot game ported from Github
  New: Add MIDPath emulator ported from A320
  New: Add MAME4ALL emulator ported from GCW0
+ New: Add Temper emulator ported from GCW0
  Fixed: Device takes longer to boot up than normal once games are copied over to roms folder
  Fixed: Reboot option does not reboot device only shuts it down
  Fixed: App crash when edit/modify linkapp's paramaters in GMenu2X
@@ -33,6 +34,9 @@ v20180213:
  Changed: Remove format icon/function
  Changed: Remove setting/icon of link volume
  Changed: Updated readme content
+ Known issues:
+  1. (USB) even under origial official firmware, usb function is still unstable.
+  2. (MAME4ALL) try to load many roms with different version on mame4all but it always say "NOT FOUND".
 
 v20180208:
  New: Beta release

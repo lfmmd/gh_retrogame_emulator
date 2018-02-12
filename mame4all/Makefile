@@ -1,7 +1,7 @@
 # Define compilation type
 #OSTYPE=msys
-#OSTYPE=oda320
-OSTYPE=gcw0
+OSTYPE=oda320
+#OSTYPE=gcw0
 
 ifeq ($(TARGET),)
 TARGET = mame
@@ -73,7 +73,8 @@ ifeq "$(OSTYPE)" "gcw0"
 #CFLAGS = -D_GCW0_ -G0 -O3 -march=mips32 -mtune=mips32r2 -Isrc -Isrc/$(MAMEOS) -Isrc/zlib -mhard-float -mbranch-likely -mno-mips16 $(W_OPTS) $(F_OPTS)
 CFLAGS = -D_GCW0_ -march=mips32 -mtune=mips32r2 -Isrc -Isrc/$(MAMEOS) -Isrc/zlib -mhard-float -mbranch-likely -mno-mips16 $(W_OPTS) $(F_OPTS)
 else
-CFLAGS = -D_GCW0_ -G0 -O3 -march=mips32 -mtune=mips32 -Isrc -Isrc/$(MAMEOS) -Isrc/zlib -msoft-float --mbranch-likely -mno-mips16 $(W_OPTS) $(F_OPTS)
+#CFLAGS = -D_GCW0_ -G0 -O3 -march=mips32 -mtune=mips32 -Isrc -Isrc/$(MAMEOS) -Isrc/zlib -msoft-float --mbranch-likely -mno-mips16 $(W_OPTS) $(F_OPTS)
+CFLAGS = -D_GCW0_ -march=mips32 -mtune=mips32 -Isrc -Isrc/$(MAMEOS) -Isrc/zlib -mno-mips16 $(W_OPTS) $(F_OPTS)
 endif
 #CFLAGS += -g
 
