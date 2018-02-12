@@ -17,7 +17,8 @@
   #include "mess/mess.h"
 #endif
 
-#define HISTFILE_TXT_BUFFER_LEN 24576
+//#define HISTFILE_TXT_BUFFER_LEN 24576
+#define HISTFILE_TXT_BUFFER_LEN 8192
 
 extern int mame_debug;
 
