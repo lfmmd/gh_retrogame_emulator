@@ -274,6 +274,7 @@ void copy_game(void)
 {
 	draw_log(90, "copy game...");
 	SDL_Delay(1000);
+  system("mv /mnt/game/sdlpal-mhv /mnt/game/sdlpal_mhv");
 	system("cp -ap "TMP_GAME "* "ORG_GAME);
 	draw_log(95, "done");
 }
