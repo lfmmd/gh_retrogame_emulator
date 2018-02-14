@@ -32,7 +32,7 @@ ifdef A320
 	C_ARCH = -mips32 -msoft-float -DTMPFS_MIRRORING -DTMPFS_DIR=\"/tmp\"
 else
 	#C_ARCH = -mips32r2 -DSHMEM_MIRRORING
-	C_ARCH = -mips32 -DSHMEM_MIRRORING
+  C_ARCH = -mips32 -DDYNAREC_SKIP_DCACHE_FLUSH -DTMPFS_MIRRORING -DTMPFS_DIR=\"/tmp\"
 endif
 
 CFLAGS = $(C_ARCH) -mplt -mno-shared -ggdb3 -O2 -DGCW_ZERO \

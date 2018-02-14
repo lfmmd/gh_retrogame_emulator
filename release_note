@@ -1,4 +1,5 @@
 v20180313:
+ Changed: Update Chinese(CN) translation in GMenu2X
 
 v20180213:
  New: Aotumatically mount/umount external sdcard on/from "/mnt/ext_sd" when inserted/removed
