@@ -1,6 +1,0 @@
-title=Rockbot
-description=Rockbot ported from Github
-icon=skins/Default/icons/rockbot.png
-exec=/mnt/game/rockbot/rockbot.dge
-volume=1
-wrapper=true

@@ -1,6 +1,0 @@
-title=fbasdl
-description=FBA emulator ported from GCW0
-icon=skins/Default/icons/fbasdl.png
-exec=/mnt/game/fbasdl/fbasdl.dge
-volume=1
-wrapper=true

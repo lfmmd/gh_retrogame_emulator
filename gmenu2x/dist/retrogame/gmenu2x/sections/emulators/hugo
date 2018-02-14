@@ -1,6 +1,0 @@
-title=hugo
-description=Hugo emulator ported from A320
-icon=skins/Default/icons/hugo.png
-exec=/mnt/game/hugo/hugo
-volume=1
-wrapper=true

@@ -1,6 +1,0 @@
-title=Jinyong
-description=Jinyong game
-icon=skins/Default/icons/jinyong.png
-exec=/mnt/game/jinyong/jysdllua.dge
-volume=1
-wrapper=true

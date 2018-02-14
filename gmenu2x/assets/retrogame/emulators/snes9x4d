@@ -1,0 +1,8 @@
+title=snes9x4d
+description=Snes9x4D emulator ported from GCW0
+icon=skins/Default/icons/snes9x4d.png
+exec=/mnt/game/snes9x4d/snes9x4d.dge
+volume=1
+selectorbrowser=true
+selectordir=/mnt/
+wrapper=true

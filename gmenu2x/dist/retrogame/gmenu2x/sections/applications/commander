@@ -1,6 +1,0 @@
-title=Command
-description=Commander app ported from A320
-icon=skins/Default/icons/commander.png
-exec=/mnt/game/commander/DinguxCommander.dge
-volume=1
-wrapper=true
